@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrganizatorProslava.UI.Nalozi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace OrganizatorProslava
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnPrijava_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegistracija_Click(object sender, RoutedEventArgs e)
+        {
+            var rego = new Registracija();
+            rego.Owner = this;
+            rego.ShowDialog();
         }
     }
 }
