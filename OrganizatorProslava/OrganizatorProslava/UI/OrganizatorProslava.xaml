@@ -12,7 +12,7 @@
             <GradientStop Color="#FFF1D3D3" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    <StackPanel HorizontalAlignment="Right" Height="193" Margin="0,106,212,0" VerticalAlignment="Top" Width="322">
+    <StackPanel HorizontalAlignment="Right" Height="292" Margin="0,64,212,0" VerticalAlignment="Top" Width="322">
         <Button x:Name="btnPrijava" Content="P r i j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnPrijava_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
@@ -21,6 +21,11 @@
         <Button x:Name="btnRegistracija" Content="R e g i s t r a c i j a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnRegistracija_Click" Margin="0,20,0,0">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnZatvori" Content="Z a t v o r i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FFC76300" Background="#FFCD6600" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,20,0,0" Click="btnZatvori_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FFCF8400" Opacity="0.99"/>
             </Button.Effect>
         </Button>
     </StackPanel>

@@ -30,5 +30,6 @@ namespace OrganizatorProslava.Services
         public const string LozinkaObavezna = "Lozinka je obavezno polje.";
         public const string LozinkeRazlicite = "Unesene lozinke se ne podudaraju";
         public const string KorisnickoImePostoji = "Korisnicko ime vec postoji. Unesite drugo korisnicko ime.";
+        public const string PogresnaPrijava = "Uneto je pogresno korianicko ime ili lozinka.";
     }
 }
