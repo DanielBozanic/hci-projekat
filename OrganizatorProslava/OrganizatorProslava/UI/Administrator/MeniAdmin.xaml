@@ -1,0 +1,33 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Administrator.MeniAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Administrator"
+        mc:Ignorable="d"
+        Title="Glavni Meni Administratora" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
+        ContentRendered="Window_Rendered">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF726161"/>
+            <GradientStop Color="#FFF1D3D3" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <StackPanel HorizontalAlignment="Right" Height="292" Margin="0,64,212,0" VerticalAlignment="Top" Width="322">
+        <Button x:Name="btnKorisnici" Content="K o r i s n i c i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnSaradnici" Content="S a r a d n i c i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,20,0,0">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnOdjava" Content="O d j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FFC76300" Background="#FFCD6600" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,20,0,0" Click="btnOdjava_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FFCF8400" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+    </StackPanel>
+</Window>

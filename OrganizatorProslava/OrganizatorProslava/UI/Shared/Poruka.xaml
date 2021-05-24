@@ -1,0 +1,28 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Shared.Poruka"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Shared"
+        mc:Ignorable="d"
+        Title="Poruka" Height="320" Width="600" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF726161"/>
+            <GradientStop Color="#FFF1D3D3" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid HorizontalAlignment="Left" Height="248" Margin="10,23,0,0" VerticalAlignment="Top" Width="568">
+        <TextBlock x:Name="txtMessage" HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="520" Height="124" FontSize="24" FontWeight="Bold" IsEnabled="False"/>
+        <Button x:Name="btnDa" Content="Da" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" Margin="176,177,0,0" Click="btnDa_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnNe" Content="Ne" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="294,177,0,0" Click="btnNe_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

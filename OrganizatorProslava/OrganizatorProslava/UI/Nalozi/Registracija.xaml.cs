@@ -1,6 +1,7 @@
 ﻿using OrganizatorProslava.Models;
 using OrganizatorProslava.Services;
 using OrganizatorProslava.Services.Nalozi;
+using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
 
@@ -22,14 +23,21 @@ namespace OrganizatorProslava.UI.Nalozi
                 txtLozinka.Password.Trim() != string.Empty ||
                 txtPonoviteLozinku.Password.Trim() != string.Empty)
             {
-                var potvrdi = MessageBox.Show($"{Poruke.PodaciCeBitiIzgubljeni}{Environment.NewLine}{Poruke.OdbaciPodatke}",
-                    Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
-                if (potvrdi == MessageBoxResult.Yes)
-                    this.Hide();
+                var potvrdi = new Poruka($"{Poruke.PodaciCeBitiIzgubljeni}{Environment.NewLine}{Poruke.OdbaciPodatke}",
+                    Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
+                potvrdi.Owner = this;
+                potvrdi.ShowDialog();
+                if (potvrdi.Rezultat == MessageBoxResult.Yes)
+                {
+                    potvrdi.Close();
+                    this.DialogResult = false;
+                    this.Close();
+                }
             }
             else
             {
-                this.Hide();
+                this.DialogResult = false;
+                this.Close();
             }
         }
 
@@ -50,52 +58,57 @@ namespace OrganizatorProslava.UI.Nalozi
             var servis = new RegistracijaServis();
             servis.DodajKorisnika(korisnik);
 
-            MessageBox.Show("Registracija uspesna!");  //TODO: redirekcija na login prozor i srediti izgled MessageBox-ova
-            this.Hide();
+            this.DialogResult = true;
+            this.Close();
         }
 
         private bool Validacija()
         {
+            var greska = string.Empty;
             if (txtIme.Text.Trim() == string.Empty)
             {
-                MessageBox.Show(Poruke.ImeObavezno, Poruke.Poruka, MessageBoxButton.OK, MessageBoxImage.Information);
+                greska = Poruke.ImeObavezno;
                 txtIme.Focus();
-                return false;
             }
-            if (txtPrezime.Text.Trim() == string.Empty)
+            if (greska == string.Empty &&  txtPrezime.Text.Trim() == string.Empty)
             {
-                MessageBox.Show(Poruke.PrezimeObavezno, Poruke.Poruka, MessageBoxButton.OK, MessageBoxImage.Information);
+                greska = Poruke.PrezimeObavezno;
                 txtPrezime.Focus();
-                return false;
             }
-            if (txtKorisnickoIme.Text.Trim() == string.Empty)
+            if (greska == string.Empty && txtKorisnickoIme.Text.Trim() == string.Empty)
             {
-                MessageBox.Show(Poruke.KorisnickoImeObavezno, Poruke.Poruka, MessageBoxButton.OK, MessageBoxImage.Information);
+                greska = Poruke.KorisnickoImeObavezno;
                 txtKorisnickoIme.Focus();
-                return false;
             }
-            if (txtLozinka.Password == string.Empty)
+            if (greska == string.Empty && txtLozinka.Password == string.Empty)
             {
-                MessageBox.Show(Poruke.LozinkaObavezna, Poruke.Poruka, MessageBoxButton.OK, MessageBoxImage.Information);
+                greska = Poruke.LozinkaObavezna;
                 txtLozinka.Focus();
-                return false;
             }
-            if (txtLozinka.Password != txtPonoviteLozinku.Password)
+            if (greska == string.Empty && txtLozinka.Password != txtPonoviteLozinku.Password)
             {
-                MessageBox.Show(Poruke.LozinkeRazlicite, Poruke.Poruka, MessageBoxButton.OK, MessageBoxImage.Information);
+                greska = Poruke.LozinkeRazlicite;
                 txtPonoviteLozinku.Focus();
-                return false;
             }
 
-            var servis = new RegistracijaServis();
-            if (servis.KorisnikPostoji(txtKorisnickoIme.Text.Trim()))
+            if (greska == string.Empty)
             {
-                MessageBox.Show(Poruke.KorisnickoImePostoji, Poruke.Poruka, MessageBoxButton.OK, MessageBoxImage.Information);
-                txtKorisnickoIme.Focus();
-                return false;
+                var servis = new RegistracijaServis();
+                if (servis.KorisnikPostoji(txtKorisnickoIme.Text.Trim()))
+                {
+                    greska = Poruke.KorisnickoImePostoji;
+                    txtKorisnickoIme.Focus();
+                }
             }
-            return true;
-        }
 
+            if (greska != string.Empty)
+            {
+                var potvrdi = new Poruka(greska, Poruke.Poruka, MessageBoxButton.OK);
+                potvrdi.Owner = this;
+                potvrdi.ShowDialog();
+                potvrdi.Close();                                               
+            }
+            return greska == string.Empty;
+        }
     }
 }
