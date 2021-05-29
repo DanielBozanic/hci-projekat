@@ -4,10 +4,10 @@ namespace OrganizatorProslava.Services.Nalozi
 {
     public class RegistracijaServis
     {
-        public void DodajKorisnika(Korisnik korisnik)
+        public int DodajKorisnika(Korisnik korisnik)
         {
             var korisnikDal = new DataAccess.Nalozi.Korisnik();
-            korisnikDal.DodajKorisnika(new DataModel.Korisnik
+            return korisnikDal.DodajKorisnika(new DataModel.Korisnik
             {
                 ID = korisnik.Id,
                 Ime = korisnik.Ime,
@@ -16,6 +16,26 @@ namespace OrganizatorProslava.Services.Nalozi
                 KorisnickoIme = korisnik.KorisnickoIme,
                 Lozinka = korisnik.Lozinka
             });
+        }
+
+        public string IzmeniKorisnika(Korisnik korisnikModel)
+        {
+            var korisnikDal = new DataAccess.Nalozi.Korisnik();
+            var korisnik = korisnikDal.GetKorisnika(korisnikModel.Id);
+            if (korisnik != null)
+            {
+                korisnik.Ime = korisnikModel.Ime;
+                korisnik.Prezime = korisnikModel.Prezime;
+                korisnik.Lozinka = korisnikModel.Lozinka;
+
+                korisnikDal.SaveChanges();
+
+                return string.Empty;
+            }
+            else
+            {
+                return $"{Poruke.NijeNadjenKorisnik}{korisnikModel.Id}";
+            }
         }
 
         public bool KorisnikPostoji(string korisnickoIme)

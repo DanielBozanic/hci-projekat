@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:OrganizatorProslava"
              StartupUri="./UI/OrganizatorProslava.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OrganizatorProslava;component/UI/Resources/ScrollViewerStyle.xaml" />
+                <ResourceDictionary Source="/OrganizatorProslava;component/UI/Resources/DataGridStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

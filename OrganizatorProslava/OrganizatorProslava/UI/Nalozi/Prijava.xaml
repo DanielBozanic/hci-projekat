@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Nalozi"
         mc:Ignorable="d"
         Title="Prijava" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
-        ContentRendered="Window_Rendered">
+        ContentRendered="Window_Rendered"
+        Closed="Window_Closed">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>
@@ -27,7 +28,7 @@
         <Label x:Name="lblKorisnickoIme" Content="KORISNICKO IME" Height="43" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="189,19,146,0"/>
         <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="189,62,146,0"/>
         <Label x:Name="lblLozinka" Content="LOZINKA" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="189,0,146,220"/>
-        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="189,157,146,0"/>
-        <Label x:Name="lblZaboravioLozinku" Content="Zaboravili ste lozinku?" Height="43" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" Margin="217,0,174,119" FontStyle="Italic" HorizontalAlignment="Center" BorderBrush="Black" Foreground="#FF6D0683" MouseLeftButtonUp="lblZaboravioLozinku_MouseLeftButtonUp"/>
+        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="189,141,146,0"/>
+        <Label x:Name="lblZaboravioLozinku" Content="Zaboravili ste lozinku?" Height="43" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" Margin="217,0,174,127" FontStyle="Italic" HorizontalAlignment="Center" BorderBrush="Black" Foreground="#FF6D0683" MouseLeftButtonUp="lblZaboravioLozinku_MouseLeftButtonUp"/>
     </Grid>
 </Window>

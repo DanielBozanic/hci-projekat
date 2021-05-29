@@ -22,5 +22,6 @@ namespace OrganizatorProslava.DataModel
         public int Tip { get; set; }
         public string Pol { get; set; }
         public string Mobilni { get; set; }
+        public bool Obrisan { get; set; }
     }
 }

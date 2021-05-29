@@ -86,6 +86,7 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -135,7 +136,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\LogovaniKorisnik.cs" />
+    <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
+    <Compile Include="UI\Administrator\IzmeniKorisnika.xaml.cs">
+      <DependentUpon>IzmeniKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Administrator\Korisnici.xaml.cs">
+      <DependentUpon>Korisnici.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Administrator\MeniAdmin.xaml.cs">
       <DependentUpon>MeniAdmin.xaml</DependentUpon>
     </Compile>
@@ -145,6 +153,15 @@
     <Compile Include="UI\Shared\Poruka.xaml.cs">
       <DependentUpon>Poruka.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
+    <Page Include="UI\Administrator\IzmeniKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Administrator\Korisnici.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Administrator\MeniAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,6 +211,14 @@
       <DependentUpon>OrganizatorProslava.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Resources\DataGridStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Resources\ScrollViewerStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UI\Shared\Poruka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

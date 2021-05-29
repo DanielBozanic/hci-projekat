@@ -14,31 +14,16 @@ namespace OrganizatorProslava.UI.Nalozi
         {
             InitializeComponent();
         }
+    
 
         private void btnOdbaci_Click(object sender, RoutedEventArgs e)
         {
-            if (txtIme.Text.Trim() != string.Empty ||
-                txtPrezime.Text.Trim() != string.Empty ||
-                txtKorisnickoIme.Text.Trim() != string.Empty ||
-                txtLozinka.Password.Trim() != string.Empty ||
-                txtPonoviteLozinku.Password.Trim() != string.Empty)
-            {
-                var potvrdi = new Poruka($"{Poruke.PodaciCeBitiIzgubljeni}{Environment.NewLine}{Poruke.OdbaciPodatke}",
-                    Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
-                potvrdi.Owner = this;
-                potvrdi.ShowDialog();
-                if (potvrdi.Rezultat == MessageBoxResult.Yes)
-                {
-                    potvrdi.Close();
-                    this.DialogResult = false;
-                    this.Close();
-                }
-            }
-            else
-            {
-                this.DialogResult = false;
-                this.Close();
-            }
+            this.DialogResult = false;
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            txtIme.Focus();
         }
 
         private void btnRegistracija_Click(object sender, RoutedEventArgs e)
@@ -59,7 +44,6 @@ namespace OrganizatorProslava.UI.Nalozi
             servis.DodajKorisnika(korisnik);
 
             this.DialogResult = true;
-            this.Close();
         }
 
         private bool Validacija()
@@ -70,7 +54,7 @@ namespace OrganizatorProslava.UI.Nalozi
                 greska = Poruke.ImeObavezno;
                 txtIme.Focus();
             }
-            if (greska == string.Empty &&  txtPrezime.Text.Trim() == string.Empty)
+            if (greska == string.Empty && txtPrezime.Text.Trim() == string.Empty)
             {
                 greska = Poruke.PrezimeObavezno;
                 txtPrezime.Focus();
@@ -106,9 +90,29 @@ namespace OrganizatorProslava.UI.Nalozi
                 var potvrdi = new Poruka(greska, Poruke.Poruka, MessageBoxButton.OK);
                 potvrdi.Owner = this;
                 potvrdi.ShowDialog();
-                potvrdi.Close();                                               
+                potvrdi.Close();
             }
             return greska == string.Empty;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.DialogResult != true)
+            {
+                if (txtIme.Text.Trim() != string.Empty ||
+                    txtPrezime.Text.Trim() != string.Empty ||
+                    txtKorisnickoIme.Text.Trim() != string.Empty ||
+                    txtLozinka.Password.Trim() != string.Empty ||
+                    txtPonoviteLozinku.Password.Trim() != string.Empty)
+                {
+                    var potvrdi = new Poruka($"{Poruke.PodaciCeBitiIzgubljeni}{Environment.NewLine}{Poruke.OdbaciPodatke}",
+                        Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
+                    potvrdi.Owner = this;
+                    potvrdi.ShowDialog();
+                    if (potvrdi.Rezultat != MessageBoxResult.Yes)
+                        e.Cancel = true;
+                }
+            }
         }
     }
 }
