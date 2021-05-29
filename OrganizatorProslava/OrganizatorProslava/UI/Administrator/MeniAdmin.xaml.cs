@@ -16,11 +16,23 @@ namespace OrganizatorProslava.UI.Administrator
             this.Owner.Hide();
         }
 
-        private void btnOdjava_Click(object sender, RoutedEventArgs e)
+        private void Window_Closed(object sender, EventArgs e)
         {
             LogovaniKorisnik.Reset();
-            this.Close();
             this.Owner.Show();
+        }
+
+        private void btnOdjava_Click(object sender, RoutedEventArgs e)
+        {
+            
+            this.Close();
+        }
+
+        private void btnKorisnici_Click(object sender, RoutedEventArgs e)
+        {
+            var korisnici = new Korisnici();
+            korisnici.Owner = this;
+            korisnici.Show();
         }
     }
 }

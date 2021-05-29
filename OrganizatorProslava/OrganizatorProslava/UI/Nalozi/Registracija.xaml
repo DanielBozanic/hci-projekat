@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Nalozi"
         mc:Ignorable="d"
-        Title="Registracija" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+        Title="Registracija" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        ContentRendered="Window_ContentRendered"
+        Closing="Window_Closing">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>
@@ -14,22 +16,22 @@
     </Window.Background>
     <Grid HorizontalAlignment="Left" Margin="10,10,0,0" Width="715" Height="386" VerticalAlignment="Top">
         <Label x:Name="lblIme" Content="IME:" Height="43" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="10,16,459,0"/>
-        <TextBox x:Name="txtIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,16,22,0"/>
+        <TextBox x:Name="txtIme" TabIndex="0" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,16,22,0"/>
         <Label x:Name="lblPrezime" Content="PREZIME:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,459,277"/>
-        <TextBox x:Name="txtPrezime" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,67,22,0"/>
+        <TextBox x:Name="txtPrezime" TabIndex="1" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,67,22,0"/>
         <Label x:Name="lblKorisnickoIme" Content="KORISNICKO IME:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,459,226"/>
-        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,118,22,0"/>
+        <TextBox x:Name="txtKorisnickoIme" TabIndex="2" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,118,22,0"/>
         <Label x:Name="lblLozinka" Content="LOZINKA:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,459,175"/>
-        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,169,22,0"/>
+        <PasswordBox x:Name="txtLozinka" TabIndex="3" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,169,22,0"/>
         <Label x:Name="lblPonoviteLozinku" Content="PONOVITE LOZINKU:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,454,124"/>
-        <PasswordBox x:Name="txtPonoviteLozinku" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,220,22,0"/>
+        <PasswordBox x:Name="txtPonoviteLozinku" TabIndex="4" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,220,22,0"/>
 
-        <Button x:Name="btnRegistracija" Content="Registruj se" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="171,310,0,0" Click="btnRegistracija_Click">
+        <Button x:Name="btnRegistracija" TabIndex="5" Content="Registruj se" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="171,310,0,0" Click="btnRegistracija_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnOdbaci" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="377,310,0,0" Click="btnOdbaci_Click">
+        <Button x:Name="btnOdbaci" TabIndex="6" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="377,310,0,0" Click="btnOdbaci_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
             </Button.Effect>

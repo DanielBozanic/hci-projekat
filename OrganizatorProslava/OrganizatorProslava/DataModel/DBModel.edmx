@@ -17,6 +17,7 @@
           <Property Name="Tip" Type="int" Nullable="false" />
           <Property Name="Pol" Type="char" MaxLength="1" />
           <Property Name="Mobilni" Type="varchar" MaxLength="20" />
+          <Property Name="Obrisan" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="OrganizatorProslavaModelStoreContainer">
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
@@ -40,6 +41,7 @@
           <Property Name="Tip" Type="Int32" Nullable="false" />
           <Property Name="Pol" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Mobilni" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Obrisan" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -50,6 +52,7 @@
           <EntitySetMapping Name="Korisniks">
             <EntityTypeMapping TypeName="OrganizatorProslavaModel.Korisnik">
               <MappingFragment StoreEntitySet="Korisnik">
+                <ScalarProperty Name="Obrisan" ColumnName="Obrisan" />
                 <ScalarProperty Name="Mobilni" ColumnName="Mobilni" />
                 <ScalarProperty Name="Pol" ColumnName="Pol" />
                 <ScalarProperty Name="Tip" ColumnName="Tip" />

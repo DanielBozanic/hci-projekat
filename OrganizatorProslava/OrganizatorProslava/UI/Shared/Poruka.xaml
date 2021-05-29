@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Shared"
         mc:Ignorable="d"
-        Title="Poruka" Height="320" Width="600" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner">
+        Title="Poruka" Height="320" Width="600" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>

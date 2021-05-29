@@ -18,6 +18,12 @@ namespace OrganizatorProslava.UI.Nalozi
         private void Window_Rendered(object sender, EventArgs e)
         {
             this.Owner.Hide();
+            txtKorisnickoIme.Focus();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.Show();
         }
 
         private void btnPrijavise_Click(object sender, RoutedEventArgs e)
@@ -53,7 +59,6 @@ namespace OrganizatorProslava.UI.Nalozi
         private void btnNazad_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            this.Owner.Show();
         }
 
         private void lblZaboravioLozinku_MouseLeftButtonUp(object sender, RoutedEventArgs e)

@@ -13,6 +13,13 @@ namespace OrganizatorProslava.Services
         public const int Klijent = 3;
     }
 
+    public class TipKorisnikaOpis
+    {
+        public const string Admin = "Administrator";
+        public const string Organizator = "Organizator";
+        public const string Klijent = "Klijent";
+    }
+
     public class Pol
     {
         public const string Zenski = "Z";
@@ -30,6 +37,11 @@ namespace OrganizatorProslava.Services
         public const string LozinkaObavezna = "Lozinka je obavezno polje.";
         public const string LozinkeRazlicite = "Unesene lozinke se ne podudaraju";
         public const string KorisnickoImePostoji = "Korisnicko ime vec postoji. Unesite drugo korisnicko ime.";
-        public const string PogresnaPrijava = "Uneto je pogresno korianicko ime ili lozinka.";
+        public const string PogresnaPrijava = "Uneto je pogresno korisnicko ime ili lozinka.";
+        public const string NijeNadjenKorisnik = "Nije pronadjen korisnik sa Id=";
+        public const string KorisnikObrisan = "Korisnik {0} je obrisan.";
+        public const string BrisiKorisnika = "Da li zelite da izbrisete selekovanog korisnika?";
+        public const string IzmenaZapisNijeSelektovan = "Da bi izmenili red u tabeli morate ga prvo selektovati.";
+        public const string BrisanjeZapisNijeSelektovan = "Da bi obrisali red u tabeli morate ga prvo selektovati.";
     }
 }
