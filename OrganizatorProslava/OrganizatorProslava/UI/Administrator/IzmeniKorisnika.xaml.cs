@@ -3,6 +3,7 @@ using OrganizatorProslava.Services;
 using OrganizatorProslava.Services.Nalozi;
 using OrganizatorProslava.UI.Shared;
 using System.Windows;
+using System.Windows.Input;
 
 namespace OrganizatorProslava.UI.Administrator
 {
@@ -33,12 +34,25 @@ namespace OrganizatorProslava.UI.Administrator
             else
             {
                 radioKlijent.IsChecked = true;
+                this.Title = "Dodaj Korisnika";
             }
             txtKorisnickoIme.IsEnabled = Korisnik == null;
             radioAdmin.IsEnabled = Korisnik == null;
             radioOrganizator.IsEnabled = Korisnik == null;
             radioKlijent.IsEnabled = Korisnik == null;
             txtIme.Focus();
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                btnOdbaci_Click(null, null);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.Key == Key.S)
+                btnSacuvaj_Click(null, null);
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
@@ -51,9 +65,9 @@ namespace OrganizatorProslava.UI.Administrator
             {
                 Korisnik = new Korisnik
                 {
-                    Ime = txtIme.Text,
-                    Prezime = txtPrezime.Text,
-                    KorisnickoIme = txtKorisnickoIme.Text,
+                    Ime = txtIme.Text.Trim(),
+                    Prezime = txtPrezime.Text.Trim(),
+                    KorisnickoIme = txtKorisnickoIme.Text.Trim(),
                     Tip = TipKorisnika.Klijent,
                     Lozinka = txtLozinka.Password
                 };
@@ -65,8 +79,8 @@ namespace OrganizatorProslava.UI.Administrator
             }
             else
             {
-                Korisnik.Ime = txtIme.Text;
-                Korisnik.Prezime = txtPrezime.Text;
+                Korisnik.Ime = txtIme.Text.Trim();
+                Korisnik.Prezime = txtPrezime.Text.Trim();
                 Korisnik.Lozinka = txtLozinka.Password;
 
                 var msg = servis.IzmeniKorisnika(Korisnik);

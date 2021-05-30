@@ -19,8 +19,28 @@
           <Property Name="Mobilni" Type="varchar" MaxLength="20" />
           <Property Name="Obrisan" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Saradnik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TipSaradnikaID" Type="int" Nullable="false" />
+          <Property Name="Adresa" Type="varchar" MaxLength="500" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Obrisan" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipSaradnika">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="OrganizatorProslavaModelStoreContainer">
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Saradnik" EntityType="Self.Saradnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipSaradnika" EntityType="Self.TipSaradnika" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -28,6 +48,8 @@
       <Schema Namespace="OrganizatorProslavaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="OrganizatorProslavaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Korisniks" EntityType="OrganizatorProslavaModel.Korisnik" />
+          <EntitySet Name="Saradniks" EntityType="OrganizatorProslavaModel.Saradnik" />
+          <EntitySet Name="TipSaradnikas" EntityType="OrganizatorProslavaModel.TipSaradnika" />
         </EntityContainer>
         <EntityType Name="Korisnik">
           <Key>
@@ -42,6 +64,24 @@
           <Property Name="Pol" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Mobilni" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Obrisan" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Saradnik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TipSaradnikaID" Type="Int32" Nullable="false" />
+          <Property Name="Adresa" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Obrisan" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipSaradnika">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -60,6 +100,26 @@
                 <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
                 <ScalarProperty Name="Prezime" ColumnName="Prezime" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Saradniks">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.Saradnik">
+              <MappingFragment StoreEntitySet="Saradnik">
+                <ScalarProperty Name="Obrisan" ColumnName="Obrisan" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="TipSaradnikaID" ColumnName="TipSaradnikaID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipSaradnikas">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.TipSaradnika">
+              <MappingFragment StoreEntitySet="TipSaradnika">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -43,5 +43,13 @@ namespace OrganizatorProslava.Services
         public const string BrisiKorisnika = "Da li zelite da izbrisete selekovanog korisnika?";
         public const string IzmenaZapisNijeSelektovan = "Da bi izmenili red u tabeli morate ga prvo selektovati.";
         public const string BrisanjeZapisNijeSelektovan = "Da bi obrisali red u tabeli morate ga prvo selektovati.";
+        public const string NijeNadjenSaradnik = "Nije pronadjen saradnik sa Id=";
+        public const string SaradnikObrisan = "Saradnik {0} je obrisan.";
+        public const string BrisiSaradnika = "Da li zelite da izbrisete selekovanog saradnika?";
+        public const string NazivObavezan = "Naziv je obavezno polje.";
+        public const string EmailObavezan = "Email je obavezno polje.";
+        public const string TipSaradnikaObavezan = "Tip Saradnika je obavezno polje.";
+        public const string EmailPogresanFormat = "Email je pogresnog formata.";
+        public const string EmailMoraBitiJedinstven = "Email mora biti jedinstven u sistemu.";
     }
 }
