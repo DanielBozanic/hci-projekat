@@ -9,14 +9,14 @@ using System.Windows.Input;
 
 namespace OrganizatorProslava.UI.Administrator
 {
-    public partial class Korisnici : Window
+    public partial class Saradnici : Window
     {
         private int _tipFiltera = 0;
 
-        public Korisnici()
+        public Saradnici()
         {
             InitializeComponent();
-            this.DataContext = new KorisniciViewModel(GetKorisnici());
+            this.DataContext = new SaradniciViewModel(GetSaradnici());
         }
 
         private void Window_Rendered(object sender, EventArgs e)
@@ -45,23 +45,37 @@ namespace OrganizatorProslava.UI.Administrator
                 btnObrisi_Click(null, null);
         }
 
-        private List<Models.Korisnik> GetKorisnici()
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var korisnikServis = new Services.Nalozi.KorisnikServis();
-            return korisnikServis.GetKorisnici().ToList();
+            var tipSaradnikaServis = new Services.Nalozi.TipSaradnikaServis();
+            var tipoviSaradnika = tipSaradnikaServis.GetTipoveSaradnika();
+            tipoviSaradnika.Add(new Models.TipSaradnika
+            {
+                Id = 0,
+                Naziv = "Svi"
+            });
+            comboFilter.ItemsSource = tipoviSaradnika;
+            comboFilter.DisplayMemberPath = "Naziv";
+            comboFilter.SelectedValuePath = "Id";
         }
 
-        private List<Models.Korisnik> GetKorisnici(int tip, string pretrazi)
+        private List<Models.Saradnik> GetSaradnici()
         {
-            var korisnikServis = new Services.Nalozi.KorisnikServis();
+            var saradnikServis = new Services.Saradnici.SaradnikServis();
+            return saradnikServis.GetSaradnici().ToList();
+        }
+
+        private List<Models.Saradnik> GetSaradnici(int tip, string pretrazi)
+        {
+            var saradnikServis = new Services.Saradnici.SaradnikServis();
             pretrazi = pretrazi.ToLower();
-            return korisnikServis.GetKorisnici()
-                .Where(q => (tip == 0 || q.Tip == tip) &&
+            return saradnikServis.GetSaradnici()
+                .Where(q => (tip == 0 || q.TipSaradnikaId == tip) &&
                     (pretrazi == string.Empty ||
-                    q.Ime.ToLower().Contains(pretrazi) ||
-                    q.Prezime.ToLower().Contains(pretrazi) ||
-                    q.KorisnickoIme.ToLower().Contains(pretrazi) ||
-                    q.TipKorisnika.ToLower().Contains(pretrazi))).ToList();
+                    q.Naziv.ToLower().Contains(pretrazi) ||
+                    q.Adresa.ToLower().Contains(pretrazi) ||
+                    q.Email.ToLower().Contains(pretrazi) ||
+                    q.TipSaradnika.ToLower().Contains(pretrazi))).ToList();
         }
 
         private void btnNazad_Click(object sender, RoutedEventArgs e)
@@ -69,38 +83,12 @@ namespace OrganizatorProslava.UI.Administrator
             this.Close();
         }
 
-        private void radioAdmin_Checked(object sender, RoutedEventArgs e)
+        private void comboFilter_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (_tipFiltera != TipKorisnika.Admin)
+            var id = (int)comboFilter.SelectedValue;
+            if (_tipFiltera != id)
             {
-                _tipFiltera = TipKorisnika.Admin;
-                Filter();
-            }
-        }
-
-        private void radioOrganizator_Checked(object sender, RoutedEventArgs e)
-        {
-            if (_tipFiltera != TipKorisnika.Organizator)
-            {
-                _tipFiltera = TipKorisnika.Organizator;
-                Filter();
-            }
-        }
-
-        private void radioKlijent_Checked(object sender, RoutedEventArgs e)
-        {
-            if (_tipFiltera != TipKorisnika.Klijent)
-            {
-                _tipFiltera = TipKorisnika.Klijent;
-                Filter();
-            }
-        }
-
-        private void radioSveUloge_Checked(object sender, RoutedEventArgs e)
-        {
-            if (_tipFiltera != 0)
-            {
-                _tipFiltera = 0;
+                _tipFiltera = id;
                 Filter();
             }
         }
@@ -108,34 +96,34 @@ namespace OrganizatorProslava.UI.Administrator
         private void Filter()
         {
             if (txtPretraga != null)
-                this.DataContext = new KorisniciViewModel(GetKorisnici(_tipFiltera, txtPretraga.Text.Length >= 3 ? txtPretraga.Text : string.Empty));
+                this.DataContext = new SaradniciViewModel(GetSaradnici(_tipFiltera, txtPretraga.Text.Length >= 3 ? txtPretraga.Text : string.Empty));
         }
 
         private void txtPretraga_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (txtPretraga.Text.Length >= 3)
-                this.DataContext = new KorisniciViewModel(GetKorisnici(_tipFiltera, txtPretraga.Text));
+                this.DataContext = new SaradniciViewModel(GetSaradnici(_tipFiltera, txtPretraga.Text));
             else if (txtPretraga.Text.Length == 0)
-                this.DataContext = new KorisniciViewModel(GetKorisnici(_tipFiltera, string.Empty));
+                this.DataContext = new SaradniciViewModel(GetSaradnici(_tipFiltera, string.Empty));
 
         }
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-            if (dgKorisnici.SelectedItem != null)
+            if (dgSaradnici.SelectedItem != null)
             {
-                var potvrdi = new Poruka(Poruke.BrisiKorisnika, Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
+                var potvrdi = new Poruka(Poruke.BrisiSaradnika, Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
                 potvrdi.Owner = this;
                 potvrdi.ShowDialog();
                 if (potvrdi.Rezultat == MessageBoxResult.Yes)
                 {
-                    var korisnik = (Models.Korisnik)dgKorisnici.SelectedItem;
-                    var korisnikServis = new Services.Nalozi.KorisnikServis();
-                    var msg = korisnikServis.BrisiKorisnika(korisnik.Id);
+                    var saradnik = (Models.Saradnik)dgSaradnici.SelectedItem;
+                    var saradnikServis = new Services.Saradnici.SaradnikServis();
+                    var msg = saradnikServis.BrisiSaradnika(saradnik.Id);
                     if (msg == string.Empty)
                     {
-                        ((KorisniciViewModel)this.DataContext).UkloniKorisnika(korisnik);
-                        var poruka = new Poruka(string.Format(Poruke.KorisnikObrisan, korisnik.KorisnickoIme), Poruke.Poruka, MessageBoxButton.OK);
+                        ((SaradniciViewModel)this.DataContext).UkloniSaradnika(saradnik);
+                        var poruka = new Poruka(string.Format(Poruke.SaradnikObrisan, saradnik.Naziv), Poruke.Poruka, MessageBoxButton.OK);
                         poruka.Owner = this;
                         poruka.ShowDialog();
                     }
@@ -157,23 +145,23 @@ namespace OrganizatorProslava.UI.Administrator
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            var izmena = new IzmeniKorisnika(null);
+            var izmena = new IzmeniSaradnika(null);
             izmena.Owner = this;
             izmena.ShowDialog();
             if (izmena.Rezultat == MessageBoxResult.OK)
-                ((KorisniciViewModel)this.DataContext).DodajKorisnika(izmena.Korisnik);
+                ((SaradniciViewModel)this.DataContext).DodajSaradnika(izmena.Saradnik);
         }
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            if (dgKorisnici.SelectedItem != null)
+            if (dgSaradnici.SelectedItem != null)
             {
-                var korisnik = (Models.Korisnik)dgKorisnici.SelectedItem;
-                var izmena = new IzmeniKorisnika(korisnik);
+                var saradnik = (Models.Saradnik)dgSaradnici.SelectedItem;
+                var izmena = new IzmeniSaradnika(saradnik);
                 izmena.Owner = this;
                 izmena.ShowDialog();
                 if (izmena.Rezultat == MessageBoxResult.OK)
-                    ((KorisniciViewModel)this.DataContext).IzmeniKorisnika(izmena.Korisnik);
+                    ((SaradniciViewModel)this.DataContext).IzmeniSaradnika(izmena.Saradnik);
             }
             else
             {

@@ -9,7 +9,6 @@ namespace OrganizatorProslava.Services.Nalozi
             var korisnikDal = new DataAccess.Nalozi.Korisnik();
             return korisnikDal.DodajKorisnika(new DataModel.Korisnik
             {
-                ID = korisnik.Id,
                 Ime = korisnik.Ime,
                 Prezime = korisnik.Prezime,
                 Tip = korisnik.Tip,

@@ -11,7 +11,7 @@ namespace OrganizatorProslava.Services.Nalozi
         public List<Models.Korisnik> GetKorisnici()
         {
             var korisnikDal = new DataAccess.Nalozi.Korisnik();
-            return korisnikDal.GetKorisnike().ToList()
+            return korisnikDal.GetKorisnike().OrderBy(o => o.KorisnickoIme).ToList()
                 .Select(s => new Models.Korisnik
                 {
                     Id = s.ID,

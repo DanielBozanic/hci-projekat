@@ -135,17 +135,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\Saradnici\Saradnik.cs" />
+    <Compile Include="DataAccess\Saradnici\TipSaradnika.cs" />
+    <Compile Include="DataModel\Saradnik.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TipSaradnika.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LogovaniKorisnik.cs" />
+    <Compile Include="Models\Saradnik.cs" />
+    <Compile Include="Models\TipSaradnika.cs" />
     <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
+    <Compile Include="Services\Saradnici\SaradnikServis.cs" />
+    <Compile Include="Services\Nalozi\TipSaradnikaServis.cs" />
     <Compile Include="UI\Administrator\IzmeniKorisnika.xaml.cs">
       <DependentUpon>IzmeniKorisnika.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Administrator\IzmeniSaradnika.xaml.cs" />
     <Compile Include="UI\Administrator\Korisnici.xaml.cs">
       <DependentUpon>Korisnici.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Administrator\MeniAdmin.xaml.cs">
       <DependentUpon>MeniAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Administrator\Saradnici.xaml.cs">
+      <DependentUpon>Saradnici.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Nalozi\Prijava.xaml.cs">
       <DependentUpon>Prijava.xaml</DependentUpon>
@@ -154,9 +170,14 @@
       <DependentUpon>Poruka.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
     <Page Include="UI\Administrator\IzmeniKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Administrator\IzmeniSaradnika.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Administrator\Korisnici.xaml">
       <SubType>Designer</SubType>
@@ -165,6 +186,10 @@
     <Page Include="UI\Administrator\MeniAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Administrator\Saradnici.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Nalozi\Prijava.xaml">
       <SubType>Designer</SubType>

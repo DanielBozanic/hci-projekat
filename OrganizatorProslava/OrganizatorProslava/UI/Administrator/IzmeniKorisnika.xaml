@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Administrator"
         mc:Ignorable="d"
         Title="Izmeni Korisnika" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>
@@ -28,12 +30,14 @@
         <RadioButton x:Name="radioAdmin" TabIndex="5" Content="Administrator" HorizontalAlignment="Left" Margin="261,236,0,0" VerticalAlignment="Top" FontSize="14" Height="23" FontWeight="Bold"/>
         <RadioButton x:Name="radioOrganizator" TabIndex="6" Content="Organizator" HorizontalAlignment="Left" Margin="394,236,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <RadioButton x:Name="radioKlijent" TabIndex="7" Content="Klijent" HorizontalAlignment="Left" Margin="513,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.012,0.497" FontSize="14" FontWeight="Bold"/>
-        <Button x:Name="btnSacuvaj" TabIndex="8" Content="Sacuvaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="265,315,0,0" Click="btnSacuvaj_Click">
+        <Button x:Name="btnSacuvaj" TabIndex="8" Content="Sacuvaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="265,315,0,0" Click="btnSacuvaj_Click"
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+S za precicu">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnOdbaci" TabIndex="9" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="375,315,0,0" Click="btnOdbaci_Click">
+        <Button x:Name="btnOdbaci" TabIndex="9" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="375,315,0,0" Click="btnOdbaci_Click"
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Esc za precicu">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
             </Button.Effect>

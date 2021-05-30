@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="8d54dffac4274f13a867b9b404b92ea5" Name="Diagram1">
         <EntityTypeShape EntityType="OrganizatorProslavaModel.Korisnik" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Saradnik" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.TipSaradnika" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

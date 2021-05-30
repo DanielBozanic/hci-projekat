@@ -33,9 +33,9 @@ namespace OrganizatorProslava.UI.Nalozi
 
             var korisnik = new Korisnik
             {
-                Ime = txtIme.Text,
-                Prezime = txtPrezime.Text,
-                KorisnickoIme = txtKorisnickoIme.Text,
+                Ime = txtIme.Text.Trim(),
+                Prezime = txtPrezime.Text.Trim(),
+                KorisnickoIme = txtKorisnickoIme.Text.Trim(),
                 Tip = TipKorisnika.Klijent,
                 Lozinka = txtLozinka.Password
             };

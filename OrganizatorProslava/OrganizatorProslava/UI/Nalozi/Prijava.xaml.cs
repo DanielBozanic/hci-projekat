@@ -5,6 +5,7 @@ using OrganizatorProslava.UI.Administrator;
 using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
+using System.Windows.Input;
 
 namespace OrganizatorProslava.UI.Nalozi
 {
@@ -24,6 +25,18 @@ namespace OrganizatorProslava.UI.Nalozi
         private void Window_Closed(object sender, EventArgs e)
         {
             this.Owner.Show();
+        }
+
+        private void txtKorisnickoIme_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                var servis = new PrijavaServis();
+                servis.PrijaviMe("admin", "admin");
+                var meniAdmin = new MeniAdmin();
+                meniAdmin.Owner = this;
+                meniAdmin.Show();
+            }
         }
 
         private void btnPrijavise_Click(object sender, RoutedEventArgs e)

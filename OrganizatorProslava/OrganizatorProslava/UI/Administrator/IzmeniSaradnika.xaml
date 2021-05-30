@@ -1,0 +1,40 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Administrator.IzmeniSaradnika"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Administrator"
+        mc:Ignorable="d"
+        Title="Izmeni Saradnika" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF726161"/>
+            <GradientStop Color="#FFF1D3D3" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid HorizontalAlignment="Left" Height="375" Margin="10,10,0,0" VerticalAlignment="Top" Width="717">
+        <Label x:Name="lblNaziv" Content="NAZIV:" Height="32" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="10,16,514,0"/>
+        <TextBox x:Name="txtNaziv" TabIndex="0" Height="32" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="16" Margin="203,16,24,0"/>
+        <Label x:Name="lblAdresa" Content="ADRESA:" Height="32" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Margin="5,0,519,260"/>
+        <TextBox x:Name="txtAdresa" TabIndex="1" Height="32" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="16" Margin="203,83,24,0"/>
+        <Label x:Name="lblEmail" Content="EMAIL:" Height="32" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Margin="10,0,514,196"/>
+        <TextBox x:Name="txtEmail" TabIndex="2" Height="32" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="16" Margin="203,147,24,0"/>
+        <Label x:Name="lbTip" Content="TIP SARADNIKA:" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="-2.444,0.426" FontSize="16" Height="32"/>
+        <ComboBox x:Name="cmbTipSaradnika" HorizontalAlignment="Left" Margin="203,212,0,0" VerticalAlignment="Top" Width="490" Height="32" FontSize="16"/>
+        <Button x:Name="btnSacuvaj" TabIndex="8" Content="Sacuvaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="265,315,0,0" Click="btnSacuvaj_Click"
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+S za precicu">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnOdbaci" TabIndex="9" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="375,315,0,0" Click="btnOdbaci_Click"
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Esc za precicu">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

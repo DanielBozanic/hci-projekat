@@ -13,9 +13,9 @@ namespace OrganizatorProslava.ViewModel.Administrator
 		public KorisniciViewModel(List<Korisnik> korisnici)
         {
 			Korisnici = new ObservableCollection<Korisnik>();
-			foreach (var koriasnik in korisnici)
+			foreach (var korisnik in korisnici)
             {
-				Korisnici.Add(koriasnik);
+				Korisnici.Add(korisnik);
 			}
 		}
 

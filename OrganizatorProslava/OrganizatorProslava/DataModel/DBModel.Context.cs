@@ -26,5 +26,7 @@ namespace OrganizatorProslava.DataModel
         }
     
         public virtual DbSet<Korisnik> Korisniks { get; set; }
+        public virtual DbSet<Saradnik> Saradniks { get; set; }
+        public virtual DbSet<TipSaradnika> TipSaradnikas { get; set; }
     }
 }
