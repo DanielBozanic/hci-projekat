@@ -2,6 +2,7 @@
 using OrganizatorProslava.Services;
 using OrganizatorProslava.Services.Nalozi;
 using OrganizatorProslava.UI.Administrator;
+using OrganizatorProslava.UI.Organizator;
 using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
@@ -58,11 +59,17 @@ namespace OrganizatorProslava.UI.Nalozi
             switch (LogovaniKorisnik.Tip)
             {
                 case TipKorisnika.Admin:
-                    var meniAdmin = new MeniAdmin();
-                    meniAdmin.Owner = this;
-                    meniAdmin.Show();
+                    //var meniAdmin = new MeniAdmin();
+                    //meniAdmin.Owner = this;
+                    //meniAdmin.Show();
+                    var meniOrganizator1 = new GlavniMeni();
+                    meniOrganizator1.Owner = this;
+                    meniOrganizator1.Show();
                     break;
                 case TipKorisnika.Organizator:
+                    var meniOrganizator = new GlavniMeni();
+                    meniOrganizator.Owner = this;
+                    meniOrganizator.Show();
                     break;
                 default:
                     break;

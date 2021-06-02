@@ -182,5 +182,6 @@ namespace OrganizatorProslava.UI.Administrator
                 poruka.ShowDialog();
             }
         }
+
     }
 }
