@@ -50,7 +50,6 @@
           <Property Name="BrojGostiju" Type="int" Nullable="false" />
           <Property Name="VrstaBudzeta" Type="bit" Nullable="false" />
           <Property Name="Budzet" Type="float" Nullable="false" />
-          <Property Name="Valuta" Type="int" Nullable="false" />
           <Property Name="SpisakGostiju" Type="varchar" MaxLength="5000" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="DodatneZelje" Type="varchar" MaxLength="500" />
@@ -206,7 +205,6 @@
           <Property Name="BrojGostiju" Type="Int32" Nullable="false" />
           <Property Name="VrstaBudzeta" Type="Boolean" Nullable="false" />
           <Property Name="Budzet" Type="Double" Nullable="false" />
-          <Property Name="Valuta" Type="Int32" Nullable="false" />
           <Property Name="SpisakGostiju" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="DodatneZelje" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -293,7 +291,6 @@
                 <ScalarProperty Name="DodatneZelje" ColumnName="DodatneZelje" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="SpisakGostiju" ColumnName="SpisakGostiju" />
-                <ScalarProperty Name="Valuta" ColumnName="Valuta" />
                 <ScalarProperty Name="Budzet" ColumnName="Budzet" />
                 <ScalarProperty Name="VrstaBudzeta" ColumnName="VrstaBudzeta" />
                 <ScalarProperty Name="BrojGostiju" ColumnName="BrojGostiju" />

@@ -28,8 +28,6 @@ namespace OrganizatorProslava.Models
 
         public double Budzet { get; set; }
 
-        public Valuta ValutaNovca { get; set; }
-
         public string SpisakGostiju { get; set; }       // mozda i drugacije
 
         public Korisnik Organizator { get; set; }

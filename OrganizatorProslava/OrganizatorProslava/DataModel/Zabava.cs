@@ -29,7 +29,6 @@ namespace OrganizatorProslava.DataModel
         public int BrojGostiju { get; set; }
         public bool VrstaBudzeta { get; set; }
         public double Budzet { get; set; }
-        public int Valuta { get; set; }
         public string SpisakGostiju { get; set; }
         public int Status { get; set; }
         public string DodatneZelje { get; set; }

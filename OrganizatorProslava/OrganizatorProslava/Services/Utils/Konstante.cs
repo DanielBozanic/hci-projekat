@@ -59,13 +59,6 @@ namespace OrganizatorProslava.Services
         public const int NijeFiksan = 1;
     }
 
-    public class Valuta
-    {
-        public const int DIN = 1;           // x 1
-        public const int EUR = 2;          // x 0.0085
-        public const int USD = 3;          // x 0.010
-    }
-
     public class StatusZabave
     {
         public const int Napravljena = 1;
