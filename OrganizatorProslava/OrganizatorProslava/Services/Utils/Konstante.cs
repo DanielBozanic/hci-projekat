@@ -52,4 +52,18 @@ namespace OrganizatorProslava.Services
         public const string EmailPogresanFormat = "Email je pogresnog formata.";
         public const string EmailMoraBitiJedinstven = "Email mora biti jedinstven u sistemu.";
     }
+
+    public class VrstaBudzeta
+    {
+        public const int Fiksan = 0;
+        public const int NijeFiksan = 1;
+    }
+
+    public class StatusZabave
+    {
+        public const int Napravljena = 1;
+        public const int UProcesu = 2;
+        public const int Izbrisana = 3;
+        public const int Zavrsena = 4;
+    }
 }

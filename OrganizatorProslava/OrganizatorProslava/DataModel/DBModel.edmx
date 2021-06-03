@@ -37,10 +37,103 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Naziv" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Zabava">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Tip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DatumProslave" Type="datetime" Nullable="false" />
+          <Property Name="Trajanje" Type="int" Nullable="false" />
+          <Property Name="Grad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tema" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BrojGostiju" Type="int" Nullable="false" />
+          <Property Name="VrstaBudzeta" Type="bit" Nullable="false" />
+          <Property Name="Budzet" Type="float" Nullable="false" />
+          <Property Name="SpisakGostiju" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="DodatneZelje" Type="varchar" MaxLength="500" />
+          <Property Name="Organizator" Type="int" />
+          <Property Name="Kreator" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zabava_Saradnik">
+          <Key>
+            <PropertyRef Name="ID_Zabave" />
+            <PropertyRef Name="ID_Saradnika" />
+          </Key>
+          <Property Name="ID_Zabave" Type="int" Nullable="false" />
+          <Property Name="ID_Saradnika" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Zabava_Kreator">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Zabava" Type="Self.Zabava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava">
+              <PropertyRef Name="Kreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zabava_Organizator">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Zabava" Type="Self.Zabava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava">
+              <PropertyRef Name="Organizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zabava_Saradnik_Saradnik">
+          <End Role="Saradnik" Type="Self.Saradnik" Multiplicity="1" />
+          <End Role="Zabava_Saradnik" Type="Self.Zabava_Saradnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Saradnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava_Saradnik">
+              <PropertyRef Name="ID_Saradnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zabava_Saradnik_Zabava">
+          <End Role="Zabava" Type="Self.Zabava" Multiplicity="1" />
+          <End Role="Zabava_Saradnik" Type="Self.Zabava_Saradnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zabava">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava_Saradnik">
+              <PropertyRef Name="ID_Zabave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OrganizatorProslavaModelStoreContainer">
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Saradnik" EntityType="Self.Saradnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipSaradnika" EntityType="Self.TipSaradnika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zabava" EntityType="Self.Zabava" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zabava_Saradnik" EntityType="Self.Zabava_Saradnik" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Zabava_Kreator" Association="Self.FK_Zabava_Kreator">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Zabava" EntitySet="Zabava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zabava_Organizator" Association="Self.FK_Zabava_Organizator">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Zabava" EntitySet="Zabava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zabava_Saradnik_Saradnik" Association="Self.FK_Zabava_Saradnik_Saradnik">
+            <End Role="Saradnik" EntitySet="Saradnik" />
+            <End Role="Zabava_Saradnik" EntitySet="Zabava_Saradnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zabava_Saradnik_Zabava" Association="Self.FK_Zabava_Saradnik_Zabava">
+            <End Role="Zabava" EntitySet="Zabava" />
+            <End Role="Zabava_Saradnik" EntitySet="Zabava_Saradnik" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -50,6 +143,19 @@
           <EntitySet Name="Korisniks" EntityType="OrganizatorProslavaModel.Korisnik" />
           <EntitySet Name="Saradniks" EntityType="OrganizatorProslavaModel.Saradnik" />
           <EntitySet Name="TipSaradnikas" EntityType="OrganizatorProslavaModel.TipSaradnika" />
+          <EntitySet Name="Zabavas" EntityType="OrganizatorProslavaModel.Zabava" />
+          <AssociationSet Name="FK_Zabava_Kreator" Association="OrganizatorProslavaModel.FK_Zabava_Kreator">
+            <End Role="Korisnik" EntitySet="Korisniks" />
+            <End Role="Zabava" EntitySet="Zabavas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zabava_Organizator" Association="OrganizatorProslavaModel.FK_Zabava_Organizator">
+            <End Role="Korisnik" EntitySet="Korisniks" />
+            <End Role="Zabava" EntitySet="Zabavas" />
+          </AssociationSet>
+          <AssociationSet Name="Zabava_Saradnik" Association="OrganizatorProslavaModel.Zabava_Saradnik">
+            <End Role="Saradnik" EntitySet="Saradniks" />
+            <End Role="Zabava" EntitySet="Zabavas" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Korisnik">
           <Key>
@@ -64,6 +170,8 @@
           <Property Name="Pol" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Mobilni" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Obrisan" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Zabavas" Relationship="OrganizatorProslavaModel.FK_Zabava_Kreator" FromRole="Korisnik" ToRole="Zabava" />
+          <NavigationProperty Name="Zabavas1" Relationship="OrganizatorProslavaModel.FK_Zabava_Organizator" FromRole="Korisnik" ToRole="Zabava" />
         </EntityType>
         <EntityType Name="Saradnik">
           <Key>
@@ -75,6 +183,7 @@
           <Property Name="Adresa" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Obrisan" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Zabavas" Relationship="OrganizatorProslavaModel.Zabava_Saradnik" FromRole="Saradnik" ToRole="Zabava" />
         </EntityType>
         <EntityType Name="TipSaradnika">
           <Key>
@@ -83,6 +192,56 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Zabava">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Tip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DatumProslave" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Trajanje" Type="Int32" Nullable="false" />
+          <Property Name="Grad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tema" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BrojGostiju" Type="Int32" Nullable="false" />
+          <Property Name="VrstaBudzeta" Type="Boolean" Nullable="false" />
+          <Property Name="Budzet" Type="Double" Nullable="false" />
+          <Property Name="SpisakGostiju" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="DodatneZelje" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Organizator" Type="Int32" />
+          <Property Name="Kreator" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Korisnik" Relationship="OrganizatorProslavaModel.FK_Zabava_Kreator" FromRole="Zabava" ToRole="Korisnik" />
+          <NavigationProperty Name="Korisnik1" Relationship="OrganizatorProslavaModel.FK_Zabava_Organizator" FromRole="Zabava" ToRole="Korisnik" />
+          <NavigationProperty Name="Saradniks" Relationship="OrganizatorProslavaModel.Zabava_Saradnik" FromRole="Zabava" ToRole="Saradnik" />
+        </EntityType>
+        <Association Name="FK_Zabava_Kreator">
+          <End Type="OrganizatorProslavaModel.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="OrganizatorProslavaModel.Zabava" Role="Zabava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava">
+              <PropertyRef Name="Kreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zabava_Organizator">
+          <End Type="OrganizatorProslavaModel.Korisnik" Role="Korisnik" Multiplicity="0..1" />
+          <End Type="OrganizatorProslavaModel.Zabava" Role="Zabava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava">
+              <PropertyRef Name="Organizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Zabava_Saradnik">
+          <End Type="OrganizatorProslavaModel.Saradnik" Role="Saradnik" Multiplicity="*" />
+          <End Type="OrganizatorProslavaModel.Zabava" Role="Zabava" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -124,6 +283,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Zabavas">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.Zabava">
+              <MappingFragment StoreEntitySet="Zabava">
+                <ScalarProperty Name="Kreator" ColumnName="Kreator" />
+                <ScalarProperty Name="Organizator" ColumnName="Organizator" />
+                <ScalarProperty Name="DodatneZelje" ColumnName="DodatneZelje" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SpisakGostiju" ColumnName="SpisakGostiju" />
+                <ScalarProperty Name="Budzet" ColumnName="Budzet" />
+                <ScalarProperty Name="VrstaBudzeta" ColumnName="VrstaBudzeta" />
+                <ScalarProperty Name="BrojGostiju" ColumnName="BrojGostiju" />
+                <ScalarProperty Name="Tema" ColumnName="Tema" />
+                <ScalarProperty Name="Grad" ColumnName="Grad" />
+                <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+                <ScalarProperty Name="DatumProslave" ColumnName="DatumProslave" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Zabava_Saradnik" TypeName="OrganizatorProslavaModel.Zabava_Saradnik" StoreEntitySet="Zabava_Saradnik">
+            <EndProperty Name="Zabava">
+              <ScalarProperty Name="ID" ColumnName="ID_Zabave" />
+            </EndProperty>
+            <EndProperty Name="Saradnik">
+              <ScalarProperty Name="ID" ColumnName="ID_Saradnika" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

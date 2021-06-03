@@ -4,10 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d54dffac4274f13a867b9b404b92ea5" Name="Diagram1">
+      <Diagram DiagramId="8d54dffac4274f13a867b9b404b92ea5" Name="Diagram1" ZoomLevel="108">
         <EntityTypeShape EntityType="OrganizatorProslavaModel.Korisnik" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="OrganizatorProslavaModel.Saradnik" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="OrganizatorProslavaModel.TipSaradnika" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava" Width="1.5" PointX="6" PointY="0.75" />
+        <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Kreator" />
+        <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Organizator" />
+        <AssociationConnector Association="OrganizatorProslavaModel.Zabava_Saradnik" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
