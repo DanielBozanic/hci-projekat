@@ -55,8 +55,8 @@ namespace OrganizatorProslava.Services
 
     public class VrstaBudzeta
     {
-        public const int Fiksan = 1;
-        public const int NijeFiksan = 2;
+        public const int Fiksan = 0;
+        public const int NijeFiksan = 1;
     }
 
     public class Valuta

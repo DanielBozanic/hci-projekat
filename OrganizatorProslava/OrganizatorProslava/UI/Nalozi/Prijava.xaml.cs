@@ -59,12 +59,9 @@ namespace OrganizatorProslava.UI.Nalozi
             switch (LogovaniKorisnik.Tip)
             {
                 case TipKorisnika.Admin:
-                    //var meniAdmin = new MeniAdmin();
-                    //meniAdmin.Owner = this;
-                    //meniAdmin.Show();
-                    var meniOrganizator1 = new GlavniMeni();
-                    meniOrganizator1.Owner = this;
-                    meniOrganizator1.Show();
+                    var meniAdmin = new MeniAdmin();
+                    meniAdmin.Owner = this;
+                    meniAdmin.Show();
                     break;
                 case TipKorisnika.Organizator:
                     var meniOrganizator = new GlavniMeni();

@@ -24,21 +24,21 @@
                 CanUserResizeColumns="False"
                 CanUserSortColumns="True"
 		        ItemsSource="{Binding Zabave}"
-		        MinRowHeight="25" >
+		        MinRowHeight="25" FontFamily="Monotype Corsiva" FontSize="30" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
-                <DataGridTextColumn Width="140"
+                <DataGridTextColumn Width="235"
 				                    Binding="{Binding TipZabave}"
                                     IsReadOnly="True"
 				                    Header="Tip zabave" />
-                <DataGridTextColumn Width="180"
+                <DataGridTextColumn Width="235"
 				                    Binding="{Binding Korisnik}"
                                     IsReadOnly="True"
 				                    Header="Kreator" />
-                <DataGridTextColumn Width="180"
+                <DataGridTextColumn Width="235"
 				                    Binding="{Binding Datum}"
                                     IsReadOnly="True"
-				                    Header="DatumZabave" />
+				                    Header="Datum zabave" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonDetalji" Content="DETALJI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171" Margin="20,342,0,0" Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_detalji"/>
