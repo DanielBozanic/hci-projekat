@@ -1,0 +1,21 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Korisnici.AzurirajProfilKorisnika"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
+        mc:Ignorable="d"
+        Title="Azuriraj" Height="430" Width="750">
+    <Grid Width="750" Height="430">
+        <Grid.Background>
+            <ImageBrush ImageSource="register.jpg"/>
+        </Grid.Background>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="145" Margin="305,10,0,0" Source="icon.jpg"/>
+        <TextBox x:Name="ime" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,180,0,0"  FontFamily="Arial Black" FontSize="20"/>
+        <TextBox x:Name="prezime" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,250,0,0"  FontFamily="Arial Black" FontSize="20"/>
+        <Label x:Name="label" Content="IME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,180,0,0" FontFamily="Arial Black" FontSize="20" Width="51"/>
+        <Label x:Name="label1" Content="PREZIME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,250,0,0" FontFamily="Arial Black" FontSize="20"/>
+        <Button x:Name="button" Content="AŽURIRAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="200,350,0,0" Height="32" Click="azuriraj" Background="#FFF1CA8A" FontFamily="Arial Black" FontSize="14"/>
+        <Button x:Name="button1" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="430,350,0,0" Height="32" Click="odustani" Background="#FFF1CA8A" FontFamily="Arial Black" FontSize="14"/>
+    </Grid>
+</Window>

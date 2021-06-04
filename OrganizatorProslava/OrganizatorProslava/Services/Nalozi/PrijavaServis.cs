@@ -14,6 +14,8 @@ namespace OrganizatorProslava.Services.Nalozi
             LogovaniKorisnik.Id = korisnik.ID;
             LogovaniKorisnik.PunoIme = $"{korisnik.Ime} {korisnik.Prezime}".Trim();
             LogovaniKorisnik.Tip = korisnik.Tip;
+            LogovaniKorisnik.KorisnickoIme = korisnik.KorisnickoIme;
+            LogovaniKorisnik.Lozinka = korisnik.Lozinka;
             return string.Empty;
         }
     }
