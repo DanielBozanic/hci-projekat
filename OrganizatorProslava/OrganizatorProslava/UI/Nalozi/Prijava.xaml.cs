@@ -6,6 +6,7 @@ using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
 using System.Windows.Input;
+using OrganizatorProslava.UI.Korisnici;
 
 namespace OrganizatorProslava.UI.Nalozi
 {
@@ -64,6 +65,11 @@ namespace OrganizatorProslava.UI.Nalozi
                     break;
                 case TipKorisnika.Organizator:
                     break;
+                case TipKorisnika.Klijent:
+                    var profilKorisnika = new Korisnici.ProfilKorisnika();
+                    profilKorisnika.Owner = this;
+                    profilKorisnika.Show();
+                    break;
                 default:
                     break;
             }
@@ -101,6 +107,20 @@ namespace OrganizatorProslava.UI.Nalozi
                 potvrdi.Close();
             }
             return greska == string.Empty;
+        }
+
+        private void txtKorisnickoIme_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
+
+
+        private void ZaboravljenaLozinka(object sender, MouseButtonEventArgs e)
+        {
+            var prozor = new UI.Korisnici.PromenaLozinke();
+            prozor.Owner = this;
+            prozor.Show();
+            this.Hide();
         }
     }
 }

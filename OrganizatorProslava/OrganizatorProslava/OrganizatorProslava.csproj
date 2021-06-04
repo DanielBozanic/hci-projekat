@@ -163,6 +163,30 @@
     <Compile Include="UI\Administrator\Saradnici.xaml.cs">
       <DependentUpon>Saradnici.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Korisnici\AzurirajProfilKorisnika.xaml.cs">
+      <DependentUpon>AzurirajProfilKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Istorija.xaml.cs">
+      <DependentUpon>Istorija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\ProfilKorisnika.xaml.cs">
+      <DependentUpon>ProfilKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PromenaLozinke.xaml.cs">
+      <DependentUpon>PromenaLozinke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\UvidUZakazanuZabavu.xaml.cs">
+      <DependentUpon>UvidUZakazanuZabavu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Zahtevi.xaml.cs">
+      <DependentUpon>Zahtevi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Zakazivanje.xaml.cs">
+      <DependentUpon>Zakazivanje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Zakazivanje2.xaml.cs">
+      <DependentUpon>Zakazivanje2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nalozi\Prijava.xaml.cs">
       <DependentUpon>Prijava.xaml</DependentUpon>
     </Compile>
@@ -190,6 +214,38 @@
     <Page Include="UI\Administrator\Saradnici.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Korisnici\AzurirajProfilKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Istorija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\ProfilKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PromenaLozinke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\UvidUZakazanuZabavu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Zahtevi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Zakazivanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Zakazivanje2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Nalozi\Prijava.xaml">
       <SubType>Designer</SubType>
@@ -300,6 +356,15 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="UI\Korisnici\green.jpg" />
+    <Resource Include="UI\Korisnici\Zahtjevi.jpg" />
+    <Resource Include="UI\Korisnici\Tabela.jpg" />
+    <Resource Include="UI\Korisnici\Zelje.jpg" />
+    <Resource Include="UI\Korisnici\ZakaziBack.jpg" />
+    <Resource Include="UI\Korisnici\FLoyinka.jpg" />
+    <Resource Include="UI\Korisnici\register.jpg" />
+    <Resource Include="UI\Korisnici\profileBack.jpg" />
+    <Resource Include="UI\Korisnici\icon.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

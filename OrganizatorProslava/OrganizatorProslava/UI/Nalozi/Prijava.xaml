@@ -26,9 +26,12 @@
             </Button.Effect>
         </Button>
         <Label x:Name="lblKorisnickoIme" Content="KORISNICKO IME" Height="43" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="189,19,146,0"/>
-        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="189,62,146,0" KeyUp="txtKorisnickoIme_KeyUp"/>
+        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="189,62,146,0" KeyUp="txtKorisnickoIme_KeyUp" TextChanged="txtKorisnickoIme_TextChanged"/>
         <Label x:Name="lblLozinka" Content="LOZINKA" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="189,0,146,220"/>
         <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="189,141,146,0"/>
-        <Label x:Name="lblZaboravioLozinku" Content="Zaboravili ste lozinku?" Height="43" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" Margin="217,0,174,127" FontStyle="Italic" HorizontalAlignment="Center" BorderBrush="Black" Foreground="#FF6D0683" MouseLeftButtonUp="lblZaboravioLozinku_MouseLeftButtonUp"/>
+        <TextBlock x:Name="textBlock" PreviewMouseLeftButtonDown="ZaboravljenaLozinka" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zaboravili ste lozinku?" VerticalAlignment="Top" Margin="220,205,0,0" FontSize="30" Width="329" FontWeight="Bold" FontStyle="Italic" Foreground="#FF6D0683"/>
+
+        
+
     </Grid>
 </Window>
