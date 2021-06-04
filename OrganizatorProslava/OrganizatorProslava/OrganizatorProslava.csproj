@@ -137,15 +137,20 @@
     </ApplicationDefinition>
     <Compile Include="DataAccess\Saradnici\Saradnik.cs" />
     <Compile Include="DataAccess\Saradnici\TipSaradnika.cs" />
+    <Compile Include="DataAccess\Zabava\Zabava.cs" />
     <Compile Include="DataModel\Saradnik.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\TipSaradnika.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\Zabava.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LogovaniKorisnik.cs" />
     <Compile Include="Models\Saradnik.cs" />
     <Compile Include="Models\TipSaradnika.cs" />
+    <Compile Include="Models\Zabava.cs" />
     <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
     <Compile Include="Services\Saradnici\SaradnikServis.cs" />
@@ -189,6 +194,15 @@
     </Compile>
     <Compile Include="UI\Nalozi\Prijava.xaml.cs">
       <DependentUpon>Prijava.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\GlavniMeni.xaml.cs">
+      <DependentUpon>GlavniMeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\NovaZabava.xaml.cs">
+      <DependentUpon>NovaZabava.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
+      <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Shared\Poruka.xaml.cs">
       <DependentUpon>Poruka.xaml</DependentUpon>
@@ -292,6 +306,18 @@
       <DependentUpon>OrganizatorProslava.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Organizator\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\NovaZabava.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\OrganizujZabavu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Resources\DataGridStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -356,6 +382,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+
     <Resource Include="UI\Korisnici\green.jpg" />
     <Resource Include="UI\Korisnici\Zahtjevi.jpg" />
     <Resource Include="UI\Korisnici\Tabela.jpg" />
@@ -365,6 +392,10 @@
     <Resource Include="UI\Korisnici\register.jpg" />
     <Resource Include="UI\Korisnici\profileBack.jpg" />
     <Resource Include="UI\Korisnici\icon.jpg" />
+    <Resource Include="UI\Organizator\Zahtjevi.jpg" />
+    <Resource Include="UI\Organizator\BackLog.jpg" />
+    <Resource Include="UI\Organizator\register.jpg" />
+
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

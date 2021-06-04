@@ -2,6 +2,7 @@
 using OrganizatorProslava.Services;
 using OrganizatorProslava.Services.Nalozi;
 using OrganizatorProslava.UI.Administrator;
+using OrganizatorProslava.UI.Organizator;
 using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
@@ -64,6 +65,9 @@ namespace OrganizatorProslava.UI.Nalozi
                     meniAdmin.Show();
                     break;
                 case TipKorisnika.Organizator:
+                    var meniOrganizator = new GlavniMeni();
+                    meniOrganizator.Owner = this;
+                    meniOrganizator.Show();
                     break;
                 case TipKorisnika.Klijent:
                     var profilKorisnika = new Korisnici.ProfilKorisnika();

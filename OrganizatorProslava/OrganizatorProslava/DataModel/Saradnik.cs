@@ -14,11 +14,20 @@ namespace OrganizatorProslava.DataModel
     
     public partial class Saradnik
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Saradnik()
+        {
+            this.Zabavas = new HashSet<Zabava>();
+        }
+    
         public int ID { get; set; }
         public string Naziv { get; set; }
         public int TipSaradnikaID { get; set; }
         public string Adresa { get; set; }
         public string Email { get; set; }
         public bool Obrisan { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zabava> Zabavas { get; set; }
     }
 }
