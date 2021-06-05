@@ -24,7 +24,7 @@ namespace OrganizatorProslava.Models
 
         public int BrojGostiju { get; set; }
 
-        public static VrstaBudzeta TipBudzeta { get; set; }
+        public bool TipBudzeta { get; set; }
 
         public double Budzet { get; set; }
 
@@ -36,7 +36,7 @@ namespace OrganizatorProslava.Models
 
         public List<Saradnik> OdabraniSaradnici { get; set; }
 
-        public StatusZabave Status { get; set; }
+        public int Status { get; set; }
 
     }
 }

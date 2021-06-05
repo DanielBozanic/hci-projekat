@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.Services.Zabave;
+using System.Collections.Generic;
+using System.Linq;
+using OrganizatorProslava.ViewModel.Organizator;
 
 namespace OrganizatorProslava.UI.Organizator
 {
     public partial class OrganizujZabavu : Window
     {
-        private int tipFiltera = 0;
+        private int idOrganizatora = Models.LogovaniKorisnik.Id;
+        private ServisZabave servis = new ServisZabave();
 
         public OrganizujZabavu()
         {
             InitializeComponent();
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 2 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabave);
         }
 
         private void vracanje(object sender, EventArgs e)
@@ -45,17 +41,24 @@ namespace OrganizatorProslava.UI.Organizator
 
         private void button_organizuj(object sender, RoutedEventArgs e)
         {
-
+            // onemoguci ako nije selektovano nista u tabeli
+            var organizacija = new Organizacija();
+            organizacija.Owner = this;
+            organizacija.Show();
         }
 
         private void trenutne_Checked(object sender, RoutedEventArgs e)
         {
-
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 2 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabave);
         }
 
         private void istorija_Checked(object sender, RoutedEventArgs e)
         {
-            // onemoguci dugme organizuj, samo detalje
+
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 4 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabave);
         }
+
     }
 }
