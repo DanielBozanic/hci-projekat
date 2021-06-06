@@ -155,6 +155,7 @@
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
     <Compile Include="Services\Saradnici\SaradnikServis.cs" />
     <Compile Include="Services\Nalozi\TipSaradnikaServis.cs" />
+    <Compile Include="Services\Zabave\ServisZabave.cs" />
     <Compile Include="UI\Administrator\IzmeniKorisnika.xaml.cs">
       <DependentUpon>IzmeniKorisnika.xaml</DependentUpon>
     </Compile>
@@ -210,6 +211,9 @@
     <Compile Include="UI\Organizator\NovaZabava.xaml.cs">
       <DependentUpon>NovaZabava.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Organizator\Organizacija.xaml.cs">
+      <DependentUpon>Organizacija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
       <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
     </Compile>
@@ -218,6 +222,7 @@
     </Compile>
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
+
     <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
@@ -226,6 +231,9 @@
     <Compile Include="ViewModel\ValidacijaZakazivanja\ValidacijaVremena.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\VremenskiOpsegTrajanja.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ZakazivanjeViewModel.cs" />
+
+    <Compile Include="ViewModel\Organizator\ZabaveViewModel.cs" />
+
     <Page Include="UI\Administrator\IzmeniKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -343,6 +351,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Organizator\Organizacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Organizator\OrganizujZabavu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -411,6 +423,12 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+
+    <Resource Include="UI\Organizator\Restoran1.jpg" />
+    <Resource Include="UI\Organizator\Muzika.jpg" />
+    <Resource Include="UI\Organizator\Ruza.jpg" />
+    <Resource Include="UI\Organizator\Zah3.jpg" />
+
     <Resource Include="UI\Korisnici\green.jpg" />
     <Resource Include="UI\Korisnici\Zahtjevi.jpg" />
     <Resource Include="UI\Korisnici\Tabela.jpg" />

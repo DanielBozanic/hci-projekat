@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using OrganizatorProslava.Services;
 
 namespace OrganizatorProslava.DataAccess.Zabava
 {
-    public class Zabava
+    public class ZabavaZabava : DataModel.Zabava
     {
         private readonly DataModel.OrganizatorProslavaEntities bazaPodataka;
 
-        public Zabava() {
+        public ZabavaZabava() {
             this.bazaPodataka = new DataModel.OrganizatorProslavaEntities();
         }
 
@@ -50,19 +46,39 @@ namespace OrganizatorProslava.DataAccess.Zabava
             this.bazaPodataka.SaveChanges();
         }
 
-        public IQueryable<Zabava> GetSveZabave()
+        public IQueryable<DataModel.Zabava> GetSveZabave()
         {
-            return (IQueryable<Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status != StatusZabave.Izbrisana select z);
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status != 3 select z);
         }
 
-        public IQueryable<Zabava> GetZabaveZaKreatora(int idKreatora)
+        public IQueryable<DataModel.Zabava> GetZabaveZaKreatora(int idKreatora)
         {
-            return (IQueryable<Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status != StatusZabave.Izbrisana && z.Kreator == idKreatora select z);
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status != 3 && z.Kreator == idKreatora select z);
         }
 
-        public IQueryable<Zabava> GetZabaveZaOrganizatora(int idOrganizatora)
+        public IQueryable<DataModel.Zabava> GetZabaveZaOrganizatora(int idOrganizatora)
         {
-            return (IQueryable<Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status != StatusZabave.Izbrisana && z.Organizator == idOrganizatora select z);
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status != 3 && z.Organizator == idOrganizatora select z);
+        }
+
+        public IQueryable<DataModel.Zabava> GetZahteveZaZabave(int idOrganizatora)
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 1 && z.Organizator == idOrganizatora select z);
+        }
+
+        public IQueryable<DataModel.Zabava> GetNedodeljeneZabave()
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 1 && z.Organizator == null select z);
+        }
+
+        public IQueryable<DataModel.Zabava> GetZavrseneZabave(int idOrganizatora)
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 4 && z.Organizator == idOrganizatora select z);
+        }
+
+        public IQueryable<DataModel.Zabava> GetZabaveUToku(int idOrganizatora)
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 2 && z.Organizator == idOrganizatora select z);
         }
 
     }

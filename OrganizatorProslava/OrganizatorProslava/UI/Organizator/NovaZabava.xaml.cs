@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.ViewModel.Organizator;
+using OrganizatorProslava.Services.Zabave;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -19,11 +12,14 @@ namespace OrganizatorProslava.UI.Organizator
     /// </summary>
     public partial class NovaZabava : Window
     {
-        private int tipFiltera = 0;
+        private int idOrganizatora = Models.LogovaniKorisnik.Id;
+        private ServisZabave servis = new ServisZabave();
 
         public NovaZabava()
         {
             InitializeComponent();
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabave);
         }
 
         private void vracanje(object sender, EventArgs e)
@@ -48,17 +44,20 @@ namespace OrganizatorProslava.UI.Organizator
 
         private void zahtevi_Checked(object sender, RoutedEventArgs e)
         {
-
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabave);
         }
 
         private void nedodeljene_Checked(object sender, RoutedEventArgs e)
         {
-
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator == null select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabave);
         }
 
         private void button_prihvati(object sender, RoutedEventArgs e)
         {
 
         }
+
     }
 }
