@@ -20,8 +20,9 @@ namespace OrganizatorProslava.Services.Nalozi
                 }).ToList();
         }
 
-        public List<Models.Korisnik> GetKorisnikPoId(int id)
+        public List<Models.Korisnik> GetKorisnikPoId(int? id)
         {
+            if (id == null) return new List<Models.Korisnik>();
             var korisnikDal = new DataAccess.Nalozi.Korisnik();
             return korisnikDal.GetKorisnike().OrderBy(o => o.KorisnickoIme).ToList().Where(o => o.ID == id)
                 .Select(s => new Models.Korisnik

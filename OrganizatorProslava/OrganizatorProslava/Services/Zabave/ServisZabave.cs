@@ -26,8 +26,8 @@ namespace OrganizatorProslava.Services.Zabave
                     SpisakGostiju = z.SpisakGostiju,
                     Status = z.Status,
                     DodatneZelje = z.DodatneZelje,
-                    Organizator = (z.Organizator == null ? null : korServis.GetKorisnikPoId(z.ID).FirstOrDefault()),
-                    Kreator = korServis.GetKorisnikPoId(z.ID).FirstOrDefault()
+                    Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
+                    Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault()
                 }).ToList();
         }
 
