@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrganizatorProslava.Services
 {
@@ -51,12 +47,6 @@ namespace OrganizatorProslava.Services
         public const string TipSaradnikaObavezan = "Tip Saradnika je obavezno polje.";
         public const string EmailPogresanFormat = "Email je pogresnog formata.";
         public const string EmailMoraBitiJedinstven = "Email mora biti jedinstven u sistemu.";
-    }
-
-    public class VrstaBudzeta
-    {
-        public const int Fiksan = 0;
-        public const int NijeFiksan = 1;
     }
 
     public class StatusZabave

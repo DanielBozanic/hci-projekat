@@ -24,19 +24,19 @@
                 CanUserResizeColumns="False"
                 CanUserSortColumns="True"
 		        ItemsSource="{Binding Zabave}"
-		        MinRowHeight="25" FontFamily="Monotype Corsiva" FontSize="30" >
+		        MinRowHeight="25" FontFamily="Monotype Corsiva" FontSize="30">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
                 <DataGridTextColumn Width="235"
-				                    Binding="{Binding TipZabave}"
+				                    Binding="{Binding Tip}"
                                     IsReadOnly="True"
 				                    Header="Tip zabave" />
                 <DataGridTextColumn Width="235"
-				                    Binding="{Binding Korisnik}"
+				                    Binding="{Binding Kreator.KorisnickoIme}"
                                     IsReadOnly="True"
 				                    Header="Kreator" />
-                <DataGridTextColumn Width="235"
-				                    Binding="{Binding Datum}"
+                <DataGridTextColumn Width="235"  FontSize="25" 
+				                    Binding="{Binding DatumProslave}"
                                     IsReadOnly="True"
 				                    Header="Datum zabave" />
             </DataGrid.Columns>
