@@ -20,6 +20,21 @@ namespace OrganizatorProslava.Services.Saradnici
                 }).ToList();
         }
 
+        public Models.Saradnik GetSaradnikaPoID(int id)
+        {
+            var saradnikDal = new DataAccess.Saradnici.Saradnik();
+            return saradnikDal.GetSaradnike().ToList().Where(s => s.Saradnik.ID == id)
+                .Select(s => new Models.Saradnik
+                {
+                    Id = s.Saradnik.ID,
+                    Naziv = s.Saradnik.Naziv,
+                    Adresa = s.Saradnik.Adresa,
+                    Email = s.Saradnik.Email,
+                    TipSaradnikaId = s.Saradnik.TipSaradnikaID,
+                    TipSaradnika = s.TipSaradnika.Naziv
+                }).ToList().FirstOrDefault();
+        }
+
         public string BrisiSaradnika(int id)
         {
             var saradnikDal = new DataAccess.Saradnici.Saradnik();

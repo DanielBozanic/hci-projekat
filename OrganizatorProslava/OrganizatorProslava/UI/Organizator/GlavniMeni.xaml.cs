@@ -26,6 +26,7 @@ namespace OrganizatorProslava.UI.Organizator
         {
             var nova = new NovaZabava();
             nova.Owner = this;
+            
             nova.Show();
         }
 

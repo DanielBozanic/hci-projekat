@@ -137,7 +137,14 @@
     </ApplicationDefinition>
     <Compile Include="DataAccess\Saradnici\Saradnik.cs" />
     <Compile Include="DataAccess\Saradnici\TipSaradnika.cs" />
+    <Compile Include="DataAccess\Zabava\Proizvod.cs" />
     <Compile Include="DataAccess\Zabava\Zabava.cs" />
+    <Compile Include="DataModel\Korisnik.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\Saradnik.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -148,6 +155,7 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LogovaniKorisnik.cs" />
+    <Compile Include="Models\Proizvod.cs" />
     <Compile Include="Models\Saradnik.cs" />
     <Compile Include="Models\TipSaradnika.cs" />
     <Compile Include="Models\Zabava.cs" />
@@ -155,6 +163,7 @@
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
     <Compile Include="Services\Saradnici\SaradnikServis.cs" />
     <Compile Include="Services\Nalozi\TipSaradnikaServis.cs" />
+    <Compile Include="Services\Zabave\ServisProizvoda.cs" />
     <Compile Include="Services\Zabave\ServisZabave.cs" />
     <Compile Include="UI\Administrator\IzmeniKorisnika.xaml.cs">
       <DependentUpon>IzmeniKorisnika.xaml</DependentUpon>
@@ -222,7 +231,6 @@
     </Compile>
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
-
     <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
@@ -231,9 +239,7 @@
     <Compile Include="ViewModel\ValidacijaZakazivanja\ValidacijaVremena.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\VremenskiOpsegTrajanja.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ZakazivanjeViewModel.cs" />
-
     <Compile Include="ViewModel\Organizator\ZabaveViewModel.cs" />
-
     <Page Include="UI\Administrator\IzmeniKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -330,9 +336,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\Korisnik.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Korisnik.cs" />
     <Compile Include="Services\Nalozi\RegistracijaServis.cs" />
     <Compile Include="Services\Utils\Konstante.cs" />
@@ -423,12 +426,10 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-
     <Resource Include="UI\Organizator\Restoran1.jpg" />
     <Resource Include="UI\Organizator\Muzika.jpg" />
     <Resource Include="UI\Organizator\Ruza.jpg" />
     <Resource Include="UI\Organizator\Zah3.jpg" />
-
     <Resource Include="UI\Korisnici\green.jpg" />
     <Resource Include="UI\Korisnici\Zahtjevi.jpg" />
     <Resource Include="UI\Korisnici\Tabela.jpg" />
