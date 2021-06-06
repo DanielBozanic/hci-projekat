@@ -12,22 +12,24 @@ namespace OrganizatorProslava.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Saradnik
+    public partial class Proizvod
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Saradnik()
+        public Proizvod()
         {
-            this.Proizvods = new HashSet<Proizvod>();
+            this.Zabavas = new HashSet<Zabava>();
         }
     
         public int ID { get; set; }
         public string Naziv { get; set; }
-        public int TipSaradnikaID { get; set; }
-        public string Adresa { get; set; }
-        public string Email { get; set; }
-        public bool Obrisan { get; set; }
+        public double Cena { get; set; }
+        public string Opis { get; set; }
+        public int SaradnikID { get; set; }
+        public string LinkSlike { get; set; }
+        public Nullable<bool> SmeDaMenja { get; set; }
     
+        public virtual Saradnik Saradnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proizvod> Proizvods { get; set; }
+        public virtual ICollection<Zabava> Zabavas { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace OrganizatorProslava.Models
 
         public string DodatneZelje { get; set; }
 
-        public List<Saradnik> OdabraniSaradnici { get; set; }
+        public List<Proizvod> OdabraniProizvodi { get; set; }
 
         public int Status { get; set; }
 
