@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
         Title="Zakazivanje zabave" Height="430" Width="750">
+    <Window.DataContext>
+        <local:ZakazivanjeViewModel/>
+    </Window.DataContext>
     <Window.Background>
         <ImageBrush ImageSource="ZakaziBack.jpg"/>
     </Window.Background>
@@ -17,16 +20,44 @@
         <Label x:Name="label1" Content="BUDŽET" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,25,0,0" Width="160" FontFamily="Arial Black"/>
         <Label x:Name="label2" Content="DA LI JE BUDŽET FIKSAN" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,85,0,0" Width="178" FontFamily="Arial Black"/>
         <Label x:Name="label3" Content="ORGANIZATOR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,145,0,0" FontFamily="Arial Black" Width="120"/>
-        <Button x:Name="button" Content="DODATNE ŽELJE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="370,265,0,0" Height="30" FontFamily="Arial Black" Background="#FF82B1F6"/>
-        <Button x:Name="button1" Content="SPISAK ZVANICA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="160,265,0,0" Height="30" FontFamily="Arial Black" Background="#FF82B1F6"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="350,205,0,0" Background="White"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Margin="350,30,0,0"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="350,85,0,0" MaxDropDownHeight="352" Background="#FF84AE51"/>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="350,145,0,0"/>
-        <Button x:Name="button2" Content="ZAKAŽI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,365,0,0" Height="25" FontFamily="Arial Black" Background="#FFF6A095"/>
+        <Button x:Name="spisakZvanica" Content="DODATNE ŽELJE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="370,265,0,0" Height="30" FontFamily="Arial Black" Background="#FF82B1F6" Click="dodatneZeljeKlik"/>
+        <Button x:Name="dodatneZelje" Content="SPISAK ZVANICA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="160,265,0,0" Height="30" FontFamily="Arial Black" Background="#FF82B1F6" Click="spisakZvanicaKlik"/>
+
+
+        <TextBox x:Name="brojGostiju" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,205,0,0" Background="White" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+            <TextBox.Text>
+                <Binding Path="BrojGostiju" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:UnosBrojaGostiju/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+
+
+
+        <TextBox x:Name="budzet" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Margin="350,30,0,0" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+            <TextBox.Text>
+                <Binding Path="Budzet" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:UnosBudzeta/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        
+        
+        
+        
+        
+        
+        <ComboBox x:Name="fiksanBudzet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="350,85,0,0" MaxDropDownHeight="352" Background="#FF84AE51"/>
+        <ComboBox x:Name="organizator" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="350,145,0,0"/>
+        <Button x:Name="zakzi" Content="ZAKAŽI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,365,0,0" Height="25" FontFamily="Arial Black" Background="#FFF6A095" Click="zakaziKlik"/>
         <Label x:Name="label4" Content="RSD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="515,30,0,0" FontFamily="Arial Black" Width="38"/>
-        <Button x:Name="button3" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="600,365,0,0" Height="25" FontFamily="Arial Black" Background="#FFF6A095"/>
-        <Button x:Name="button4" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="320,365,0,0" Height="25" FontFamily="Arial Black" Background="#FFF6A095"/>
+        <Button x:Name="odustani" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="600,365,0,0" Height="25" FontFamily="Arial Black" Background="#FFF6A095" Click="odustaniKlik"/>
+        <Button x:Name="nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="320,365,0,0" Height="25" FontFamily="Arial Black" Background="#FFF6A095" Click="nazadKlik"/>
 
 
 

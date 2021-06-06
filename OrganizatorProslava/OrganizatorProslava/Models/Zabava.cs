@@ -38,5 +38,8 @@ namespace OrganizatorProslava.Models
 
         public int Status { get; set; }
 
+
+        public string Vrijeme { get; set; }
+
     }
 }
