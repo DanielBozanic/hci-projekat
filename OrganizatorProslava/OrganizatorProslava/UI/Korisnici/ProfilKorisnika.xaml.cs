@@ -65,10 +65,10 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void zakaziZabavu(object sender, RoutedEventArgs e)
         {
-            this.Close();
             var zakazi = new Zakazivanje();
             zakazi.Owner = this;
             zakazi.Show();
+            this.Hide();
         }
 
 

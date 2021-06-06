@@ -180,6 +180,15 @@
     <Compile Include="UI\Korisnici\PromenaLozinke.xaml.cs">
       <DependentUpon>PromenaLozinke.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Korisnici\SpisakZelja.xaml.cs">
+      <DependentUpon>SpisakZelja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\SpisakZvanica.xaml.cs">
+      <DependentUpon>SpisakZvanica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml.cs">
+      <DependentUpon>TabelarniPrikazZahtjeva.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Korisnici\UvidUZakazanuZabavu.xaml.cs">
       <DependentUpon>UvidUZakazanuZabavu.xaml</DependentUpon>
     </Compile>
@@ -209,6 +218,14 @@
     </Compile>
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
+    <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\UnosBrojaGostiju.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\UnosBudzeta.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ValidacijaVremena.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\VremenskiOpsegTrajanja.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ZakazivanjeViewModel.cs" />
     <Page Include="UI\Administrator\IzmeniKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,6 +259,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\PromenaLozinke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\SpisakZelja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\SpisakZvanica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -382,7 +411,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-
     <Resource Include="UI\Korisnici\green.jpg" />
     <Resource Include="UI\Korisnici\Zahtjevi.jpg" />
     <Resource Include="UI\Korisnici\Tabela.jpg" />
@@ -395,7 +423,6 @@
     <Resource Include="UI\Organizator\Zahtjevi.jpg" />
     <Resource Include="UI\Organizator\BackLog.jpg" />
     <Resource Include="UI\Organizator\register.jpg" />
-
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

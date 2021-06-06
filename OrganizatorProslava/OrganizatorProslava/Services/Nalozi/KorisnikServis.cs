@@ -77,5 +77,71 @@ namespace OrganizatorProslava.Services.Nalozi
 
             return poruka;
         }
+
+
+        public Models.Korisnik dobaviKorisnika(string korisnickoIme)
+        {
+            var pristupBazi = new DataAccess.Nalozi.Korisnik();
+            var korisnikIzBaze = pristupBazi.NadjiKorisnikaPoKorisnickomImenu(korisnickoIme);
+
+            if (korisnikIzBaze != null)
+            {
+                Models.Korisnik korisnik = new Models.Korisnik();
+                korisnik.Id = korisnikIzBaze.ID;
+                korisnik.Ime = korisnikIzBaze.Ime;
+                korisnik.Prezime = korisnikIzBaze.Prezime;
+                korisnik.KorisnickoIme = korisnikIzBaze.KorisnickoIme;
+                korisnik.Lozinka = korisnikIzBaze.Lozinka;
+                korisnik.Mobilni = korisnikIzBaze.Mobilni;
+                korisnik.Pol = korisnikIzBaze.Pol;
+                korisnik.Tip = korisnikIzBaze.Tip;
+                return korisnik;
+            }
+
+            return null;
+        }
+
+
+
+        public List<Models.Korisnik> dobaviSveOrganizatore()
+        {
+            var korisnikDal = new DataAccess.Nalozi.Korisnik();
+            return korisnikDal.getOrganizatore().OrderBy(o => o.KorisnickoIme).ToList()
+                .Select(s => new Models.Korisnik
+                {
+                    Id = s.ID,
+                    Ime = s.Ime,
+                    Prezime = s.Prezime,
+                    KorisnickoIme = s.KorisnickoIme,
+                    Tip = s.Tip,
+                    Lozinka = s.Lozinka
+                }).ToList();
+        }
+
+
+
+        public List<Models.Zabava> GetZahtjeveKorisnika()
+        {
+            /*
+            var korisnikDal = new DataAccess.Nalozi.Korisnik();
+            return korisnikDal.GetKorisnike().OrderBy(o => o.KorisnickoIme).ToList()
+                .Select(s => new Models.Korisnik
+                {
+                    Id = s.ID,
+                    Ime = s.Ime,
+                    Prezime = s.Prezime,
+                    KorisnickoIme = s.KorisnickoIme,
+                    Tip = s.Tip,
+                    Lozinka = s.Lozinka
+                }).ToList();
+            */
+
+
+            return null;
+        }
+
     }
+
+
+    
 }
