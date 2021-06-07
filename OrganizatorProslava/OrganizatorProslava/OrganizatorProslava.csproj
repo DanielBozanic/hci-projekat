@@ -435,6 +435,21 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Htm\ImeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\KorisnickoImeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\LozinkaRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\PonoviLozinkuRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\PrezimeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="UI\Organizator\Restoran1.jpg" />
     <Resource Include="UI\Organizator\Muzika.jpg" />
     <Resource Include="UI\Organizator\Ruza.jpg" />
