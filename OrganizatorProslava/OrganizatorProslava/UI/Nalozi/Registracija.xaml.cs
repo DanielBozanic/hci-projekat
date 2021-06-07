@@ -1,10 +1,11 @@
-﻿using OrganizatorProslava.Models;
+﻿using OrganizatorProslava.Help;
+using OrganizatorProslava.Models;
 using OrganizatorProslava.Services;
 using OrganizatorProslava.Services.Nalozi;
 using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
-
+using System.Windows.Input;
 
 namespace OrganizatorProslava.UI.Nalozi
 {
@@ -24,6 +25,16 @@ namespace OrganizatorProslava.UI.Nalozi
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             txtIme.Focus();
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp(str, this);
+            }
         }
 
         private void btnRegistracija_Click(object sender, RoutedEventArgs e)

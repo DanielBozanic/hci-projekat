@@ -154,6 +154,8 @@
     <Compile Include="DataModel\Zabava.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Help\HelpProvider.cs" />
+    <Compile Include="Help\JavaScriptControlHelper.cs" />
     <Compile Include="Models\LogovaniKorisnik.cs" />
     <Compile Include="Models\Proizvod.cs" />
     <Compile Include="Models\Saradnik.cs" />
@@ -177,6 +179,9 @@
     </Compile>
     <Compile Include="UI\Administrator\Saradnici.xaml.cs">
       <DependentUpon>Saradnici.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Help\HelpViewer.xaml.cs">
+      <DependentUpon>HelpViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Korisnici\AzurirajProfilKorisnika.xaml.cs">
       <DependentUpon>AzurirajProfilKorisnika.xaml</DependentUpon>
@@ -259,6 +264,10 @@
     <Page Include="UI\Administrator\Saradnici.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Help\HelpViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\AzurirajProfilKorisnika.xaml">
       <SubType>Designer</SubType>

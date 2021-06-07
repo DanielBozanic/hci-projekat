@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Nalozi"
+        xmlns:l="clr-namespace:OrganizatorProslava.Help"
         mc:Ignorable="d"
         Title="Registracija" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
         ContentRendered="Window_ContentRendered"
         Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>
@@ -16,15 +20,15 @@
     </Window.Background>
     <Grid HorizontalAlignment="Left" Margin="10,10,0,0" Width="715" Height="386" VerticalAlignment="Top">
         <Label x:Name="lblIme" Content="IME:" Height="43" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="10,16,459,0"/>
-        <TextBox x:Name="txtIme" TabIndex="0" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,16,22,0"/>
+        <TextBox x:Name="txtIme" TabIndex="0" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,16,22,0" l:HelpProvider.HelpKey="ImeRegistracija"/>
         <Label x:Name="lblPrezime" Content="PREZIME:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,459,277"/>
-        <TextBox x:Name="txtPrezime" TabIndex="1" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,67,22,0"/>
+        <TextBox x:Name="txtPrezime" TabIndex="1" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,67,22,0" l:HelpProvider.HelpKey="PrezimeRegistracija"/>
         <Label x:Name="lblKorisnickoIme" Content="KORISNICKO IME:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,459,226"/>
-        <TextBox x:Name="txtKorisnickoIme" TabIndex="2" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,118,22,0"/>
+        <TextBox x:Name="txtKorisnickoIme" TabIndex="2" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="261,118,22,0" l:HelpProvider.HelpKey="KorisnickoImeRegistracija"/>
         <Label x:Name="lblLozinka" Content="LOZINKA:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,459,175"/>
-        <PasswordBox x:Name="txtLozinka" TabIndex="3" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,169,22,0"/>
+        <PasswordBox x:Name="txtLozinka" TabIndex="3" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,169,22,0" l:HelpProvider.HelpKey="LozinkaRegistracija"/>
         <Label x:Name="lblPonoviteLozinku" Content="PONOVITE LOZINKU:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,454,124"/>
-        <PasswordBox x:Name="txtPonoviteLozinku" TabIndex="4" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,220,22,0"/>
+        <PasswordBox x:Name="txtPonoviteLozinku" TabIndex="4" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,220,22,0" l:HelpProvider.HelpKey="PonoviLozinkuRegistracija"/>
 
         <Button x:Name="btnRegistracija" TabIndex="5" Content="Registruj se" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="171,310,0,0" Click="btnRegistracija_Click">
             <Button.Effect>
