@@ -135,6 +135,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\Klijenti\Sala.cs" />
     <Compile Include="DataAccess\Saradnici\Saradnik.cs" />
     <Compile Include="DataAccess\Saradnici\TipSaradnika.cs" />
     <Compile Include="DataAccess\Zabava\Proizvod.cs" />
@@ -143,6 +144,15 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Sala.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SalaDetalji.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SalaSto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\Saradnik.cs">
@@ -159,8 +169,10 @@
     <Compile Include="Models\LogovaniKorisnik.cs" />
     <Compile Include="Models\Proizvod.cs" />
     <Compile Include="Models\Saradnik.cs" />
+    <Compile Include="Models\Sto.cs" />
     <Compile Include="Models\TipSaradnika.cs" />
     <Compile Include="Models\Zabava.cs" />
+    <Compile Include="Services\Klijenti\SalaServis.cs" />
     <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
     <Compile Include="Services\Saradnici\SaradnikServis.cs" />
@@ -194,6 +206,9 @@
     </Compile>
     <Compile Include="UI\Korisnici\PromenaLozinke.xaml.cs">
       <DependentUpon>PromenaLozinke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Sala.xaml.cs">
+      <DependentUpon>Sala.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Korisnici\SpisakZelja.xaml.cs">
       <DependentUpon>SpisakZelja.xaml</DependentUpon>
@@ -282,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\PromenaLozinke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Sala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -421,10 +440,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Content\restoran.png" />
+    <Resource Include="Content\sto.png" />
     <Content Include="DataModel\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DBModel.Context.cs</LastGenOutput>

@@ -47,6 +47,8 @@ namespace OrganizatorProslava.Services
         public const string TipSaradnikaObavezan = "Tip Saradnika je obavezno polje.";
         public const string EmailPogresanFormat = "Email je pogresnog formata.";
         public const string EmailMoraBitiJedinstven = "Email mora biti jedinstven u sistemu.";
+        public const string ZauzetaPozicija = "Ne mozete postaviti sto na ovu poziciju u sali zato što je ona vec zauzeta.";
+        public const string StoImaPozicijuNaMapi = "Ne možete postaviti sto {0} - '{1}' na mapu sale jer se on vec nalazi na njoj.";
     }
 
     public class StatusZabave

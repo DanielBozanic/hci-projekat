@@ -59,5 +59,12 @@ namespace OrganizatorProslava
                 servis.DodajKorisnika(admin);
             }
         }
+
+        private void btnSala_Click(object sender, RoutedEventArgs e)
+        {
+            var sala = new UI.Korisnici.Sala(13);
+            sala.Owner = this;
+            sala.ShowDialog();
+        }
     }
 }

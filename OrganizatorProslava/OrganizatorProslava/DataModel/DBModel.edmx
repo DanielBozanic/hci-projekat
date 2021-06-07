@@ -31,6 +31,40 @@
           <Property Name="LinkSlike" Type="varchar" MaxLength="100" />
           <Property Name="SmeDaMenja" Type="bit" />
         </EntityType>
+        <EntityType Name="Sala">
+          <Key>
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="ProizvodID" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kapacitet" Type="int" />
+          <Property Name="BrojStolova" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SalaDetalji">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SalaID" />
+            <PropertyRef Name="Opis" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalaID" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="X" Type="int" />
+          <Property Name="Y" Type="int" />
+        </EntityType>
+        <EntityType Name="SalaSto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProizvodID" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrojMesta" Type="int" />
+          <Property Name="X" Type="int" />
+          <Property Name="Y" Type="int" />
+        </EntityType>
         <EntityType Name="Saradnik">
           <Key>
             <PropertyRef Name="ID" />
@@ -139,10 +173,21 @@
         <EntityContainer Name="OrganizatorProslavaModelStoreContainer">
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proizvod" EntityType="Self.Proizvod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sala" EntityType="Self.Sala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaSto" EntityType="Self.SalaSto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Saradnik" EntityType="Self.Saradnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipSaradnika" EntityType="Self.TipSaradnika" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zabava" EntityType="Self.Zabava" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zabava_Proizvod" EntityType="Self.Zabava_Proizvod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaDetalji" EntityType="Self.SalaDetalji" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SalaDetalji].[ID] AS [ID], 
+    [SalaDetalji].[SalaID] AS [SalaID], 
+    [SalaDetalji].[Opis] AS [Opis], 
+    [SalaDetalji].[X] AS [X], 
+    [SalaDetalji].[Y] AS [Y]
+    FROM [dbo].[SalaDetalji] AS [SalaDetalji]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Proizvod_Saradnik" Association="Self.FK_Proizvod_Saradnik">
             <End Role="Saradnik" EntitySet="Saradnik" />
             <End Role="Proizvod" EntitySet="Proizvod" />
@@ -190,6 +235,9 @@
             <End Role="Proizvod" EntitySet="Proizvods" />
             <End Role="Zabava" EntitySet="Zabavas" />
           </AssociationSet>
+          <EntitySet Name="Salas" EntityType="OrganizatorProslavaModel.Sala" />
+          <EntitySet Name="SalaStoes" EntityType="OrganizatorProslavaModel.SalaSto" />
+          <EntitySet Name="SalaDetaljis" EntityType="OrganizatorProslavaModel.SalaDetalji" />
         </EntityContainer>
         <EntityType Name="Korisnik">
           <Key>
@@ -302,6 +350,38 @@
           <End Type="OrganizatorProslavaModel.Proizvod" Role="Proizvod" Multiplicity="*" />
           <End Type="OrganizatorProslavaModel.Zabava" Role="Zabava" Multiplicity="*" />
         </Association>
+        <EntityType Name="Sala">
+          <Key>
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kapacitet" Type="Int32" />
+          <Property Name="BrojStolova" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SalaSto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrojMesta" Type="Int32" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SalaDetalji">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SalaID" />
+            <PropertyRef Name="Opis" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -384,6 +464,39 @@
               <ScalarProperty Name="ID" ColumnName="ProizvodID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Salas">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.Sala">
+              <MappingFragment StoreEntitySet="Sala">
+                <ScalarProperty Name="BrojStolova" ColumnName="BrojStolova" />
+                <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaStoes">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.SalaSto">
+              <MappingFragment StoreEntitySet="SalaSto">
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="BrojMesta" ColumnName="BrojMesta" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaDetaljis">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.SalaDetalji">
+              <MappingFragment StoreEntitySet="SalaDetalji">
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="SalaID" ColumnName="SalaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
