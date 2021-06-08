@@ -3,7 +3,7 @@ using OrganizatorProslava.Services;
 
 namespace OrganizatorProslava.DataAccess.Zabava
 {
-    public class ZabavaZabava : DataModel.Zabava
+    public class ZabavaZabava
     {
         private readonly DataModel.OrganizatorProslavaEntities bazaPodataka;
 

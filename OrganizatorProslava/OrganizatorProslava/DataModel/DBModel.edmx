@@ -120,6 +120,14 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
           <Property Name="X" Type="int" Nullable="false" />
           <Property Name="Y" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ZabavaSalaStoGost">
+          <Key>
+            <PropertyRef Name="ZabavaSalaStoID" />
+            <PropertyRef Name="ImeGosta" />
+          </Key>
+          <Property Name="ZabavaSalaStoID" Type="int" Nullable="false" />
+          <Property Name="ImeGosta" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Proizvod_Saradnik">
           <End Role="Saradnik" Type="Self.Saradnik" Multiplicity="1" />
           <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
@@ -190,6 +198,7 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
           <EntitySet Name="Zabava" EntityType="Self.Zabava" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zabava_Proizvod" EntityType="Self.Zabava_Proizvod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZabavaSalaSto" EntityType="Self.ZabavaSalaSto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZabavaSalaStoGost" EntityType="Self.ZabavaSalaStoGost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalaDetalji" EntityType="Self.SalaDetalji" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [SalaDetalji].[ID] AS [ID], 
@@ -250,6 +259,7 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
           <EntitySet Name="SalaStoes" EntityType="OrganizatorProslavaModel.SalaSto" />
           <EntitySet Name="SalaDetaljis" EntityType="OrganizatorProslavaModel.SalaDetalji" />
           <EntitySet Name="ZabavaSalaStoes" EntityType="OrganizatorProslavaModel.ZabavaSalaSto" />
+          <EntitySet Name="ZabavaSalaStoGosts" EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" />
         </EntityContainer>
         <EntityType Name="Korisnik">
           <Key>
@@ -404,6 +414,14 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
           <Property Name="X" Type="Int32" Nullable="false" />
           <Property Name="Y" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="ZabavaSalaStoGost">
+          <Key>
+            <PropertyRef Name="ZabavaSalaStoID" />
+            <PropertyRef Name="ImeGosta" />
+          </Key>
+          <Property Name="ZabavaSalaStoID" Type="Int32" Nullable="false" />
+          <Property Name="ImeGosta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -527,6 +545,14 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
                 <ScalarProperty Name="SalaStoID" ColumnName="SalaStoID" />
                 <ScalarProperty Name="ZabavaID" ColumnName="ZabavaID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZabavaSalaStoGosts">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.ZabavaSalaStoGost">
+              <MappingFragment StoreEntitySet="ZabavaSalaStoGost">
+                <ScalarProperty Name="ImeGosta" ColumnName="ImeGosta" />
+                <ScalarProperty Name="ZabavaSalaStoID" ColumnName="ZabavaSalaStoID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
