@@ -19,19 +19,23 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private const int VELICINA_IKONE = 48;
         private const int RAZMAK = VELICINA_IKONE / 2;
+        private readonly int _zabavaId;
+        private readonly int _proizvodId;
 
         public ObservableCollection<Sto> StoloviSale { get; set; }
         public ObservableCollection<Sto> StoloviNaMapi { get; set; }
 
-        public Sala(int proizvodId)
+        public Sala(int zabavaId, int proizvodId)
         {
             InitializeComponent();
 
+            _zabavaId = zabavaId;
+            _proizvodId = proizvodId;
             StoloviSale = new ObservableCollection<Sto>();
             StoloviNaMapi = new ObservableCollection<Sto>();
 
             var salaServis = new SalaServis();
-            var stolovi = salaServis.GetStoloviSale(proizvodId);
+            var stolovi = salaServis.GetStoloviSaleZaZabavu(zabavaId, proizvodId);
 
             ListaStolova.ItemsSource = stolovi;
 
@@ -77,6 +81,10 @@ namespace OrganizatorProslava.UI.Korisnici
         private void MapaSale_Drop(object sender, DragEventArgs e)
         {
             var pozicija = e.GetPosition(MapaSale);
+            var pozicijaMape = MapaSale.TransformToAncestor(this).Transform(new Point(0, 0));
+            if (pozicija.X > pozicijaMape.X + MapaSale.ActualWidth - VELICINA_IKONE ||
+                pozicija.Y > pozicijaMape.Y + MapaSale.ActualHeight - VELICINA_IKONE)
+                return;
 
             Sto res = PronadjiStoNaMapiSale((int)pozicija.X, (int)pozicija.Y);
             if (res != null)
@@ -128,7 +136,7 @@ namespace OrganizatorProslava.UI.Korisnici
                 sto.YPos = (int)pozicija.Y;
 
                 var salaServis = new SalaServis();
-                // TODO: Cuvanje
+                salaServis.SacuvajStoZabave(_zabavaId, _proizvodId, sto);
 
                 DodajStoNaMapuSale(sto);
             }
@@ -188,19 +196,60 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void DodajStoNaMapuSale(Sto sto)
         {
+            var img = new BitmapImage(new Uri(@"/Content/sto.png", UriKind.Relative));
+
             Image ikona = new Image
             {
                 Width = VELICINA_IKONE,
                 Height = VELICINA_IKONE,
                 Uid = sto.Id.ToString(),
-                Source = new BitmapImage(new Uri(@"/Content/sto.png", UriKind.Relative))
+                Source = img //WriteTextToImage(img, new FormattedText(sto.Id.ToString(), CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight, new Typeface("Calibri"), 11, Brushes.Black), new Point(0, 0)).
             };
 
-            ikona.ToolTip = "Id stola: " + sto.Id.ToString() + "\nNaziv: " + sto.Naziv;
+            ikona.ToolTip = $"Naziv: {sto.Naziv}";
 
             MapaSale.Children.Add(ikona);
             Canvas.SetLeft(ikona, sto.XPos.Value);
             Canvas.SetTop(ikona, sto.YPos.Value);
         }
+
+        private void btnOcisti_Click(object sender, RoutedEventArgs e)
+        {
+            var potvrdi = new Poruka(Poruke.BrisiMapuSale, Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
+            potvrdi.Owner = this;
+            potvrdi.ShowDialog();
+            if (potvrdi.Rezultat == MessageBoxResult.Yes)
+            {
+                foreach (var sto in StoloviSale)
+                {
+                    sto.XPos = null;
+                    sto.YPos = null;
+                }
+
+                StoloviNaMapi.Clear();
+
+                MapaSale.Children.Clear();
+
+                var salaServis = new SalaServis();
+                salaServis.UkloniStoloveZabave(_zabavaId, _proizvodId);
+            }
+        }
+
+        //private RenderTargetBitmap WriteTextToImage(BitmapImage img, FormattedText text, Point position)
+        //{
+        //    DrawingVisual visual = new DrawingVisual();
+
+        //    using (DrawingContext dc = visual.RenderOpen())
+        //    {
+        //        dc.DrawImage(img, new Rect(0, 0, img.PixelWidth, img.PixelHeight));
+        //        dc.DrawText(text, position);
+        //    }
+
+        //    RenderTargetBitmap target = new RenderTargetBitmap(img.PixelWidth, img.PixelHeight,
+        //        img.DpiX, img.DpiY, PixelFormats.Default);
+        //    target.Render(visual);
+
+        //    return target;
+        //}
     }
 }

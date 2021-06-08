@@ -77,14 +77,11 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void uvidUZakazanuZabavu(object sender, RoutedEventArgs e)
         {
-            this.Close();
             var uvidUZakazanuZabavu = new UvidUZakazanuZabavu();
             uvidUZakazanuZabavu.Owner = this;
             uvidUZakazanuZabavu.Show();
+            this.Hide();
         }
-
-
-
 
 
         private void IstorijaZabava(object sender, RoutedEventArgs e)

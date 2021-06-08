@@ -12,7 +12,7 @@
             <GradientStop Color="#FFF1D3D3" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-    <StackPanel HorizontalAlignment="Right" Height="346" Margin="0,10,212,0" VerticalAlignment="Top" Width="322">
+    <StackPanel HorizontalAlignment="Right" Height="291" Margin="0,65,212,0" VerticalAlignment="Top" Width="322">
         <Button x:Name="btnPrijava" Content="P r i j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnPrijava_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
@@ -28,10 +28,10 @@
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FFCF8400" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnSala" Content="Sala" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="46" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnSala_Click" Margin="0,20,0,0">
+        <!--<Button x:Name="btnSala" Content="Sala" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="46" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnSala_Click" Margin="0,20,0,0">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
             </Button.Effect>
-        </Button>
+        </Button>-->
     </StackPanel>
 </Window>

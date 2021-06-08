@@ -1,28 +1,55 @@
 ﻿using OrganizatorProslava.DataAccess.Klijenti;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrganizatorProslava.Services.Klijenti
 {
     public class SalaServis
     {
-        public List<Models.Sto> GetStoloviSale(int proizvodId)
+        public List<Models.Sto> GetStoloviSaleZaZabavu(int zabavaId, int proizvodId)
         {
-            var salaDal = new Sala();
-            return salaDal.GetStoloveZaSalu(proizvodId).ToList()
-                .OrderBy(o => o.ID).ThenBy(o => o.Opis)
+            var zabavaStoDal = new ZabavaSto();
+            return zabavaStoDal.GetStoloveSaleZaZabavu(zabavaId, proizvodId).ToList()
+                .OrderBy(o => o.StoSale.ID).ThenBy(o => o.StoSale.Opis)
                 .Select(s => new Models.Sto
                 {
-                    Id = s.ID,
-                    ProizvodId = s.ProizvodID,
-                    BrojMesta = s.BrojMesta,
-                    Opis = s.Opis,
-                    XPos = s.X,
-                    YPos = s.Y
+                    Id = s.StoSale.ID,
+                    BrojMesta = s.StoSale.BrojMesta,
+                    Opis = s.StoSale.Opis,
+                    XPos = s.StoZabave?.X,
+                    YPos = s.StoZabave?.Y
                 }).ToList();
+        }
+
+        public void SacuvajStoZabave(int zabavaId, int proizvodId, Models.Sto sto)
+        {
+            var zabavaStoDal = new ZabavaSto();
+            var stoZabave = zabavaStoDal.PronadjiStoZabave(zabavaId, sto.Id);
+            if (stoZabave == null)
+            {
+                stoZabave = new DataModel.ZabavaSalaSto
+                {
+                    ZabavaID = zabavaId,
+                    SalaStoID = sto.Id,
+                    X = sto.XPos.Value,
+                    Y = sto.YPos.Value
+                };
+
+                zabavaStoDal.AddStoZabave(stoZabave);
+            }
+            else
+            {
+                stoZabave.X = sto.XPos.Value;
+                stoZabave.Y = sto.YPos.Value;
+
+                zabavaStoDal.SaveChanges();
+            }
+        }
+
+        public void UkloniStoloveZabave(int zabavaId, int proizvodId)
+        {
+            var zabavaStoDal = new ZabavaSto();
+            zabavaStoDal.UkloniStoloveZabave(zabavaId, proizvodId);
         }
     }
 }

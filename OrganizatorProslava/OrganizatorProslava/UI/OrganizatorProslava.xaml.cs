@@ -62,7 +62,7 @@ namespace OrganizatorProslava
 
         private void btnSala_Click(object sender, RoutedEventArgs e)
         {
-            var sala = new UI.Korisnici.Sala(13);
+            var sala = new UI.Korisnici.Sala(5, 14);
             sala.Owner = this;
             sala.ShowDialog();
         }

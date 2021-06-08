@@ -33,5 +33,6 @@ namespace OrganizatorProslava.DataModel
         public virtual DbSet<Sala> Salas { get; set; }
         public virtual DbSet<SalaSto> SalaStoes { get; set; }
         public virtual DbSet<SalaDetalji> SalaDetaljis { get; set; }
+        public virtual DbSet<ZabavaSalaSto> ZabavaSalaStoes { get; set; }
     }
 }

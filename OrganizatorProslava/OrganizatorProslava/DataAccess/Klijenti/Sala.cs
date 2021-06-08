@@ -1,24 +1,25 @@
 ﻿using OrganizatorProslava.DataModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrganizatorProslava.DataAccess.Klijenti
 {
     public class Sala
     {
-        private readonly DataModel.OrganizatorProslavaEntities _db;
+        private readonly OrganizatorProslavaEntities _db;
 
         public Sala()
         {
             _db = new OrganizatorProslavaEntities();
         }
-
-        public IQueryable<SalaSto> GetStoloveZaSalu(int proizvodId)
+        public void AddStoZabave(SalaSto sto)
         {
-            return _db.SalaStoes.Where(q => q.ProizvodID == proizvodId);
+            _db.SalaStoes.Add(sto);
+
+            SaveChanges();
+        }
+
+        public void SaveChanges()
+        {
+            _db.SaveChanges();
         }
     }
 }

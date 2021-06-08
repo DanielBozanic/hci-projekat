@@ -18,7 +18,6 @@ namespace OrganizatorProslava.Models
         private bool _naMapi;
 
         public int Id { get; set;  }
-        public int ProizvodId { get; set; }
         public string Opis 
         {
             get { return _opis;  }

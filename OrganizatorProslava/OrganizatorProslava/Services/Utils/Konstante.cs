@@ -49,6 +49,7 @@ namespace OrganizatorProslava.Services
         public const string EmailMoraBitiJedinstven = "Email mora biti jedinstven u sistemu.";
         public const string ZauzetaPozicija = "Ne mozete postaviti sto na ovu poziciju u sali zato što je ona vec zauzeta.";
         public const string StoImaPozicijuNaMapi = "Ne možete postaviti sto {0} - '{1}' na mapu sale jer se on vec nalazi na njoj.";
+        public const string BrisiMapuSale = "Da li zelite da izbrisete raspored stolova u sali?";
     }
 
     public class StatusZabave
