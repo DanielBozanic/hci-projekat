@@ -15,7 +15,7 @@ namespace OrganizatorProslava.UI.Korisnici
         {
             string unesenBroj = (string)value;
 
-            Regex r = new Regex("[0-9]+"); //provjeri samo da li mogu jednocifreni
+            Regex r = new Regex("[0-9]*"); //provjeri samo da li mogu jednocifreni
 
             if (!r.IsMatch(unesenBroj))
             {

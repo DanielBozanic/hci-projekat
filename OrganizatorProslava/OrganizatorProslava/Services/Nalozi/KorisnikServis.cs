@@ -49,32 +49,47 @@ namespace OrganizatorProslava.Services.Nalozi
         }
 
 
-        public string AzurirajPodatke(string korisnickoIme, string ime, string prezime)
+        public bool AzurirajPodatke(string korisnickoIme, string ime, string prezime)
         {
-            string poruka = "";
 
             var pristupBazi = new DataAccess.Nalozi.Korisnik();
             var korisnik = pristupBazi.NadjiKorisnikaPoKorisnickomImenu(korisnickoIme);
 
-            if(korisnik != null)
+            if (korisnik != null)
             {
                 korisnik.Ime = ime;
                 korisnik.Prezime = prezime;
                 pristupBazi.SaveChanges();
-            }
-            else
-            {
-                poruka = "Ne postoji korisnik sa tim korisničkim imenom";
+                return true;
             }
 
-            return poruka ;
+            return false;
         }
 
 
-
-        public string PromjenaLozinke(string korisnickoIme, string novaLozinka)
+        public bool KorisnikPostojiUBazi(string korisnickoIme)
         {
-            string poruka = "";
+            var pristupBazi = new DataAccess.Nalozi.Korisnik();
+            var korisnik = pristupBazi.NadjiKorisnikaPoKorisnickomImenu(korisnickoIme);
+
+            if (korisnik != null)
+            {
+                if (korisnik.Obrisan == false)
+                {
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public bool PromjenaLozinke(string korisnickoIme, string novaLozinka)
+        {
+
             var pristupBazi = new DataAccess.Nalozi.Korisnik();
             var korisnik = pristupBazi.NadjiKorisnikaPoKorisnickomImenu(korisnickoIme);
 
@@ -82,14 +97,13 @@ namespace OrganizatorProslava.Services.Nalozi
             {
                 korisnik.Lozinka = novaLozinka;
                 pristupBazi.SaveChanges();
-            }
-            else
-            {
-                poruka = "Ne postoji korisnik sa tim korisničkim imenom";
+                return true;
             }
 
-            return poruka;
+            return false;
+
         }
+
 
 
         public Models.Korisnik dobaviKorisnika(string korisnickoIme)
@@ -133,25 +147,7 @@ namespace OrganizatorProslava.Services.Nalozi
 
 
 
-        public List<Models.Zabava> GetZahtjeveKorisnika()
-        {
-            /*
-            var korisnikDal = new DataAccess.Nalozi.Korisnik();
-            return korisnikDal.GetKorisnike().OrderBy(o => o.KorisnickoIme).ToList()
-                .Select(s => new Models.Korisnik
-                {
-                    Id = s.ID,
-                    Ime = s.Ime,
-                    Prezime = s.Prezime,
-                    KorisnickoIme = s.KorisnickoIme,
-                    Tip = s.Tip,
-                    Lozinka = s.Lozinka
-                }).ToList();
-            */
-
-
-            return null;
-        }
+       
 
     }
 

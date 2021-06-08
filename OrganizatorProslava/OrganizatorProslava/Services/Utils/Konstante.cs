@@ -47,6 +47,20 @@ namespace OrganizatorProslava.Services
         public const string TipSaradnikaObavezan = "Tip Saradnika je obavezno polje.";
         public const string EmailPogresanFormat = "Email je pogresnog formata.";
         public const string EmailMoraBitiJedinstven = "Email mora biti jedinstven u sistemu.";
+        public const string KorisnickoImeNePostoji = "Korisnik ne postoji pod unesenim korisničkim imenom";
+        public const string NestoNeValja = "Nešto je krenulo po zlu. Molim Vas pokušajte ponovo.";
+        public const string LozinkaPromjenjena = "Lozinka je promenjena. Želimo Vam prijatan dan. :)";
+        public const string ObavezanJeUnosSvihPodataka = "Obavezan unos svih podataka";
+        public const string pogresanFormatVremena = "HH:mm je format u kojem unosite vrijeme";
+        public const string pogresanFormatTrajanja = "Trajanje unosite kao broj sati trajanja vaše zabave. Zabava može trajati" +
+            "najviše 72 sata (Svakog gosta 3 dana dosta ;)).";
+        public const string AzuriraniPodaci = "Ažurirani su Vaši podaci. Prijatan dan želimo. :) ";
+        public const string SacuvaniPodaci = "Podaci su sasačuvani. Ugodan ostatak dana :)";
+        public const string formatBudzeta = "Budžet je brojčana vrijednost veća od 2000. ";
+        public const string formatGostiju = "Potrudite se da BROJ zvanica bude što veći. Znate kako, što više, to bolje. ;)";
+        public const string daLiSteSigurni = "Da li ste sigurni da je sve zakazano onako kako želite? :)";
+        public const string zakazanaZabava = "Zahtjev za zabavu je poslat organizatoru/organizatorima";
+        public const string unesiteSveZvanice = "Molimo Vas da popunite spisak zvanica klikom na dugme SPISAK ZVANICA.";
     }
 
     public class StatusZabave

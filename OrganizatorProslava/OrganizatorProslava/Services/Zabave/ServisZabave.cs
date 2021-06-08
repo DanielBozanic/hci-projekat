@@ -49,6 +49,7 @@ namespace OrganizatorProslava.Services.Zabave
             var korisnicii = new DataAccess.Nalozi.Korisnik();
             return zabavice.DodajZabavu(new DataModel.Zabava
             {
+                ID = zabava.Id,
                 Tip = zabava.Tip,
                 DatumProslave = zabava.DatumProslave,
                 Trajanje = zabava.Trajanje,
@@ -94,6 +95,83 @@ namespace OrganizatorProslava.Services.Zabave
             {
                 return $"Zabava nije pronadjena";
             }
+        }
+
+
+
+        //Zahtjevi za korisnika
+        public List<Models.Zabava> GetKorisnickeZahtjeveNaCekanju(int idKorisnika)
+        {
+            var zabavaa = new DataAccess.Zabava.ZabavaZabava();
+            var korServis = new Nalozi.KorisnikServis();
+            return zabavaa.GetKorisnickeZahtjeveNaCekanju(idKorisnika).ToList()
+                .Select(z => new Models.Zabava
+                {
+                    Id = z.ID,
+                    Tip = z.Tip,
+                    DatumProslave = z.DatumProslave,
+                    Trajanje = z.Trajanje,
+                    Grad = z.Grad,
+                    Tema = z.Tema,
+                    BrojGostiju = z.BrojGostiju,
+                    TipBudzeta = z.VrstaBudzeta,
+                    Budzet = z.Budzet,
+                    SpisakGostiju = z.SpisakGostiju,
+                    Status = z.Status,
+                    DodatneZelje = z.DodatneZelje,
+                    Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
+                    Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault()
+                }).ToList();
+        }
+
+
+        public List<Models.Zabava> GetOdobreneKorisnickeZahtjeve(int idKorisnika)
+        {
+            var zabavaa = new DataAccess.Zabava.ZabavaZabava();
+            var korServis = new Nalozi.KorisnikServis();
+            return zabavaa.GetOdobreneKorisnickeZahtjeve(idKorisnika).ToList()
+                .Select(z => new Models.Zabava
+                {
+                    Id = z.ID,
+                    Tip = z.Tip,
+                    DatumProslave = z.DatumProslave,
+                    Trajanje = z.Trajanje,
+                    Grad = z.Grad,
+                    Tema = z.Tema,
+                    BrojGostiju = z.BrojGostiju,
+                    TipBudzeta = z.VrstaBudzeta,
+                    Budzet = z.Budzet,
+                    SpisakGostiju = z.SpisakGostiju,
+                    Status = z.Status,
+                    DodatneZelje = z.DodatneZelje,
+                    Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
+                    Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault()
+                }).ToList();
+        }
+
+
+        public List<Models.Zabava> GetOdbijeneKorisnickeZahtjeve(int idKorisnika)
+        {
+            var zabavaa = new DataAccess.Zabava.ZabavaZabava();
+            var korServis = new Nalozi.KorisnikServis();
+            return zabavaa.GetOdbijeneKorisnickeZahtjeve(idKorisnika).ToList()
+                .Select(z => new Models.Zabava
+                {
+                    Id = z.ID,
+                    Tip = z.Tip,
+                    DatumProslave = z.DatumProslave,
+                    Trajanje = z.Trajanje,
+                    Grad = z.Grad,
+                    Tema = z.Tema,
+                    BrojGostiju = z.BrojGostiju,
+                    TipBudzeta = z.VrstaBudzeta,
+                    Budzet = z.Budzet,
+                    SpisakGostiju = z.SpisakGostiju,
+                    Status = z.Status,
+                    DodatneZelje = z.DodatneZelje,
+                    Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
+                    Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault()
+                }).ToList();
         }
     }
 }
