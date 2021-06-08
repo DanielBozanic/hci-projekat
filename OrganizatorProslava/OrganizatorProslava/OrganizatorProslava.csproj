@@ -185,6 +185,15 @@
     <Compile Include="UI\Korisnici\Istorija.xaml.cs">
       <DependentUpon>Istorija.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Korisnici\PrikaziSpisakZelja.xaml.cs">
+      <DependentUpon>PrikaziSpisakZelja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziSpisakZvanica.xaml.cs">
+      <DependentUpon>PrikaziSpisakZvanica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziZahtjev.xaml.cs">
+      <DependentUpon>PrikaziZahtjev.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Korisnici\ProfilKorisnika.xaml.cs">
       <DependentUpon>ProfilKorisnika.xaml</DependentUpon>
     </Compile>
@@ -267,6 +276,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\Istorija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziSpisakZelja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziSpisakZvanica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziZahtjev.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

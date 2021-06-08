@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
-        Height="430" Width="750">
+        Height="430" Width="750"
+        Closed="Window_Closed" FontSize="11">
     <Window.Background>
         <ImageBrush ImageSource="Zahtjevi.jpg"/>
     </Window.Background>
@@ -17,25 +18,28 @@
             CanUserDeleteRows="False"
             CanUserResizeColumns="True"
             CanUserSortColumns="True"
-		    ItemsSource="{Binding TabelarniPrikazZahtjeva}"
-		    MinRowHeight="25"
-            Background="White" RowBackground="Tomato" AlternatingRowBackground="White">
+		    ItemsSource="{Binding Zahtevi}"
+		    MinRowHeight="25" RowBackground="Tomato" AlternatingRowBackground="White" FontSize="16" Background="White" MouseDoubleClick="Row_MouseDoubleClick">
+            
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
+
                 <DataGridTextColumn Width="200"
 				                    Binding="{Binding Tip}"
                                     IsReadOnly="True"
-				                    Header="Tip zabave" />
+				                    Header="TIP ZABAVE"/>
+
 
                 <DataGridTextColumn Width="200"
-				                    Binding="{Binding Ime}"
+				                    Binding="{Binding DatumProslave}"
                                     IsReadOnly="True"
-				                    Header="DatumProslave" />
+				                    Header="DATUM PROSLAVE" FontWeight="Bold" FontSize="14" />
             </DataGrid.Columns>
 
 
         </DataGrid>
+        <Button x:Name="button" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="565,350,0,0" Height="30" Click="NazadKlik" FontSize="16" FontWeight="Bold" Background="#FF7E291E"/>
 
     </Grid>
 </Window>

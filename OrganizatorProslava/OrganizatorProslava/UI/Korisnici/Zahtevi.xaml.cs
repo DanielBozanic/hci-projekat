@@ -24,9 +24,45 @@ namespace OrganizatorProslava.UI.Korisnici
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        
+        private void ZahtjeviNaCekanjuKlik(object sender, RoutedEventArgs e)
         {
+            TabelarniPrikazZahtjeva tabela = new TabelarniPrikazZahtjeva(1);
+            tabela.Owner = this;
+            tabela.Show();
+            this.Hide();
+            
+        }
 
+        private void OdobreniZahtjeviKlik(object sender, RoutedEventArgs e)
+        {
+            TabelarniPrikazZahtjeva tabela = new TabelarniPrikazZahtjeva(2);
+            tabela.Owner = this;
+            tabela.Show();
+            this.Hide();
+
+        }
+
+        private void OdbijeniZahtjeviKlik(object sender, RoutedEventArgs e)
+        {
+            TabelarniPrikazZahtjeva tabela = new TabelarniPrikazZahtjeva(3);
+            tabela.Owner = this;
+            tabela.Show();
+            this.Hide();
+
+        }
+
+        private void NazadKlik(object sender, RoutedEventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
+        }
+
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
         }
     }
 }
