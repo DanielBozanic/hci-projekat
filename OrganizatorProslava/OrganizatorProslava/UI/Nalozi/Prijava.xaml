@@ -7,13 +7,18 @@
         mc:Ignorable="d"
         Title="Prijava" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
         ContentRendered="Window_Rendered"
-        Closed="Window_Closed">
+        Closed="Window_Closed"
+        xmlns:l="clr-namespace:OrganizatorProslava.Help">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
     <Window.Background>
         <ImageBrush ImageSource="login.jpg"/>
     </Window.Background>
 
     <Grid HorizontalAlignment="Left" Height="363" Margin="10,21,0,0" VerticalAlignment="Top" Width="720">
-        <Button x:Name="btnPrijavise" Content="PRIJAVI SE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="40" FontSize="20" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"  Background="#FF8BC8BC" Foreground="Black" UseLayoutRounding="False" IsDefault="True" Margin="155,294,0,0" Click="btnPrijavise_Click">
+        <Button x:Name="btnPrijavise" Content="PRIJAVI SE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="40" FontSize="20" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"  Background="#FF8BC8BC" Foreground="Black" UseLayoutRounding="False" IsDefault="True" Margin="155,294,0,0" Click="btnPrijavise_Click"
+                l:HelpProvider.HelpKey="btnPrijaviSe">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
@@ -24,16 +29,13 @@
             </Button.Effect>
         </Button>
         <Label x:Name="lblKorisnickoIme" Content="KORISNIČKO IME" Height="43" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Margin="144,57,396,0" Width="180"/>
-        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="324,57,146,0" KeyUp="txtKorisnickoIme_KeyUp" TextChanged="txtKorisnickoIme_TextChanged" Width="250"/>
+        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="324,57,146,0" KeyUp="txtKorisnickoIme_KeyUp" TextChanged="txtKorisnickoIme_TextChanged" Width="250" l:HelpProvider.HelpKey="KorisnickoImePrijava"/>
         <Label x:Name="lblLozinka" Content="LOZINKA" Height="43" VerticalAlignment="Bottom" FontSize="20" FontWeight="Bold" Margin="144,0,396,201" Width="180"/>
-        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="322,119,146,0"/>
+        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="322,119,146,0" l:HelpProvider.HelpKey="LozinkaPrijava"/>
         <TextBlock x:Name="textBlock" PreviewMouseLeftButtonDown="ZaboravljenaLozinka" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zaboravili ste lozinku?" VerticalAlignment="Top" Margin="196,205,0,0" FontSize="30" Width="329" FontWeight="Bold" FontStyle="Italic" Foreground="Black">
             <TextBlock.Effect>
                 <DropShadowEffect BlurRadius="15" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </TextBlock.Effect>
         </TextBlock>
-
-
-
     </Grid>
 </Window>

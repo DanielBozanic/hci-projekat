@@ -102,6 +102,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -135,6 +136,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\Klijenti\Sala.cs" />
+    <Compile Include="DataAccess\Klijenti\ZabavaSto.cs" />
     <Compile Include="DataAccess\Saradnici\Saradnik.cs" />
     <Compile Include="DataAccess\Saradnici\TipSaradnika.cs" />
     <Compile Include="DataAccess\Zabava\Proizvod.cs" />
@@ -143,6 +146,15 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Sala.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SalaDetalji.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SalaSto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\Saradnik.cs">
@@ -154,11 +166,18 @@
     <Compile Include="DataModel\Zabava.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\ZabavaSalaSto.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpProvider.cs" />
+    <Compile Include="Help\JavaScriptControlHelper.cs" />
     <Compile Include="Models\LogovaniKorisnik.cs" />
     <Compile Include="Models\Proizvod.cs" />
     <Compile Include="Models\Saradnik.cs" />
+    <Compile Include="Models\Sto.cs" />
     <Compile Include="Models\TipSaradnika.cs" />
     <Compile Include="Models\Zabava.cs" />
+    <Compile Include="Services\Klijenti\SalaServis.cs" />
     <Compile Include="Models\Zahtjev.cs" />
     <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
@@ -179,6 +198,9 @@
     <Compile Include="UI\Administrator\Saradnici.xaml.cs">
       <DependentUpon>Saradnici.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Help\HelpViewer.xaml.cs">
+      <DependentUpon>HelpViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Korisnici\AzurirajProfilKorisnika.xaml.cs">
       <DependentUpon>AzurirajProfilKorisnika.xaml</DependentUpon>
     </Compile>
@@ -190,6 +212,9 @@
     </Compile>
     <Compile Include="UI\Korisnici\PromenaLozinke.xaml.cs">
       <DependentUpon>PromenaLozinke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Sala.xaml.cs">
+      <DependentUpon>Sala.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Korisnici\SpisakZelja.xaml.cs">
       <DependentUpon>SpisakZelja.xaml</DependentUpon>
@@ -262,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UI\Help\HelpViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Korisnici\AzurirajProfilKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -275,6 +304,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\PromenaLozinke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Sala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -414,10 +447,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Content\restoran.png" />
+    <Resource Include="Content\sto.png" />
     <Content Include="DataModel\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DBModel.Context.cs</LastGenOutput>
@@ -427,6 +460,66 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Htm\Pretraga.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnIzmeniKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnObrisiKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnDodajSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnIzmeniSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnObrisiSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnDodajKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnOdjava.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnOdbaciRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnPrijaviSe.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnRegistrujSe.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\ImeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\KorisnickoImePrijava.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\KorisnickoImeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\LozinkaPrijava.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\LozinkaRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\PonoviLozinkuRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\PrezimeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="UI\logo.jpg" />
     <Resource Include="UI\BackLog.jpg" />

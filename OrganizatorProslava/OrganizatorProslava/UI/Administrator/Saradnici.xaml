@@ -10,7 +10,11 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed"
         KeyDown="Window_KeyDown"
-        KeyUp="Window_KeyUp">
+        KeyUp="Window_KeyUp"
+        xmlns:l="clr-namespace:OrganizatorProslava.Help">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>
@@ -51,32 +55,32 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="10,334,0,0" Click="btnDodaj_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+D za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+D za precicu" l:HelpProvider.HelpKey="btnDodajSaradnici" TabIndex="0">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="115,334,0,0" Click="btnIzmeni_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+I za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+I za precicu" l:HelpProvider.HelpKey="btnIzmeniSaradnici" TabIndex="1">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="219,334,0,0" Click="btnObrisi_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+O za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+O za precicu" l:HelpProvider.HelpKey="btnObrisiSaradnici" TabIndex="2">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Button x:Name="btnNazad" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="34" FontSize="16" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFCD6600" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="False" Margin="616,334,0,0" Click="btnNazad_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Esc za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Esc za precicu" TabIndex="3">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Label x:Name="lblFilter" Content="Filter:" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="lblPretraga" Content="Pretraga:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtPretraga" HorizontalAlignment="Left" Height="23" Margin="92,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="620" KeyUp="txtPretraga_KeyUp"/>
+        <TextBox x:Name="txtPretraga" HorizontalAlignment="Left" Height="23" Margin="92,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="620" KeyUp="txtPretraga_KeyUp" l:HelpProvider.HelpKey="Pretraga" TabIndex="4"/>
         <ComboBox x:Name="comboFilter" HorizontalAlignment="Left" Margin="58,296,0,0" VerticalAlignment="Top" Width="257" SelectionChanged="comboFilter_SelectionChanged"/>
     </Grid>
 </Window>

@@ -9,12 +9,8 @@
     <Window.Background>
         <ImageBrush ImageSource="BackLog.jpg"/>
     </Window.Background>
-
-
     <StackPanel HorizontalAlignment="Right" Height="400" Margin="0,0,212,0" VerticalAlignment="Top" Width="322">
         <Image x:Name="image" Height="150" Margin="0,20,0,0"  Width="200" Source="logo.jpg"/>
-
-
         <Button x:Name="btnPrijava" Content="P r i j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Height="45" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF5C7AFF" Background="#FF5C7AFF" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnPrijava_Click" Margin="0,30,0,0">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
@@ -30,6 +26,10 @@
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FFCF8400" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-
+        <!--<Button x:Name="btnSala" Content="Sala" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="46" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnSala_Click" Margin="0,20,0,0">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>-->
     </StackPanel>
 </Window>

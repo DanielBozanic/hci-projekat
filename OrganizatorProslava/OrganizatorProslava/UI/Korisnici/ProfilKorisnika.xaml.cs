@@ -85,9 +85,6 @@ namespace OrganizatorProslava.UI.Korisnici
         }
 
 
-
-
-
         private void IstorijaZabava(object sender, RoutedEventArgs e)
         {
             var istorijaZabava = new Istorija();

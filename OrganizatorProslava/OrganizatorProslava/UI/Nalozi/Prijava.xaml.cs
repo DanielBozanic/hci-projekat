@@ -7,7 +7,7 @@ using OrganizatorProslava.UI.Shared;
 using System;
 using System.Windows;
 using System.Windows.Input;
-using OrganizatorProslava.UI.Korisnici;
+using OrganizatorProslava.Help;
 
 namespace OrganizatorProslava.UI.Nalozi
 {
@@ -27,6 +27,16 @@ namespace OrganizatorProslava.UI.Nalozi
         private void Window_Closed(object sender, EventArgs e)
         {
             this.Owner.Show();
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp(str, this);
+            }
         }
 
         private void txtKorisnickoIme_KeyUp(object sender, KeyEventArgs e)
