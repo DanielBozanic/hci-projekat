@@ -9,7 +9,11 @@
         ContentRendered="Window_Rendered"
         KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp"
-        Closed="Window_Closed">
+        Closed="Window_Closed"
+        xmlns:l="clr-namespace:OrganizatorProslava.Help">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF726161"/>
@@ -18,19 +22,19 @@
     </Window.Background>
     <StackPanel HorizontalAlignment="Right" Height="292" Margin="0,64,212,0" VerticalAlignment="Top" Width="322">
         <Button x:Name="btnKorisnici" Content="K o r i s n i c i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnKorisnici_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+K za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+K za precicu" l:HelpProvider.HelpKey="btnKorisnici">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Button x:Name="btnSaradnici" Content="S a r a d n i c i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#AA382CB8" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,20,0,0" Click="btnSaradnici_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+S za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Ctrl+S za precicu" l:HelpProvider.HelpKey="btnSaradnici">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#AA382CB8" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Button x:Name="btnOdjava" Content="O d j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FFC76300" Background="#FFCD6600" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,20,0,0" Click="btnOdjava_Click"
-                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Esc za precicu">
+                ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Esc za precicu" l:HelpProvider.HelpKey="btnOdjava">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FFCF8400" Opacity="0.99"/>
             </Button.Effect>

@@ -1,4 +1,5 @@
-﻿using OrganizatorProslava.Services;
+﻿using OrganizatorProslava.Help;
+using OrganizatorProslava.Services;
 using OrganizatorProslava.UI.Shared;
 using OrganizatorProslava.ViewModel.Administrator;
 using System;
@@ -57,6 +58,16 @@ namespace OrganizatorProslava.UI.Administrator
             comboFilter.ItemsSource = tipoviSaradnika;
             comboFilter.DisplayMemberPath = "Naziv";
             comboFilter.SelectedValuePath = "Id";
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp(str, this);
+            }
         }
 
         private List<Models.Saradnik> GetSaradnici()

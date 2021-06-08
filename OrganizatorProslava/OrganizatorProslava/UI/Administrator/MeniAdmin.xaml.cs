@@ -1,4 +1,5 @@
-﻿using OrganizatorProslava.Models;
+﻿using OrganizatorProslava.Help;
+using OrganizatorProslava.Models;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -35,6 +36,16 @@ namespace OrganizatorProslava.UI.Administrator
                 btnKorisnici_Click(null, null);
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.Key == Key.S)
                 btnSaradnici_Click(null, null);
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp(str, this);
+            }
         }
 
         private void btnOdjava_Click(object sender, RoutedEventArgs e)

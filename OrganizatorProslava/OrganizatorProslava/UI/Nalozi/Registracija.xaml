@@ -30,12 +30,14 @@
         <Label x:Name="lblPonoviteLozinku" Content="PONOVITE LOZINKU:" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="10,0,454,124"/>
         <PasswordBox x:Name="txtPonoviteLozinku" TabIndex="4" Height="43" VerticalAlignment="Top" FontSize="24" Margin="261,220,22,0" l:HelpProvider.HelpKey="PonoviLozinkuRegistracija"/>
 
-        <Button x:Name="btnRegistracija" TabIndex="5" Content="Registruj se" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="171,310,0,0" Click="btnRegistracija_Click">
+        <Button x:Name="btnRegistracija" TabIndex="5" Content="Registruj se" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="171,310,0,0" Click="btnRegistracija_Click"
+                l:HelpProvider.HelpKey="btnRegistrujSe">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnOdbaci" TabIndex="6" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="377,310,0,0" Click="btnOdbaci_Click">
+        <Button x:Name="btnOdbaci" TabIndex="6" Content="Odbaci" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="377,310,0,0" Click="btnOdbaci_Click"
+                l:HelpProvider.HelpKey="btnOdbaciRegistracija">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
             </Button.Effect>

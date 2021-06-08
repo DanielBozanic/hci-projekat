@@ -1,4 +1,5 @@
-﻿using OrganizatorProslava.Services;
+﻿using OrganizatorProslava.Help;
+using OrganizatorProslava.Services;
 using OrganizatorProslava.UI.Shared;
 using OrganizatorProslava.ViewModel.Administrator;
 using System;
@@ -43,6 +44,16 @@ namespace OrganizatorProslava.UI.Administrator
                 btnIzmeni_Click(null, null);
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.Key == Key.O)
                 btnObrisi_Click(null, null);
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp(str, this);
+            }
         }
 
         private List<Models.Korisnik> GetKorisnici()
