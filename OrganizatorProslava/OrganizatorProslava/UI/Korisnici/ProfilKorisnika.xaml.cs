@@ -110,8 +110,7 @@ namespace OrganizatorProslava.UI.Korisnici
         private void OdjaviSe(object sender, RoutedEventArgs e)
         {
             LogovaniKorisnik.Reset();
-            var prijava = new UI.Nalozi.Prijava();
-            prijava.Show();
+            this.Owner.Show();
             this.Hide();
 
         }

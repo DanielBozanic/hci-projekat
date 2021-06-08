@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
-        Title="Zahtevi" Height="430" Width="750">
+        Title="Zahtevi" Height="430" Width="750"
+        Closed="Window_Closed" FontSize="11">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="126*"/>
@@ -14,9 +15,25 @@
         <Grid.Background>
             <ImageBrush ImageSource="Zahtjevi.jpg"/>
         </Grid.Background>
-        <Button x:Name="button" Content="ZAHTEVI NA ČEKANJU" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="285,65,0,0" Height="30" Click="button_Click" Background="#FFF6A095" FontFamily="Arial Black"/>
-        <Button x:Name="button1" Content="ODOBRENI ZAHTEVI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Margin="290,125,0,0" Height="30" Background="#FFF6A095" FontFamily="Arial Black"/>
-        <Button x:Name="button2" Content="ODBIJENI ZAHTEVI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Margin="290,185,0,0" Height="30" Background="#FFF6A095" FontFamily="Arial Black"/>
-        <Button x:Name="button4" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="560,355,0,0" Height="30" FontFamily="Arial Black" Background="#FF7E291E" Grid.ColumnSpan="2"/>
+        <Button x:Name="button" Content="ZAHTEVI NA ČEKANJU" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="280,65,0,0" Height="30" Click="ZahtjeviNaCekanjuKlik" Background="#FFF6A095" FontWeight="Bold" FontSize="16" >
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="button1" Content="ODOBRENI ZAHTEVI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="280,125,0,0" Height="30" Background="#FFF6A095" FontWeight="Bold" FontSize="16" Click="OdobreniZahtjeviKlik">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="button2" Content="ODBIJENI ZAHTEVI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="280,185,0,0" Height="30" Background="#FFF6A095" FontWeight="Bold" FontSize="16" Click="OdbijeniZahtjeviKlik">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="button4" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="550,345,0,0" Height="30" Background="#FF7E291E" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="16" Click="NazadKlik">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Window>

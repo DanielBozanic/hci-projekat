@@ -54,6 +54,9 @@ namespace OrganizatorProslava.UI.Korisnici
         private List<Models.Zabava> GetKorisnickeZahtjeveNaCekanju()
         {
             var zabavaServis = new Services.Zabave.ServisZabave();
+
+            List<Models.Zabava>  lista = zabavaServis.GetKorisnickeZahtjeveNaCekanju(LogovaniKorisnik.Id).ToList();
+            int a = lista.Count();
             return zabavaServis.GetKorisnickeZahtjeveNaCekanju(LogovaniKorisnik.Id).ToList();
         }
 
@@ -71,5 +74,36 @@ namespace OrganizatorProslava.UI.Korisnici
             return zabavaServis.GetOdbijeneKorisnickeZahtjeve(LogovaniKorisnik.Id).ToList();
         }
 
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
+        }
+
+        private void Row_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // Ensure row was clicked and not empty space
+            var red = ItemsControl.ContainerFromElement((DataGrid)sender,
+                                                e.OriginalSource as DependencyObject) as DataGridRow;
+
+            if (red == null) return;
+
+            Models.Zabava izabraniZahtjev = (Models.Zabava) red.Item;
+
+
+            //pokazi zahtjev
+            PrikaziZahtjev prikazi = new PrikaziZahtjev(izabraniZahtjev);
+            prikazi.Owner = this;
+            prikazi.Show();
+            this.Hide();
+            
+        }
+
+        private void NazadKlik(object sender, RoutedEventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
+        }
     }
 }
