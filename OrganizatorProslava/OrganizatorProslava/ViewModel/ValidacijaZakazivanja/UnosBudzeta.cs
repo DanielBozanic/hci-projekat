@@ -14,22 +14,27 @@ namespace OrganizatorProslava.UI.Korisnici
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string unosBudzeta = (string)value;
+            double budzet = 0;
 
-            Regex r = new Regex("[0-9]+"); 
+            if (Double.TryParse(unosBudzeta, out budzet))
+            {
+                budzet = Double.Parse(unosBudzeta);
+                if (budzet < 2000)
+                {
+                    return new ValidationResult(false, $"Budzet veci od 2000");
+                }
+                else
+                {
+                    return new ValidationResult(true, null);
+                }
 
-            if (!r.IsMatch(unosBudzeta))
+            }
+            else
             {
                 return new ValidationResult(false, $"Unesite brojčanu vrednost");
             }
 
-            double budzet = Double.Parse(unosBudzeta);
 
-            if(budzet < 2000)
-            {
-                return new ValidationResult(false, $"Budzet veci od 2000");
-            }
-
-            return new ValidationResult(true, null);
         }
     }
 }

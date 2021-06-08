@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrganizatorProslava.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,17 +20,56 @@ namespace OrganizatorProslava.UI.Korisnici
     /// </summary>
     public partial class TabelarniPrikazZahtjeva : Window
     {
-        public TabelarniPrikazZahtjeva()
+        /*
+         1 --> zahtjevi na cekanju
+         2 --> odobreni zahtjevi
+         3 --> otkazani zahtjevi
+         */
+        public int Prozor { get; set; }
+
+
+
+        public TabelarniPrikazZahtjeva(int kojiProzor)
         {
             InitializeComponent();
-            //this.DataContext = new TabelaZahtjevaVM(//lista)
+            if (kojiProzor == 1)
+            {
+                this.Title = "Zahtjevi na čekanju";
+                this.DataContext = new TabelaZahtjevaVM(GetKorisnickeZahtjeveNaCekanju());
+            }
+            else if (kojiProzor == 2)
+            {
+                this.Title = "Odobreni zahtjevi";
+                this.DataContext = new TabelaZahtjevaVM(GetOdobreneKorisnickeZahtjeve());
+            }
+            else
+            {
+                this.Title = "Odbijeni zahtjevi";
+                this.DataContext = new TabelaZahtjevaVM(GetOdbijeneKorisnickeZahtjeve());
+            }
+
         }
 
-        /*
-        private List<Models.Zabava> GetZabava()
+
+        private List<Models.Zabava> GetKorisnickeZahtjeveNaCekanju()
         {
-            var korisnikServis = new Services.Nalozi.KorisnikServis();
-            return korisnikServis.GetKorisnici().ToList();
-        }*/
+            var zabavaServis = new Services.Zabave.ServisZabave();
+            return zabavaServis.GetKorisnickeZahtjeveNaCekanju(LogovaniKorisnik.Id).ToList();
+        }
+
+
+        private List<Models.Zabava> GetOdobreneKorisnickeZahtjeve()
+        {
+            var zabavaServis = new Services.Zabave.ServisZabave();
+            return zabavaServis.GetOdobreneKorisnickeZahtjeve(LogovaniKorisnik.Id).ToList();
+        }
+
+
+        private List<Models.Zabava> GetOdbijeneKorisnickeZahtjeve()
+        {
+            var zabavaServis = new Services.Zabave.ServisZabave();
+            return zabavaServis.GetOdbijeneKorisnickeZahtjeve(LogovaniKorisnik.Id).ToList();
+        }
+
     }
 }

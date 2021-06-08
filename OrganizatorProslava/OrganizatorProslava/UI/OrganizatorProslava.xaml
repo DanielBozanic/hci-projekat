@@ -7,26 +7,29 @@
         mc:Ignorable="d"
         Title="Organizator Proslava" Height="430" Width="750" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="#FF726161"/>
-            <GradientStop Color="#FFF1D3D3" Offset="1"/>
-        </LinearGradientBrush>
+        <ImageBrush ImageSource="BackLog.jpg"/>
     </Window.Background>
-    <StackPanel HorizontalAlignment="Right" Height="292" Margin="0,64,212,0" VerticalAlignment="Top" Width="322">
-        <Button x:Name="btnPrijava" Content="P r i j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF001057" Background="#FF382CB8" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnPrijava_Click">
+
+
+    <StackPanel HorizontalAlignment="Right" Height="400" Margin="0,0,212,0" VerticalAlignment="Top" Width="322">
+        <Image x:Name="image" Height="150" Margin="0,20,0,0"  Width="200" Source="logo.jpg"/>
+
+
+        <Button x:Name="btnPrijava" Content="P r i j a v a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Height="45" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF5C7AFF" Background="#FF5C7AFF" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnPrijava_Click" Margin="0,30,0,0">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF01093A" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnRegistracija" Content="R e g i s t r a c i j a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnRegistracija_Click" Margin="0,20,0,0">
+        <Button x:Name="btnRegistracija" Content="R e g i s t r a c i j a" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Height="45" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF3DB7A0" Background="#FF3DB7A0" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Click="btnRegistracija_Click" Margin="0,15,0,0">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnZatvori" Content="Z a t v o r i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="80" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FFC76300" Background="#FFCD6600" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,20,0,0" Click="btnZatvori_Click">
+        <Button x:Name="btnZatvori" Content="Z a t v o r i" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Height="45" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FFC76300" Background="#FFFDB369" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="0,15,0,0" Click="btnZatvori_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FFCF8400" Opacity="0.99"/>
             </Button.Effect>
         </Button>
+
     </StackPanel>
 </Window>
