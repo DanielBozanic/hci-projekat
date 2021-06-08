@@ -21,7 +21,7 @@ namespace OrganizatorProslava.UI.Korisnici
     /// </summary>
     public partial class ProfilKorisnika : Window
     {
-       
+
         public ProfilKorisnika()
         {
             InitializeComponent();
@@ -36,8 +36,9 @@ namespace OrganizatorProslava.UI.Korisnici
             Ime.Margin = new Thickness(105, 167, 0, 0);
             Ime.Width = 180;
             Ime.Height = 30;
-            Ime.FontSize = 20;
-            Ime.FontFamily = new FontFamily("Arial Black");
+            Ime.FontSize = 25;
+            Ime.FontFamily = new FontFamily("Segoe UI");
+            Ime.FontWeight = FontWeights.Bold;
             Ime.Text = razvdvajanjePunogImena[0];
             grid.Children.Add(Ime);
 
@@ -52,7 +53,7 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void azurirajProfil(object sender, RoutedEventArgs e)
         {
-            
+
             var azurirajProfil = new AzurirajProfilKorisnika();
             azurirajProfil.Owner = this;
             azurirajProfil.Show();
@@ -86,10 +87,10 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void IstorijaZabava(object sender, RoutedEventArgs e)
         {
-            this.Close();
             var istorijaZabava = new Istorija();
             istorijaZabava.Owner = this;
             istorijaZabava.Show();
+            this.Hide();
         }
 
 
@@ -98,25 +99,35 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void vasiZahtevi(object sender, RoutedEventArgs e)
         {
-            this.Close();
             var zahtjevi = new Zahtevi();
             zahtjevi.Owner = this;
             zahtjevi.Show();
+            this.Hide();
         }
-
-
 
 
 
         private void OdjaviSe(object sender, RoutedEventArgs e)
         {
             LogovaniKorisnik.Reset();
-            this.Close();
             var prijava = new UI.Nalozi.Prijava();
             prijava.Show();
+            this.Hide();
 
         }
 
-       
+        private void PromjenaLozinke(object sender, RoutedEventArgs e)
+        {
+            var promjenaLozinke = new UI.Korisnici.PromenaLozinke();
+            promjenaLozinke.Show();
+            this.Hide();
+        }
+
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
+        }
     }
 }

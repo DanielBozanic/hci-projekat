@@ -178,6 +178,7 @@
     <Compile Include="Models\TipSaradnika.cs" />
     <Compile Include="Models\Zabava.cs" />
     <Compile Include="Services\Klijenti\SalaServis.cs" />
+    <Compile Include="Models\Zahtjev.cs" />
     <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
     <Compile Include="Services\Saradnici\SaradnikServis.cs" />
@@ -257,6 +258,7 @@
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
     <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
+    <Compile Include="ViewModel\ValidacijaNoveLozinke\NovaLozinkaVM.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\UnosBrojaGostiju.cs" />
@@ -519,6 +521,9 @@
     <Content Include="Htm\PrezimeRegistracija.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="UI\logo.jpg" />
+    <Resource Include="UI\BackLog.jpg" />
+    <Resource Include="UI\Nalozi\login.jpg" />
     <Resource Include="UI\Organizator\Restoran1.jpg" />
     <Resource Include="UI\Organizator\Muzika.jpg" />
     <Resource Include="UI\Organizator\Ruza.jpg" />

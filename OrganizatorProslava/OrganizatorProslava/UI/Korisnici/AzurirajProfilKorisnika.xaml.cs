@@ -1,4 +1,6 @@
 ﻿using OrganizatorProslava.Models;
+using OrganizatorProslava.Services;
+using OrganizatorProslava.UI.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,32 +39,74 @@ namespace OrganizatorProslava.UI.Korisnici
 
             string[] razdvajanjePunogImena = LogovaniKorisnik.PunoIme.Split(' ');
 
-            if(promjenjenoIme == string.Empty)
+            if (promjenjenoIme == string.Empty)
             {
                 promjenjenoIme = razdvajanjePunogImena[0];
             }
 
-            if(promjenjenoPrezime == string.Empty)
+            if (promjenjenoPrezime == string.Empty)
             {
                 promjenjenoPrezime = razdvajanjePunogImena[1];
             }
 
-            string poruka = servis.AzurirajPodatke(LogovaniKorisnik.KorisnickoIme, promjenjenoIme, promjenjenoPrezime);
+            bool uspjelo = servis.AzurirajPodatke(LogovaniKorisnik.KorisnickoIme, promjenjenoIme, promjenjenoPrezime);
 
-            if(poruka == string.Empty)
+
+
+            if (uspjelo)
             {
                 LogovaniKorisnik.PunoIme = promjenjenoIme + " " + promjenjenoPrezime;
-                var noviProfil = new ProfilKorisnika();
-                noviProfil.Owner = this;
-                noviProfil.Show();
-                this.Hide();
+
+                var azuriraniPodaciPoruka = new Poruka(Poruke.AzuriraniPodaci, Poruke.Poruka, MessageBoxButton.OK);
+                azuriraniPodaciPoruka.Owner = this;
+                azuriraniPodaciPoruka.ShowDialog();
+
+                if (azuriraniPodaciPoruka.Rezultat == MessageBoxResult.OK)
+                {
+                    var noviProfil = new ProfilKorisnika();
+                    noviProfil.Owner = this;
+                    noviProfil.Show();
+                    this.Hide();
+                }
+
             }
 
         }
 
+
+
         private void odustani(object sender, RoutedEventArgs e)
         {
+            string promjenjenoIme = ime.Text;
+            string promjenjenoPrezime = prezime.Text;
 
+            if (promjenjenoIme != string.Empty || promjenjenoPrezime != string.Empty)
+            {
+                var poruka = new Poruka(Poruke.OdbaciPodatke, Poruke.Poruka, MessageBoxButton.YesNo, MessageBoxResult.No);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+
+                if (poruka.Rezultat == MessageBoxResult.Yes)
+                {
+
+                    this.Owner.Show();
+                    this.Hide();
+                }
+            }
+            else
+            {
+                this.Owner.Show();
+                this.Hide();
+            }
+        }
+
+
+
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
         }
     }
 }

@@ -13,30 +13,29 @@
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>
     <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="#FF726161"/>
-            <GradientStop Color="#FFF1D3D3" Offset="1"/>
-        </LinearGradientBrush>
+        <ImageBrush ImageSource="login.jpg"/>
     </Window.Background>
+
     <Grid HorizontalAlignment="Left" Height="363" Margin="10,21,0,0" VerticalAlignment="Top" Width="720">
-        <Button x:Name="btnPrijaviSe" Content="Prijavi se" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF014623" Background="#FF16937C" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="180,283,0,0" Click="btnPrijavise_Click"
+        <Button x:Name="btnPrijavise" Content="PRIJAVI SE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="40" FontSize="20" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"  Background="#FF8BC8BC" Foreground="Black" UseLayoutRounding="False" IsDefault="True" Margin="155,294,0,0" Click="btnPrijavise_Click"
                 l:HelpProvider.HelpKey="btnPrijaviSe">
             <Button.Effect>
-                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF0D8D00" Opacity="0.99"/>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btnNazad" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="50" FontSize="30" FontWeight="Bold" AutomationProperties.IsColumnHeader="True" BorderBrush="#FF814802" Background="#FFD15C1A" Foreground="#FFF7F7F7" UseLayoutRounding="True" IsDefault="True" Margin="386,283,0,0" Click="btnNazad_Click">
+        <Button x:Name="btnNazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="40" FontSize="20" FontWeight="Bold" AutomationProperties.IsColumnHeader="True"  Background="#FFEC9298" Foreground="Black" UseLayoutRounding="True" IsDefault="True" Margin="386,294,0,0" Click="btnNazad_Click">
             <Button.Effect>
-                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="#FF533C00" Opacity="0.99"/>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <Label x:Name="lblKorisnickoIme" Content="KORISNICKO IME" Height="43" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="189,19,146,0"/>
-        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="189,62,146,0" KeyUp="txtKorisnickoIme_KeyUp" TextChanged="txtKorisnickoIme_TextChanged" l:HelpProvider.HelpKey="KorisnickoImePrijava"/>
-        <Label x:Name="lblLozinka" Content="LOZINKA" Height="43" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Margin="189,0,146,220"/>
-        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="189,141,146,0" l:HelpProvider.HelpKey="LozinkaPrijava"/>
-        <TextBlock x:Name="textBlock" PreviewMouseLeftButtonDown="ZaboravljenaLozinka" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zaboravili ste lozinku?" VerticalAlignment="Top" Margin="220,205,0,0" FontSize="30" Width="329" FontWeight="Bold" FontStyle="Italic" Foreground="#FF6D0683"/>
-
-        
-
+        <Label x:Name="lblKorisnickoIme" Content="KORISNIČKO IME" Height="43" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Margin="144,57,396,0" Width="180"/>
+        <TextBox x:Name="txtKorisnickoIme" Height="43" TextWrapping="NoWrap" AcceptsReturn="False" VerticalAlignment="Top" FontSize="24" Margin="324,57,146,0" KeyUp="txtKorisnickoIme_KeyUp" TextChanged="txtKorisnickoIme_TextChanged" Width="250" l:HelpProvider.HelpKey="KorisnickoImePrijava"/>
+        <Label x:Name="lblLozinka" Content="LOZINKA" Height="43" VerticalAlignment="Bottom" FontSize="20" FontWeight="Bold" Margin="144,0,396,201" Width="180"/>
+        <PasswordBox x:Name="txtLozinka" Height="43" VerticalAlignment="Top" FontSize="24" Margin="322,119,146,0" l:HelpProvider.HelpKey="LozinkaPrijava"/>
+        <TextBlock x:Name="textBlock" PreviewMouseLeftButtonDown="ZaboravljenaLozinka" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zaboravili ste lozinku?" VerticalAlignment="Top" Margin="196,205,0,0" FontSize="30" Width="329" FontWeight="Bold" FontStyle="Italic" Foreground="Black">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
 </Window>

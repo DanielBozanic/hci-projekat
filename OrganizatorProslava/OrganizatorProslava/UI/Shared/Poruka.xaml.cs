@@ -14,8 +14,8 @@ namespace OrganizatorProslava.UI.Shared
             this.txtMessage.Text = tekst;
             if (dugme ==  MessageBoxButton.OK)
             {
-                this.btnDa.Content = "Ok";
-                this.btnDa.Margin = new Thickness(this.btnDa.Margin.Left + this.btnDa.Width / 2,
+                this.btnDa.Content = "OK";
+                this.btnDa.Margin = new Thickness(this.btnDa.Margin.Left + 30 + this.btnDa.Width / 2,
                     this.btnDa.Margin.Top,
                     this.btnDa.Margin.Right,
                     this.btnDa.Margin.Bottom);

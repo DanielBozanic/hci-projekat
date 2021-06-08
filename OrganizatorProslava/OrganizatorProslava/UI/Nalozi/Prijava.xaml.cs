@@ -83,6 +83,7 @@ namespace OrganizatorProslava.UI.Nalozi
                     var profilKorisnika = new Korisnici.ProfilKorisnika();
                     profilKorisnika.Owner = this;
                     profilKorisnika.Show();
+                    this.Hide();
                     break;
                 default:
                     break;

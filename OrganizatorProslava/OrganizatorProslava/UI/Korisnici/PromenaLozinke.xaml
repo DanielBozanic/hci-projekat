@@ -5,19 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
-        Title="Promena lozinke" Height="430" Width="750" Margin="100,0,0,0">
+        Title="Promena lozinke" Height="430" Width="750" Margin="100,0,0,0"
+        Closed="Window_Closed" FontSize="11">
+
+    <Window.DataContext>
+        <local:NovaLozinkaVM/>
+    </Window.DataContext>
+
     <Grid Height="400" Width="750">
         <Grid.Background>
             <ImageBrush ImageSource="FLoyinka.jpg"/>
         </Grid.Background>
-        <Label x:Name="label" Content="UNESITE VAŠE KORISNIČKO IME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,90,0,0" Height="33" Width="270" FontFamily="Arial Black" FontSize="14"/>
-        <TextBox x:Name="KorisnickoIme" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="400,90,0,0"/>
-        <TextBox x:Name="Lozinka" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="400,160,0,0"/>
-        <TextBox x:Name="PotvrdaLozinke" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="400,230,0,0"/>
-        <Label x:Name="label1" Content="UNESITE NOVU LOZINKU" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,160,0,0" Height="33" Width="250" FontFamily="Arial Black" FontSize="14"/>
-        <Label x:Name="label2" Content="POTVRDITE NOVU LOZINKU" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,230,0,0" Width="250" Height="33" FontFamily="Arial Black" FontSize="14"/>
-        <Button x:Name="button" Content="PROMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="180,330,0,0" Click="PromijeniLozinku" Height="32" FontFamily="Arial Black" FontSize="14" Background="#FFF6A095"/>
-        <Button x:Name="button1" Content="ODBACI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="410,330,0,0" Height="32" FontSize="14" FontFamily="Arial Black" Background="#FFF6A095" Click="Odbaci"/>
+        <Label x:Name="label" Content="VAŠE KORISNIČKO IME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,90,0,0" Height="33" Width="270" FontSize="20" FontWeight="Bold"/>
+
+        <TextBox x:Name="KorisnickoIme" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Margin="395,90,0,0" FontSize="20" FontWeight="Bold" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+            <TextBox.Text>
+                <Binding Path="KorisnickoImeVM" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:ObavezanUnosPodataka MinimumKaraktera="1"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBox x:Name="Lozinka" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="395,160,0,0" FontSize="20" FontWeight="Bold" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+            <TextBox.Text>
+                <Binding Path="LozinkaVM" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:ObavezanUnosPodataka MinimumKaraktera="1"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+
+        <TextBox x:Name="PotvrdaLozinke" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="395,230,0,0" FontSize="20" FontWeight="Bold" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+            <TextBox.Text>
+                <Binding Path="PotvrdaLozinkeVM" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:ObavezanUnosPodataka MinimumKaraktera="1"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+
+
+        <Label x:Name="label1" Content="NOVA LOZINKA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,160,0,0" Height="33" Width="250" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="POTVRDITE NOVU LOZINKU" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,230,0,0" Width="285" Height="33" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="button" Content="PROMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="140,330,0,0" Click="PromijeniLozinku" Height="40" FontSize="20" Background="#FFF6A095" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="button1" Content="ODBACI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="415,330,0,0" Height="40" FontSize="20" Background="#FFF6A095" Click="Odbaci" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </Window>
+

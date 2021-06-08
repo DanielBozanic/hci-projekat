@@ -81,5 +81,20 @@ namespace OrganizatorProslava.DataAccess.Zabava
             return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 2 && z.Organizator == idOrganizatora select z);
         }
 
+
+        //za korisnika
+        public IQueryable<DataModel.Zabava> GetKorisnickeZahtjeveNaCekanju(int idKorisnika)
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 1 && z.Kreator == idKorisnika select z);
+        }
+        public IQueryable<DataModel.Zabava> GetOdobreneKorisnickeZahtjeve(int idKorisnika)
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 2 && z.Kreator == idKorisnika select z);
+        }
+        public IQueryable<DataModel.Zabava> GetOdbijeneKorisnickeZahtjeve(int idKorisnika)
+        {
+            return (IQueryable<DataModel.Zabava>)(from z in this.bazaPodataka.Zabavas where z.Status == 5 && z.Kreator == idKorisnika select z);
+        }
+
     }
 }

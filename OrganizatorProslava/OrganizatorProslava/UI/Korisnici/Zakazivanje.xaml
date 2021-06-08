@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
-        Title="Zakazivanje zabave" Height="430" Width="750">
+        Title="Zakazivanje zabave" Height="430" Width="750"
+        Closed="Window_Closed" FontSize="11">
     <Window.DataContext>
         <local:ZakazivanjeViewModel/>
     </Window.DataContext>
-    
+
     <Window.Background>
         <ImageBrush ImageSource="ZakaziBack.jpg"/>
     </Window.Background>
     <Grid>
-        <Label x:Name="label" Content="TIP ZABAVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,25,0,0" Width="120" FontFamily="Arial Black"/>
-        <Label x:Name="label1" Content="DATUM" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,85,0,0" Width="120" FontFamily="Arial Black"/>
-        <Label x:Name="label2" Content="VREME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,145,0,0" Width="100" FontFamily="Arial Black"/>
-        <Label x:Name="label3" Content="TRAJANJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,205,0,0" Width="100" FontFamily="Arial Black"/>
-        <Label x:Name="label4" Content="GRAD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,265,0,0" Width="100" FontFamily="Arial Black"/>
-        <Label x:Name="label5" Content="TEMA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,325,0,0" Width="100" FontFamily="Arial Black"/>
+        <Label x:Name="label" Content="TIP ZABAVE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,15,0,0" Width="120" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="label1" Content="DATUM" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,70,0,0" Width="120" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="label2" Content="VREME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,130,0,0" Width="100" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="label3" Content="TRAJANJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,190,0,0" Width="100" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="label4" Content="GRAD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,250,0,0" Width="100" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="label5" Content="TEMA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,310,0,0" Width="100" FontWeight="Bold" FontSize="14"/>
 
-        <TextBox x:Name="tipZabave" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Margin="350,25,0,0" Background="White" FontFamily="Arial" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+        <TextBox x:Name="tipZabave" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Margin="350,15,0,0" Background="White" Validation.ErrorTemplate="{StaticResource errorTemplate}" FontSize="14">
             <TextBox.Text>
                 <Binding Path="TipZabave" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -33,11 +34,11 @@
 
 
 
-        <DatePicker x:Name="IzabranDatum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,85,0,0" Width="200" FontFamily="Arial"  SelectedDateChanged="izabranDatum"/>
+        <DatePicker x:Name="IzabranDatum" Focusable = "False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,70,0,0" Width="200"  SelectedDateChanged="izabranDatum" FontSize="14" Height="30"/>
 
 
 
-        <TextBox x:Name="zakazanoVrijeme" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,145,0,0" FontFamily="Arial" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+        <TextBox x:Name="zakazanoVrijeme" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,130,0,0" Validation.ErrorTemplate="{StaticResource errorTemplate}" FontSize="14">
             <TextBox.Text>
                 <Binding Path="Vrijeme" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -49,7 +50,7 @@
 
 
 
-        <TextBox x:Name="vremenskoTrajanje" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,205,0,0" FontFamily="Arial" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+        <TextBox x:Name="vremenskoTrajanje" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,190,0,0" Validation.ErrorTemplate="{StaticResource errorTemplate}" FontSize="14">
             <TextBox.Text>
                 <Binding Path="Trajanje" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -63,7 +64,7 @@
 
 
 
-        <TextBox x:Name="grad" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,265,0,0" FontFamily="Arial" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+        <TextBox x:Name="grad" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,250,0,0" Validation.ErrorTemplate="{StaticResource errorTemplate}" FontSize="14">
             <TextBox.Text>
                 <Binding Path="Grad" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -75,9 +76,20 @@
 
 
 
-        <TextBox x:Name="tema" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="350,325,0,0" FontFamily="Arial"/>
-        <Button x:Name="button" Content="DALJE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="460,365,0,0" Height="25" Click="dalje" FontFamily="Arial Black" Background="#FFF6A095"/>
-        <Button x:Name="button1" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="600,365,0,0" Height="25" Click="odustani" FontFamily="Arial Black" Background="#FFF6A095"/>
-        
+        <TextBox x:Name="tema" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="350,310,0,0" FontSize="14"/>
+        <Button x:Name="button" Content="DALJE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="410,360,0,0" Height="30" Click="dalje" Background="#FFF6A095" FontWeight="Bold" FontSize="16">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+
+
+        <Button x:Name="button1" Content="ODUSTANI" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="140" Margin="580,360,0,0" Height="30" Click="odustani" Background="#FFF6A095" FontWeight="Bold" FontSize="16">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+
     </Grid>
+
 </Window>

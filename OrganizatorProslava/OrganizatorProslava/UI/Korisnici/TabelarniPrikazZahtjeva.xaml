@@ -10,7 +10,32 @@
         <ImageBrush ImageSource="Zahtjevi.jpg"/>
     </Window.Background>
     <Grid>
-        <DataGrid x:Name="zahtjeviGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="450" Margin="150,60,0,0"/>
+        <DataGrid x:Name="zahtjeviGrid" HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="400" Margin="175,85,0,0"
+            AlternationCount="2"
+		    AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserResizeColumns="True"
+            CanUserSortColumns="True"
+		    ItemsSource="{Binding TabelarniPrikazZahtjeva}"
+		    MinRowHeight="25"
+            Background="White" RowBackground="Tomato" AlternatingRowBackground="White">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
+                <DataGridTextColumn Width="200"
+				                    Binding="{Binding Tip}"
+                                    IsReadOnly="True"
+				                    Header="Tip zabave" />
+
+                <DataGridTextColumn Width="200"
+				                    Binding="{Binding Ime}"
+                                    IsReadOnly="True"
+				                    Header="DatumProslave" />
+            </DataGrid.Columns>
+
+
+        </DataGrid>
 
     </Grid>
 </Window>

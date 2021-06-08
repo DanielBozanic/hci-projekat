@@ -5,17 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
-        Title="Azuriraj" Height="430" Width="750">
+        Title="Azuriraj" Height="430" Width="750"
+        Closed="Window_Closed" FontSize="11">
     <Grid Width="750" Height="430">
         <Grid.Background>
             <ImageBrush ImageSource="register.jpg"/>
         </Grid.Background>
         <Image x:Name="image" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="145" Margin="305,10,0,0" Source="icon.jpg"/>
-        <TextBox x:Name="ime" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,180,0,0"  FontFamily="Arial Black" FontSize="20"/>
-        <TextBox x:Name="prezime" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="350,250,0,0"  FontFamily="Arial Black" FontSize="20"/>
-        <Label x:Name="label" Content="IME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,180,0,0" FontFamily="Arial Black" FontSize="20" Width="51"/>
-        <Label x:Name="label1" Content="PREZIME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,250,0,0" FontFamily="Arial Black" FontSize="20"/>
-        <Button x:Name="button" Content="AŽURIRAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="200,350,0,0" Height="32" Click="azuriraj" Background="#FFF1CA8A" FontFamily="Arial Black" FontSize="14"/>
-        <Button x:Name="button1" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="430,350,0,0" Height="32" Click="odustani" Background="#FFF1CA8A" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="ime" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="350,180,0,0" FontSize="20"/>
+        <TextBox x:Name="prezime" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="350,250,0,0" FontSize="20"/>
+        <Label x:Name="label" Content="VAŠE IME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,180,0,0" FontSize="20" Width="150" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="VAŠE PREZIME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,250,0,0" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="button" Content="AŽURIRAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="160,330,0,0" Height="40" Click="azuriraj" Background="#FFF1CA8A" FontSize="20" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="button1" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="410,330,0,0" Height="40" Click="odustani" Background="#FFF1CA8A" FontSize="20" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Window>
