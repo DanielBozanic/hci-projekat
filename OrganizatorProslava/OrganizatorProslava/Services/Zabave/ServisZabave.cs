@@ -173,5 +173,63 @@ namespace OrganizatorProslava.Services.Zabave
                     Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault()
                 }).ToList();
         }
+
+
+
+        //NOVI KOD
+
+        public List<Models.Zabava> GetTrenutnoOrganizovaneZabave(int idKorisnika)
+        {
+            var zabavaa = new DataAccess.Zabava.ZabavaZabava();
+            var korServis = new Nalozi.KorisnikServis();
+            var servisProizvoda = new Zabave.ServisProizvoda();
+            return zabavaa.GetTrenutnoOrganizovaneZabave(idKorisnika).ToList()
+                .Select(z => new Models.Zabava
+                {
+                    Id = z.ID,
+                    Tip = z.Tip,
+                    DatumProslave = z.DatumProslave,
+                    Trajanje = z.Trajanje,
+                    Grad = z.Grad,
+                    Tema = z.Tema,
+                    BrojGostiju = z.BrojGostiju,
+                    TipBudzeta = z.VrstaBudzeta,
+                    Budzet = z.Budzet,
+                    SpisakGostiju = z.SpisakGostiju,
+                    Status = z.Status,
+                    DodatneZelje = z.DodatneZelje,
+                    Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
+                    Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault(),
+                    OdabraniProizvodi = servisProizvoda.GetProizvodeZaZabavu(z.ID).ToList()
+                }).ToList();
+        }
+
+
+
+        public List<Models.Zabava> GetProsleZabave(int idKorisnika)
+        {
+            var zabavaa = new DataAccess.Zabava.ZabavaZabava();
+            var korServis = new Nalozi.KorisnikServis();
+            var servisProizvoda = new Zabave.ServisProizvoda();
+            return zabavaa.GetProsleZabave(idKorisnika).ToList()
+                .Select(z => new Models.Zabava
+                {
+                    Id = z.ID,
+                    Tip = z.Tip,
+                    DatumProslave = z.DatumProslave,
+                    Trajanje = z.Trajanje,
+                    Grad = z.Grad,
+                    Tema = z.Tema,
+                    BrojGostiju = z.BrojGostiju,
+                    TipBudzeta = z.VrstaBudzeta,
+                    Budzet = z.Budzet,
+                    SpisakGostiju = z.SpisakGostiju,
+                    Status = z.Status,
+                    DodatneZelje = z.DodatneZelje,
+                    Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
+                    Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault(),
+                    OdabraniProizvodi = servisProizvoda.GetProizvodeZaZabavu(z.ID).ToList()
+                }).ToList();
+        }
     }
 }

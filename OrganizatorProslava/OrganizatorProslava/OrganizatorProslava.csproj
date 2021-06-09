@@ -234,6 +234,9 @@
     <Compile Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml.cs">
       <DependentUpon>TabelarniPrikazZahtjeva.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Korisnici\TabelaTrenutnihZabava.xaml.cs">
+      <DependentUpon>TabelaTrenutnihZabava.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Korisnici\UvidUZakazanuZabavu.xaml.cs">
       <DependentUpon>UvidUZakazanuZabavu.xaml</DependentUpon>
     </Compile>
@@ -270,6 +273,10 @@
     <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
       <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
     </Compile>
+
+    <Compile Include="UI\Shared\MiniKartica.xaml.cs">
+      <DependentUpon>MiniKartica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Organizator\PregledIzabraneDekoracije.xaml.cs">
       <DependentUpon>PregledIzabraneDekoracije.xaml</DependentUpon>
     </Compile>
@@ -288,6 +295,7 @@
     <Compile Include="UI\Organizator\RestoranOrganizacija2.xaml.cs">
       <DependentUpon>RestoranOrganizacija2.xaml</DependentUpon>
     </Compile>
+    
     <Compile Include="UI\Shared\Poruka.xaml.cs">
       <DependentUpon>Poruka.xaml</DependentUpon>
     </Compile>
@@ -369,6 +377,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\TabelaTrenutnihZabava.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -489,6 +501,10 @@
     <Page Include="UI\Resources\ScrollViewerStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Shared\MiniKartica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Shared\Poruka.xaml">
       <SubType>Designer</SubType>
