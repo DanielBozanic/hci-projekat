@@ -12,14 +12,12 @@ namespace OrganizatorProslava.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Zabava_Poruke
+    public partial class SalaDetalji
     {
         public int ID { get; set; }
-        public int PosiljalacID { get; set; }
-        public int ZabavaID { get; set; }
-        public string Poruka { get; set; }
-    
-        public virtual Korisnik Korisnik { get; set; }
-        public virtual Zabava Zabava { get; set; }
+        public int SalaID { get; set; }
+        public string Opis { get; set; }
+        public Nullable<int> X { get; set; }
+        public Nullable<int> Y { get; set; }
     }
 }

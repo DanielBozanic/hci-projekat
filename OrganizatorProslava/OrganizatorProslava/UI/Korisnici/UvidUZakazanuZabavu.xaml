@@ -11,7 +11,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="green.jpg"/>
         </Grid.Background>
-        <TextBox x:Name="ZaBudzet" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="BUDŽET : " VerticalAlignment="Top" Width="305" Margin="215,40,0,0" Background="#FF12585C" FontSize="23" FontWeight="Bold"/>
+        <TextBox x:Name="ZaBudzet" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="UVID " VerticalAlignment="Top" Width="305" Margin="215,40,0,0" Background="#FF12585C" FontSize="23" FontWeight="Bold"/>
         <Button x:Name="Muzika" Content="MUZIKA" Click="MuzikaKlik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="215,100,0,0" Height="40" FontSize="20" FontWeight="Bold" Background="#FF2CA1A7">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
