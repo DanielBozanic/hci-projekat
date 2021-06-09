@@ -51,7 +51,7 @@ namespace OrganizatorProslava.DataAccess.Zabava
         
         public IQueryable<DataModel.Proizvod> GetSveProizvodeZaZabavu(int zabavaId)
         {
-            return (IQueryable<DataModel.Proizvod>)(from p in this.bazaPodataka.Proizvods where p.Zabavas.Any(z => z.ID == zabavaId)  select p);
+            return (IQueryable<DataModel.Proizvod>)(from p in this.bazaPodataka.Proizvods where p.Zabava_Proizvod.Any(z => z.ZabavaID == zabavaId)  select p);
         }
 
     }
