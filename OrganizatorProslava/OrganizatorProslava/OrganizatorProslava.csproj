@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C2D7012-2EAA-4A35-8DF3-24E1A76E31CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OrganizatorProslava</RootNamespace>
+    <AssemblyName>OrganizatorProslava</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.15\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.15\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DataAccess\Klijenti\Sala.cs" />
+    <Compile Include="DataAccess\Klijenti\ZabavaSto.cs" />
+    <Compile Include="DataAccess\Saradnici\Saradnik.cs" />
+    <Compile Include="DataAccess\Saradnici\TipSaradnika.cs" />
+    <Compile Include="DataAccess\Zabava\Proizvod.cs" />
+    <Compile Include="DataAccess\Zabava\Zabava.cs" />
+    <Compile Include="DataAccess\Zabava\ZabavaPoruke.cs" />
+    <Compile Include="DataModel\Korisnik.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SalaDetalji.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SalaSto.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Saradnik.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TipSaradnika.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Zabava.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ZabavaSalaSto.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ZabavaSalaStoGost.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Zabava_Poruke.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Zabava_Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpProvider.cs" />
+    <Compile Include="Help\JavaScriptControlHelper.cs" />
+    <Compile Include="Models\LogovaniKorisnik.cs" />
+    <Compile Include="Models\Proizvod.cs" />
+    <Compile Include="Models\Saradnik.cs" />
+    <Compile Include="Models\Sto.cs" />
+    <Compile Include="Models\TipSaradnika.cs" />
+    <Compile Include="Models\Zabava.cs" />
+    <Compile Include="Models\ZabavaGosti.cs" />
+    <Compile Include="Models\ZabavaPoruka.cs" />
+    <Compile Include="Services\Klijenti\SalaServis.cs" />
+    <Compile Include="Models\Zahtjev.cs" />
+    <Compile Include="Services\Klijenti\ZabavaGostiServis.cs" />
+    <Compile Include="Services\Nalozi\KorisnikServis.cs" />
+    <Compile Include="Services\Nalozi\PrijavaServis.cs" />
+    <Compile Include="Services\Saradnici\SaradnikServis.cs" />
+    <Compile Include="Services\Nalozi\TipSaradnikaServis.cs" />
+    <Compile Include="Services\Zabave\ServisPoruka.cs" />
+    <Compile Include="Services\Zabave\ServisProizvoda.cs" />
+    <Compile Include="Services\Zabave\ServisZabave.cs" />
+    <Compile Include="UI\Administrator\IzmeniKorisnika.xaml.cs">
+      <DependentUpon>IzmeniKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Administrator\IzmeniSaradnika.xaml.cs" />
+    <Compile Include="UI\Administrator\Korisnici.xaml.cs">
+      <DependentUpon>Korisnici.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Administrator\MeniAdmin.xaml.cs">
+      <DependentUpon>MeniAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Administrator\Saradnici.xaml.cs">
+      <DependentUpon>Saradnici.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Help\HelpViewer.xaml.cs">
+      <DependentUpon>HelpViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\AzurirajProfilKorisnika.xaml.cs">
+      <DependentUpon>AzurirajProfilKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Istorija.xaml.cs">
+      <DependentUpon>Istorija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PorukeOrganizacije.xaml.cs">
+      <DependentUpon>PorukeOrganizacije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziSpisakZelja.xaml.cs">
+      <DependentUpon>PrikaziSpisakZelja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziSpisakZvanica.xaml.cs">
+      <DependentUpon>PrikaziSpisakZvanica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziZahtjev.xaml.cs">
+      <DependentUpon>PrikaziZahtjev.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\ProfilKorisnika.xaml.cs">
+      <DependentUpon>ProfilKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PromenaLozinke.xaml.cs">
+      <DependentUpon>PromenaLozinke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Sala.xaml.cs">
+      <DependentUpon>Sala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\SpisakZelja.xaml.cs">
+      <DependentUpon>SpisakZelja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\SpisakZvanica.xaml.cs">
+      <DependentUpon>SpisakZvanica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml.cs">
+      <DependentUpon>TabelarniPrikazZahtjeva.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\TabelaTrenutnihZabava.xaml.cs">
+      <DependentUpon>TabelaTrenutnihZabava.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\UvidUZakazanuZabavu.xaml.cs">
+      <DependentUpon>UvidUZakazanuZabavu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\ZabavaGosti.xaml.cs">
+      <DependentUpon>ZabavaGosti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Zahtevi.xaml.cs">
+      <DependentUpon>Zahtevi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Zakazivanje.xaml.cs">
+      <DependentUpon>Zakazivanje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\Zakazivanje2.xaml.cs">
+      <DependentUpon>Zakazivanje2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Nalozi\Prijava.xaml.cs">
+      <DependentUpon>Prijava.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\Cvecare.xaml.cs">
+      <DependentUpon>Cvecare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\GlavniMeni.xaml.cs">
+      <DependentUpon>GlavniMeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\IzmenaPodataka.xaml.cs">
+      <DependentUpon>IzmenaPodataka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\MeniHrana.xaml.cs">
+      <DependentUpon>MeniHrana.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\Muzika.xaml.cs">
+      <DependentUpon>Muzika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\NovaZabava.xaml.cs">
+      <DependentUpon>NovaZabava.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\Organizacija.xaml.cs">
+      <DependentUpon>Organizacija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
+      <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\MiniKartica.xaml.cs">
+      <DependentUpon>MiniKartica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneDekoracije.xaml.cs">
+      <DependentUpon>PregledIzabraneDekoracije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneHrane.xaml.cs">
+      <DependentUpon>PregledIzabraneHrane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneMuzike.xaml.cs">
+      <DependentUpon>PregledIzabraneMuzike.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledPonudeCvecare.xaml.cs">
+      <DependentUpon>PregledPonudeCvecare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\RestoranOrganizacija.xaml.cs">
+      <DependentUpon>RestoranOrganizacija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\RestoranOrganizacija2.xaml.cs">
+      <DependentUpon>RestoranOrganizacija2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\Poruka.xaml.cs">
+      <DependentUpon>Poruka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
+    <Compile Include="ViewModel\KorisnickeTabele\PorukiceVM.cs" />
+    <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
+    <Compile Include="ViewModel\KorisnickeTabele\ZabavaGostiViewModel.cs" />
+    <Compile Include="ViewModel\Organizator\ProizvodiViewModel.cs" />
+    <Compile Include="ViewModel\ValidacijaNoveLozinke\NovaLozinkaVM.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\UnosBrojaGostiju.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\UnosBudzeta.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ValidacijaVremena.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\VremenskiOpsegTrajanja.cs" />
+    <Compile Include="ViewModel\ValidacijaZakazivanja\ZakazivanjeViewModel.cs" />
+    <Compile Include="ViewModel\Organizator\ZabaveViewModel.cs" />
+    <Page Include="UI\Administrator\IzmeniKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Administrator\IzmeniSaradnika.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Administrator\Korisnici.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Administrator\MeniAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Administrator\Saradnici.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Help\HelpViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\AzurirajProfilKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Istorija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PorukeOrganizacije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziSpisakZelja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziSpisakZvanica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziZahtjev.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\ProfilKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PromenaLozinke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Sala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\SpisakZelja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\SpisakZvanica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\TabelaTrenutnihZabava.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\UvidUZakazanuZabavu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\ZabavaGosti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Zahtevi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Zakazivanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\Zakazivanje2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Nalozi\Prijava.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Nalozi\Registracija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\OrganizatorProslava.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\Nalozi\Korisnik.cs" />
+    <Compile Include="DataModel\DBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Korisnik.cs" />
+    <Compile Include="Services\Nalozi\RegistracijaServis.cs" />
+    <Compile Include="Services\Utils\Konstante.cs" />
+    <Compile Include="UI\Nalozi\Registracija.xaml.cs">
+      <DependentUpon>Registracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrganizatorProslava.xaml.cs">
+      <DependentUpon>OrganizatorProslava.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\Organizator\Cvecare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\IzmenaPodataka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\MeniHrana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\Muzika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\NovaZabava.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\Organizacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\OrganizujZabavu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneDekoracije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneHrane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneMuzike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledPonudeCvecare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\RestoranOrganizacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\RestoranOrganizacija2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\DataGridStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Resources\ScrollViewerStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Shared\MiniKartica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Shared\Poruka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataModel\DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="connections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataModel\DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="UI\Organizator\icon.jpg" />
+    <Resource Include="UI\Organizator\profileBack.jpg" />
+    <Resource Include="Content\restoran.png" />
+    <Resource Include="Content\sto.png" />
+    <Content Include="DataModel\DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataModel\DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Htm\Pretraga.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnIzmeniKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnObrisiKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnDodajSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnIzmeniSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnObrisiSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnDodajKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnKorisnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnOdjava.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnSaradnici.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnOdbaciRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnPrijaviSe.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\BtnRegistrujSe.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\ImeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\KorisnickoImePrijava.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\KorisnickoImeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\LozinkaPrijava.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\LozinkaRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\PonoviLozinkuRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Htm\PrezimeRegistracija.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="UI\logo.jpg" />
+    <Resource Include="UI\BackLog.jpg" />
+    <Resource Include="UI\Nalozi\login.jpg" />
+    <Resource Include="UI\Organizator\Restoran1.jpg" />
+    <Resource Include="UI\Organizator\Muzika.jpg" />
+    <Resource Include="UI\Organizator\Ruza.jpg" />
+    <Resource Include="UI\Organizator\Zah3.jpg" />
+    <Resource Include="UI\Korisnici\green.jpg" />
+    <Resource Include="UI\Korisnici\Zahtjevi.jpg" />
+    <Resource Include="UI\Korisnici\Tabela.jpg" />
+    <Resource Include="UI\Korisnici\Zelje.jpg" />
+    <Resource Include="UI\Korisnici\ZakaziBack.jpg" />
+    <Resource Include="UI\Korisnici\FLoyinka.jpg" />
+    <Resource Include="UI\Korisnici\register.jpg" />
+    <Resource Include="UI\Korisnici\profileBack.jpg" />
+    <Resource Include="UI\Korisnici\icon.jpg" />
+    <Resource Include="UI\Organizator\Zahtjevi.jpg" />
+    <Resource Include="UI\Organizator\BackLog.jpg" />
+    <Resource Include="UI\Organizator\register.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

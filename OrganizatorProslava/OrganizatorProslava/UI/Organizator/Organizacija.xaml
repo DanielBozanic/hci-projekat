@@ -1,0 +1,39 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Organizator.Organizacija"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Organizator"
+        mc:Ignorable="d"
+        Title="Organizacija" Height="430" Width="750" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
+        ContentRendered="vracanje" WindowStyle="ThreeDBorderWindow"
+        Closed="zatvaranje">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Zah3.jpg"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Left" Height="124" Stroke="Black" VerticalAlignment="Top" Width="124" Margin="113,127,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Ruza.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="124" Stroke="Black" VerticalAlignment="Top" Width="124" Margin="313,127,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Muzika.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="124" Stroke="Black" VerticalAlignment="Top" Width="124" Margin="513,127,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Restoran1.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="button_cvecare" Content="Cvećare" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="97,261,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_cvecare_Click"/>
+        <Button x:Name="button_muzika" Content="Muzika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="297,261,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_muzika_Click"/>
+        <Button x:Name="button_restorani" Content="Restorani" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="497,261,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_restorani_Click"/>
+        <Button x:Name="button_nazad" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="570,18,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_nazad_Click"/>
+        <Button x:Name="button_novi_saradnik" Content="Dodaj saradnika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="30,335,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_novi_saradnik_Click"/>
+        <Button x:Name="button_posalji" Content="Završi organizaciju" HorizontalAlignment="Left" VerticalAlignment="Top" Width="234" Margin="474,335,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_posalji_Click"/>
+        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="Zabava:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="451" Margin="30,18,0,0" FontSize="30" FontFamily="Monotype Corsiva" TextChanged="infomacije_TextChanged"/>
+
+    </Grid>
+</Window>

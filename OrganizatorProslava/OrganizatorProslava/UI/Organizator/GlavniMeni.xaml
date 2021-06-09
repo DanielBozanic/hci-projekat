@@ -1,0 +1,29 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Organizator.GlavniMeni"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Organizator"
+        mc:Ignorable="d"
+        Title="POCETNA STRANA" Height="430" Width="750" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
+        ContentRendered="vracanje" WindowStyle="ThreeDBorderWindow"
+        Closed="zatvaranje">
+    <Window.Background>
+        <ImageBrush ImageSource="register.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="545*"/>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="register.jpg"/>
+        </Grid.Background>
+        <Button x:Name="novaProslava" Content="NOVA PROSLAVA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Margin="212,65,0,0" Height="39" FontSize="30" FontFamily="Monotype Corsiva" Grid.Column="1" Background="White" Click="button_novaProslava"/>
+        <Button x:Name="organizacija" Content="ORGANIZACIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Margin="212,145,0,0" Height="39" FontSize="30" FontFamily="Monotype Corsiva" Grid.Column="1" Background="White" Click="button_organizacija"/>
+        <Button x:Name="profil" Content="PROFIL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Margin="212,225,0,0" Height="39" Click="button_profil" FontFamily="Monotype Corsiva" FontSize="30" Grid.Column="1" Background="White"/>
+        <Button x:Name="odjava" Content="ODJAVA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" Margin="212,305,0,0" Height="39" Click="button_odjava" FontFamily="Monotype Corsiva" FontSize="30" Grid.Column="1" Background="White"/>
+    </Grid>
+</Window>

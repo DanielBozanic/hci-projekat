@@ -1,0 +1,29 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Korisnici.SpisakZelja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
+        mc:Ignorable="d"
+        Title="SpisakZelja" Height="430" Width="700"
+        Closed="Window_Closed" FontSize="11">
+    <Window.Background>
+        <ImageBrush ImageSource="Zelje.jpg"/>
+    </Window.Background>
+    <Grid>
+        <TextBox x:Name="UnesenSpisakZelja" HorizontalAlignment="Left" Height="280" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="500" Margin="100,55,0,0" FontSize="14"/>
+        <Label x:Name="label" Content="UNESITE ISPOD SPISAK ŽELJA." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,26,0,0" Width="220" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="sacuvaj" Content="SAČUVAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="180,350,0,0" Height="30" Background="#FF82B1F6" FontSize="16" Click="sacuvajKlik" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="380,350,0,0" Height="30" Background="#FF82B1F6" FontSize="16" Click="nazadKlik" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>
+
