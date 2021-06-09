@@ -61,5 +61,26 @@ namespace OrganizatorProslava.Services.Zabave
             //dodati kod
             return "";
         }
+
+
+
+
+        public List<Models.Proizvod> GetProizvodeZaZabavu(int id_zabave)
+        {
+            var proiz = new DataAccess.Zabava.ProizvodProizvod();
+            var sarServis = new Saradnici.SaradnikServis();
+            return proiz.GetSveProizvodeZaZabavu(id_zabave).ToList()
+                .Select(p => new Models.Proizvod
+                {
+                    Id = p.ID,
+                    Naziv = p.Naziv,
+                    Cena = p.Cena,
+                    Opis = p.Opis,
+                    LinkZaSliku = p.LinkSlike,
+                    SmeDaMenja = p.SmeDaMenja,
+                    Sardanik = sarServis.GetSaradnikaPoID(p.SaradnikID)
+                }).ToList();
+        }
+
     }
 }

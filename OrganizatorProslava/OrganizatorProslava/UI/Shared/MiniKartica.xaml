@@ -1,0 +1,39 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Shared.MiniKartica"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Shared"
+        mc:Ignorable="d"
+        Title="MiniKartica" Height="430" Width="730"
+         Closed="Window_Closed" FontSize="11">
+    <Grid Margin="0,0,0,0.5" Height="402" VerticalAlignment="Bottom">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Cyan" Offset="0.077"/>
+                <GradientStop Color="#FF144648" Offset="0.929"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="imeProizvoda" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="130,100,0,0" FontSize="13"/>
+        <Label x:Name="label" Content="IME " HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Margin="30,100,0,0" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="OPIS" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,160,0,0" Width="88" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="SARADNIK" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="470,25,0,0" Width="145" Height="37" FontSize="25" FontWeight="Bold"/>
+        <Label x:Name="label3" Content="CENA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,280,0,0" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="label4" Content="LINK SLIKE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,280,0,0" FontSize="16" FontWeight="Bold" Width="107"/>
+        <Label x:Name="label5" Content="IME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,100,0,0" Height="32" FontWeight="Bold" FontSize="16" Width="54"/>
+        <Label x:Name="label6" Content="ADRESA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,160,0,0" FontSize="16" FontWeight="Bold" Width="87"/>
+        <Label x:Name="label7" Content="E-MAIL" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,220,0,0" FontSize="16" FontWeight="Bold" Width="80"/>
+        <Button x:Name="button" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="555,340,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF30ADB4" Click="Nazad_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Label x:Name="label8" Content="PROIZVOD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,25,0,0" Width="138" Height="40" FontSize="25" FontWeight="Bold"/>
+        <TextBox x:Name="OpisProizvoda" HorizontalAlignment="Left" Height="90" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="130,160,0,0" FontSize="13"/>
+        <TextBox x:Name="CenaProizvod" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="130,280,0,0" FontSize="13"/>
+        <TextBox x:Name="Link" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="495,280,0,0" FontSize="13"/>
+        <TextBox x:Name="ImeSaradnika" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="495,100,0,0" FontSize="13"/>
+        <TextBox x:Name="AdresaSaradnika" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="495,160,0,0" FontSize="13"/>
+        <TextBox x:Name="EmailSaradnika" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180" Margin="495,220,0,0" FontSize="13"/>
+    </Grid>
+</Window>

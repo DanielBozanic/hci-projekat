@@ -41,7 +41,15 @@ namespace OrganizatorProslava.UI.Korisnici
                 this.fiksanB.Text = "NE";
             }
 
-            this.org.Text = $"{izabraniZahtjev.Organizator.Ime} {izabraniZahtjev.Organizator.Prezime}";
+            if (izabraniZahtjev.Organizator != null)
+            {
+                this.org.Text = $"{izabraniZahtjev.Organizator.Ime} {izabraniZahtjev.Organizator.Prezime}";
+            }
+            else
+            {
+                this.org.Text = "NIJE IZABRAN";
+            }
+            
             zahtjev = izabraniZahtjev;
         }
 

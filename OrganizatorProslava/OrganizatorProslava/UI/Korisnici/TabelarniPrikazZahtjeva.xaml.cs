@@ -35,17 +35,79 @@ namespace OrganizatorProslava.UI.Korisnici
             if (kojiProzor == 1)
             {
                 this.Title = "Zahtjevi na čekanju";
-                this.DataContext = new TabelaZahtjevaVM(GetKorisnickeZahtjeveNaCekanju());
+                //this.DataContext = new TabelaZahtjevaVM(GetKorisnickeZahtjeveNaCekanju());
+                List<Models.Zabava> zahtjevi = GetKorisnickeZahtjeveNaCekanju();
+                if(zahtjevi.Count() == 0)
+                {
+                    TextBox nemaZahtjeva = new TextBox();
+                    nemaZahtjeva.Name = "NemaZahtjeva";
+                    nemaZahtjeva.HorizontalAlignment = HorizontalAlignment.Left;
+                    nemaZahtjeva.VerticalAlignment = VerticalAlignment.Top;
+                    nemaZahtjeva.Height = 40;
+                    nemaZahtjeva.TextWrapping = TextWrapping.Wrap;
+                    nemaZahtjeva.Text = " NEMA ZAHTEVA.";
+                    nemaZahtjeva.Width = 180;
+                    nemaZahtjeva.Margin = new Thickness(280, 140, 0, 0);
+                    nemaZahtjeva.FontSize = 20;
+                    nemaZahtjeva.FontWeight = FontWeights.Bold;
+                    this.grid.Children.Add(nemaZahtjeva);
+                }
+                else
+                {
+                    this.DataContext = new TabelaZahtjevaVM(GetKorisnickeZahtjeveNaCekanju());
+                }
             }
             else if (kojiProzor == 2)
             {
                 this.Title = "Odobreni zahtjevi";
-                this.DataContext = new TabelaZahtjevaVM(GetOdobreneKorisnickeZahtjeve());
+                //this.DataContext = new TabelaZahtjevaVM(GetOdobreneKorisnickeZahtjeve());
+
+                List<Models.Zabava> zahtjevi = GetOdobreneKorisnickeZahtjeve();
+                if (zahtjevi.Count() == 0)
+                {
+                    TextBox nemaZahtjeva = new TextBox();
+                    nemaZahtjeva.Name = "NemaZahtjeva";
+                    nemaZahtjeva.HorizontalAlignment = HorizontalAlignment.Left;
+                    nemaZahtjeva.VerticalAlignment = VerticalAlignment.Top;
+                    nemaZahtjeva.Height = 40;
+                    nemaZahtjeva.TextWrapping = TextWrapping.Wrap;
+                    nemaZahtjeva.Text = " NEMA ZAHTEVA.";
+                    nemaZahtjeva.Width = 180;
+                    nemaZahtjeva.Margin = new Thickness(280, 140, 0, 0);
+                    nemaZahtjeva.FontSize = 20;
+                    nemaZahtjeva.FontWeight = FontWeights.Bold;
+                    this.grid.Children.Add(nemaZahtjeva);
+                }
+                else
+                {
+                    this.DataContext = new TabelaZahtjevaVM(GetOdobreneKorisnickeZahtjeve());
+                }
             }
             else
             {
                 this.Title = "Odbijeni zahtjevi";
-                this.DataContext = new TabelaZahtjevaVM(GetOdbijeneKorisnickeZahtjeve());
+                //this.DataContext = new TabelaZahtjevaVM(GetOdbijeneKorisnickeZahtjeve());
+
+                List<Models.Zabava> zahtjevi = GetOdbijeneKorisnickeZahtjeve();
+                if (zahtjevi.Count() == 0)
+                {
+                    TextBox nemaZahtjeva = new TextBox();
+                    nemaZahtjeva.Name = "NemaZahtjeva";
+                    nemaZahtjeva.HorizontalAlignment = HorizontalAlignment.Left;
+                    nemaZahtjeva.VerticalAlignment = VerticalAlignment.Top;
+                    nemaZahtjeva.Height = 40;
+                    nemaZahtjeva.TextWrapping = TextWrapping.Wrap;
+                    nemaZahtjeva.Text = " NEMA ZAHTEVA.";
+                    nemaZahtjeva.Width = 180;
+                    nemaZahtjeva.Margin = new Thickness(280, 140, 0, 0);
+                    nemaZahtjeva.FontSize = 20;
+                    nemaZahtjeva.FontWeight = FontWeights.Bold;
+                    this.grid.Children.Add(nemaZahtjeva);
+                }
+                else
+                {
+                    this.DataContext = new TabelaZahtjevaVM(GetOdbijeneKorisnickeZahtjeve());
+                }
             }
 
         }
