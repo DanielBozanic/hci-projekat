@@ -45,6 +45,13 @@ namespace OrganizatorProslava.UI.Korisnici
 
             string[] razdvajanjePunogImena = LogovaniKorisnik.PunoIme.Split(' ');
 
+            if ((promjenjenoIme == string.Empty || promjenjenoPrezime == string.Empty) && !this.noviProzor) {
+                var poruka = new Poruka("Morate uneti i ime i prezime.", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
+
             if (promjenjenoIme == string.Empty)
             {
                 promjenjenoIme = razdvajanjePunogImena[0];
@@ -76,7 +83,7 @@ namespace OrganizatorProslava.UI.Korisnici
                         noviProfil.Show();
                         this.Hide();
                     }
-                    else { this.Close(); }
+                    else this.Close();
                 }
 
             }

@@ -26,14 +26,18 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
 
-                <DataGridTextColumn Width="355"
+                <DataGridTextColumn Width="231"
 				                    Binding="{Binding Naziv}"
                                     IsReadOnly="True"
-				                    Header="Naziv muzicke grupe" />
-                <DataGridTextColumn Width="345"
+				                    Header="Naziv grupe" />
+                <DataGridTextColumn Width="157"
 				                    Binding="{Binding Cena}"
                                     IsReadOnly="True"
 				                    Header="Cena" />
+                <DataGridTextColumn Width="355"
+				                    Binding="{Binding Opis}"
+                                    IsReadOnly="True"
+				                    Header="Opis" />
 
             </DataGrid.Columns>
         </DataGrid>
@@ -45,7 +49,7 @@
         <Button x:Name="button_nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="dugme_nazad" RenderTransformOrigin="0.778,-0.681" Margin="81,0,0,55.8" />
         <Button x:Name="pregled_izabranih_grupa" Content="PREGLED IZABRANIH GRUPA" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="404"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="dugme_pregled_izabranih_grupa" Margin="172,0,0,9.8"/>
 
-        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="Zelja klijenta:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="300" Margin="30,18,0,0" FontSize="30" FontFamily="Monotype Corsiva" />
+        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="Zelja klijenta:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="300" Margin="30,18,0,0" FontSize="25" FontFamily="Monotype Corsiva" />
 
     </Grid>
 </Window>

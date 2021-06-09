@@ -1,20 +1,10 @@
-﻿using OrganizatorProslava.Services.Saradnici;
-using OrganizatorProslava.Services.Zabave;
-using OrganizatorProslava.ViewModel.Administrator;
+﻿using OrganizatorProslava.Services.Zabave;
 using OrganizatorProslava.ViewModel.Organizator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.UI.Shared;
 namespace OrganizatorProslava.UI.Organizator
 {
     /// <summary>
@@ -52,6 +42,15 @@ namespace OrganizatorProslava.UI.Organizator
         private void dugme_izaberi(object sender, EventArgs e)
         {
             Models.Proizvod proizvodDodavanje = (Models.Proizvod)muzika.SelectedItem;
+
+            Poruka poruka = null;
+            if (proizvodDodavanje == null)
+            {
+                poruka = new Poruka("Morate selektovati grupu pre nego što pritisnete \"izaberi\".", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
 
             MessageBoxResult rezultat = MessageBox.Show("Da li zelite da dodate muzicku grupu sa nazivom" + proizvodDodavanje.Naziv + "?", "Dodavanje prozivoda", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 

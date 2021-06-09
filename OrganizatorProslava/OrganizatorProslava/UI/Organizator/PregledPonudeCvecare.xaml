@@ -26,20 +26,24 @@
 		        MinRowHeight="25" FontFamily="Monotype Corsiva" FontSize="30">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
-                <DataGridTextColumn Width="355"
+                <DataGridTextColumn Width="231"
 				                    Binding="{Binding Naziv}"
                                     IsReadOnly="True"
 				                    Header="Naziv proizvoda" />
-                <DataGridTextColumn Width="355"
+                <DataGridTextColumn Width="157"
 				                    Binding="{Binding Cena}"
                                     IsReadOnly="True"
 				                    Header="Cena" />
+                <DataGridTextColumn Width="305"
+				                    Binding="{Binding Opis}"
+                                    IsReadOnly="True"
+				                    Header="Opis" />
 
             </DataGrid.Columns>
         </DataGrid>
 
         <Button x:Name="button_pregledaj_izabrano" Content="pregledaj izabranu dekoraciju" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="400"  Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Margin="194,0,150,0.8" Click="button_pregled_izabrane_dekoracije"  />
-        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="Zelja korsinika:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="380" Margin="27,14,0,0" FontSize="30" FontFamily="Monotype Corsiva" />
+        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="Zelja korsinika:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="380" Margin="27,14,0,0" FontSize="25" FontFamily="Monotype Corsiva" />
         <Button x:Name="buttonNazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_nazad" Margin="129,0,0,45.8"/>
         <Button x:Name="buttonDodaj" Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_dodaj" Margin="470,0,0,45.8" RenderTransformOrigin="0.556,0.087" />
         <TextBlock  Text="Pretraga: " Height="41" FontFamily="Monotype Corsiva" FontSize="30" Margin="428,14,-428,345.8"/>

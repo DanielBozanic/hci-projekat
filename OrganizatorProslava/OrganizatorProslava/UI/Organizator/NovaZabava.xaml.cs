@@ -50,6 +50,7 @@ namespace OrganizatorProslava.UI.Organizator
             List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator?.Id == idOrganizatora select z).ToList();
             this.DataContext = new ZabaveViewModel(zabave);
             this.trenutne = false;
+            this.buttonOdbij.IsEnabled = true;
         }
 
         private void nedodeljene_Checked(object sender, RoutedEventArgs e)
@@ -57,6 +58,7 @@ namespace OrganizatorProslava.UI.Organizator
             List<Models.Zabava> zabave = (from z in servis.GetZabave() where (z.Status == 1 && z.Organizator == null) || z.Status == 5 select z).ToList();
             this.DataContext = new ZabaveViewModel(zabave);
             this.trenutne = true;
+            this.buttonOdbij.IsEnabled = false;
         }
 
         private void button_prihvati(object sender, RoutedEventArgs e)
@@ -86,5 +88,28 @@ namespace OrganizatorProslava.UI.Organizator
             this.DataContext = new ZabaveViewModel(zabavice);
         }
 
+        private void buttonOdbij_Click(object sender, RoutedEventArgs e)
+        {
+            Models.Zabava selektovana = (Models.Zabava)zabave.SelectedItem;
+            Poruka poruka = null;
+            if (selektovana == null)
+            {
+                poruka = new Poruka("Morate selektovati zabavu pre nego što pritisnete \"odbij\".", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
+
+            selektovana.Status = 5;
+            ServisZabave servis = new ServisZabave();
+            servis.IzmeniZabavu(selektovana);
+            poruka = new Poruka("Uspešno ste prihvatili zabavu.", "Obaveštenje", MessageBoxButton.OK);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+
+            // azuriranje podataka
+            List<Models.Zabava> zabavice = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabavice);
+        }
     }
 }
