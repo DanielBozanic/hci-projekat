@@ -12,7 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="green.jpg"/>
         </Grid.Background>
-        <Button x:Name="btnSala" Content="RASPORED SEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="91,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnSala_Click">
+        <!--<Button x:Name="btnSala" Content="RASPORED SEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="91,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnSala_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
@@ -21,6 +21,6 @@
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
-        </Button>
+        </Button>-->
     </Grid>
 </Window>

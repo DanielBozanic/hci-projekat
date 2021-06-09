@@ -1,6 +1,7 @@
 ﻿using OrganizatorProslava.DataAccess.Klijenti;
 using OrganizatorProslava.DataAccess.Zabava;
 using OrganizatorProslava.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,9 +47,36 @@ namespace OrganizatorProslava.Services.Klijenti
                 }).ToList();
         }
 
-        public void SacuvajZabavaGosti(List<ZabavaGosti> zabavaGosti, int zabavaId, int proizvodId)
+        public string SacuvajZabavaGosti(List<ZabavaGosti> zabavaGosti, int zabavaId, int proizvodId)
         {
             var zabavaStoDal = new ZabavaSto();
+
+            var stoloviSale = zabavaStoDal.GetStoloveSaleZaZabavu(zabavaId, proizvodId).Where(q => q.StoZabave != null).ToList();
+
+            var zabavaGostiStolovi = (from zg in zabavaGosti.Where(q => q.StoId > 0)
+                                      join ss in stoloviSale on zg.StoId equals ss.StoZabave.ID
+                                      select new
+                                      {
+                                          Gost = zg.ImeGosta,
+                                          StoId = zg.StoId,
+                                          Opis = ss.StoSale.Opis,
+                                          BrojMesta = ss.StoSale.BrojMesta
+                                      }).ToList();
+
+            var grupe = (from zgs in zabavaGostiStolovi
+                         group zgs by zgs.StoId into g
+                         let cnt = g.Count()
+                         select new
+                         {
+                             Sto = g.Key,
+                             GostiStolovi = zabavaGostiStolovi.FirstOrDefault(q => q.StoId == g.Key),
+                             BrojGostijuStola = cnt
+                         }).Where(q => q.BrojGostijuStola > q.GostiStolovi.BrojMesta).ToList();
+
+            if (grupe.Any())
+                return string.Join(Environment.NewLine, 
+                    grupe.Select(s => $"Sto '{s.GostiStolovi.Opis}' ima vise rezervisanih gostiju ({s.BrojGostijuStola}) od broja mesta ({s.GostiStolovi.BrojMesta})." ));
+                        
             zabavaStoDal.UknoniZabavaSalaStoGosti(zabavaId, proizvodId);
 
             if (zabavaGosti.Any())
@@ -61,6 +89,8 @@ namespace OrganizatorProslava.Services.Klijenti
                         ZabavaSalaStoID = s.StoId
                     }).ToList());
             }
+
+            return string.Empty;
         }
     }
 }

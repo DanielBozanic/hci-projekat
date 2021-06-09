@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace OrganizatorProslava.UI.Korisnici
 {
@@ -28,7 +26,15 @@ namespace OrganizatorProslava.UI.Korisnici
         private void btnCuvaj_Click(object sender, RoutedEventArgs e)
         {
             var zabavaGostiServis = new Services.Klijenti.ZabavaGostiServis();
-            zabavaGostiServis.SacuvajZabavaGosti(((ZabavaGostiViewModel)this.DataContext).ZabavaGosti.ToList(), _zabavaId, _proizvodId);
+            var msg = zabavaGostiServis.SacuvajZabavaGosti(((ZabavaGostiViewModel)this.DataContext).ZabavaGosti.ToList(), _zabavaId, _proizvodId);
+            if (msg != string.Empty)
+            {
+                var poruka = new Poruka(msg, Poruke.Poruka, MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
+
             this.DialogResult = true;
         }
 
