@@ -1,17 +1,9 @@
 ﻿using OrganizatorProslava.ViewModel.Organizator;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.UI.Shared;
+using OrganizatorProslava.Services.Zabave;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -25,6 +17,8 @@ namespace OrganizatorProslava.UI.Organizator
         private Models.Zabava zabavaKojuOrganizujemo;
 
         private ProizvodiViewModel prikaz;
+
+        private ServisProizvoda servis = new ServisProizvoda();
 
         public PregledIzabraneMuzike(Models.Zabava zabavaZaOrganizovanje, List<Models.Proizvod> izabranaMuzika)
         {
@@ -57,19 +51,15 @@ namespace OrganizatorProslava.UI.Organizator
         }
         private void button_sacuvaj(object sender, RoutedEventArgs e)
         {
-            //ako nista nije ubaceno u listu za dodavanje izbaciti upozorenje (prazna lista)..
-
-            /*MessageBoxResult rez = MessageBox.Show("Zelite li da sacuvate dodate muzicke grupe?", "Cuvanje muzike", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            switch (rez)
-            {
-                case MessageBoxResult.Yes:
-
-
-                    break;
-                case MessageBoxResult.No:
-                    break;
-            }*/
+            Poruka poruka = new Poruka("Da li ste sigurni da želite sa sačuvate odabranu muziku?", "Čuvanje muzike", MessageBoxButton.YesNo, MessageBoxResult.No);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            if (poruka.Rezultat == MessageBoxResult.No) return;
+            this.servis.Sacuvaj(this.zabavaKojuOrganizujemo.Id, this.izabraneMuzickeGrupe);
+            poruka = new Poruka("Uspešno ste sačuvali odabranu muziku", "Čuvanje muzike", MessageBoxButton.OK);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            this.Close();
         }
         private void button_obrisi(object sender, RoutedEventArgs e)
         {

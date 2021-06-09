@@ -1,17 +1,9 @@
 ﻿using OrganizatorProslava.ViewModel.Organizator;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.UI.Shared;
+using OrganizatorProslava.Services.Zabave;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -23,7 +15,7 @@ namespace OrganizatorProslava.UI.Organizator
         private List<Models.Proizvod> proizvodiDodavanje;
         private Models.Zabava zabavaKojuOrganizujemo;
         private Models.Proizvod selektovaniRestoran;
-
+        private ServisProizvoda servis = new ServisProizvoda();
         private ProizvodiViewModel prikaz;
 
 
@@ -60,17 +52,15 @@ namespace OrganizatorProslava.UI.Organizator
         }
         private void button_sacuvaj(object sender, RoutedEventArgs e)
         {
-            /*MessageBoxResult rez = MessageBox.Show("Zelite li da sacuvate dodatu hranu?", "Cuvanje hrane", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            switch (rez)
-            {
-                case MessageBoxResult.Yes:
-
-
-                    break;
-                case MessageBoxResult.No:
-                    break;
-            }*/
+            Poruka poruka = new Poruka("Da li ste sigurni da želite sa sačuvate odabranu hranu?", "Čuvanje hrane", MessageBoxButton.YesNo, MessageBoxResult.No);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            if (poruka.Rezultat == MessageBoxResult.No) return;
+            this.servis.Sacuvaj(this.zabavaKojuOrganizujemo.Id, this.proizvodiDodavanje);
+            poruka = new Poruka("Uspešno ste sačuvali meni", "Čuvanje menia", MessageBoxButton.OK);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            this.Close();
         }
         private void button_obrisi(object sender, RoutedEventArgs e)
         {

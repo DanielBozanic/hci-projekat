@@ -1,20 +1,10 @@
-﻿using OrganizatorProslava.Services.Saradnici;
-using OrganizatorProslava.Services.Zabave;
-using OrganizatorProslava.ViewModel.Administrator;
+﻿using OrganizatorProslava.Services.Zabave;
 using OrganizatorProslava.ViewModel.Organizator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.UI.Shared;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -26,7 +16,7 @@ namespace OrganizatorProslava.UI.Organizator
         private ServisProizvoda servis = new ServisProizvoda();
         private Models.Saradnik izabranaCvecara;
 
-        public List<Models.Proizvod> izabraniProizvodi = new List<Models.Proizvod>();
+        public List<Models.Proizvod> izabraniProizvodi;
 
         private Models.Zabava zabavaKojuOrganizujemo;
 
@@ -36,6 +26,8 @@ namespace OrganizatorProslava.UI.Organizator
             InitializeComponent();
             izabranaCvecara = selektovanaCvecara;
             zabavaKojuOrganizujemo = zabavaOrganizacija;
+
+            this.izabraniProizvodi = servis.GetProizvodeZaZabavuZaSaradnika(this.zabavaKojuOrganizujemo.Id, this.izabranaCvecara.Id);
 
             infomacije.Text = "Zelja klijenta:" + zabavaKojuOrganizujemo.DodatneZelje + "\nUkupno:";
 
@@ -86,6 +78,23 @@ namespace OrganizatorProslava.UI.Organizator
             }
             else
             {
+                bool jesteDodat = false;
+                foreach (var pron in this.izabraniProizvodi)
+                {
+                    if (proizvodDodavanje.Id == pron.Id)
+                    {
+                        jesteDodat = true;
+                        break;
+                    }
+                }
+                if (jesteDodat)
+                {
+                    Poruka poruka = new Poruka("Ovo cveće je već dodata.", "Obaveštenje", MessageBoxButton.OK);
+                    poruka.Owner = this;
+                    poruka.ShowDialog();
+                    return;
+                }
+
                 MessageBoxResult rezultat = MessageBox.Show("Da li zelite da dodate " + proizvodDodavanje.Naziv + " u izabranu dekoraciju?", "Dodavanje prozivoda", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
                 switch (rezultat)

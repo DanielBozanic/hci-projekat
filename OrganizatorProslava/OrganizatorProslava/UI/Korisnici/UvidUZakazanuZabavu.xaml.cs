@@ -13,31 +13,37 @@ namespace OrganizatorProslava.UI.Korisnici
         private Models.Zabava _zabava;
         private int _restoranProizvodId;
 
-        public UvidUZakazanuZabavu(Models.Zabava prosljedjenaZabava, bool prosle)
+        public UvidUZakazanuZabavu(Models.Zabava prosljedjenaZabava, bool prosle, bool samoJako)
         {
             InitializeComponent();
             _zabava = prosljedjenaZabava;
-
-            var restoranProizvod = _zabava.OdabraniProizvodi.FirstOrDefault(q => q.SmeDaMenja != null);
-            if (restoranProizvod == null || !(restoranProizvod.SmeDaMenja ?? false))
+            if (!samoJako)
             {
-                btnSala.Visibility = Visibility.Collapsed;
-                btnGosti.Visibility = Visibility.Collapsed;
+                var restoranProizvod = _zabava.OdabraniProizvodi.FirstOrDefault(q => q.SmeDaMenja != null);
+                if (restoranProizvod == null || !(restoranProizvod.SmeDaMenja ?? false))
+                {
+                    btnSala.Visibility = Visibility.Collapsed;
+                    btnGosti.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    _restoranProizvodId = restoranProizvod.Id;
+                }
             }
-            else
-            {
-                _restoranProizvodId = restoranProizvod.Id;
+            else {
+                this.btnSala.IsEnabled = false;
+                this.btnGosti.IsEnabled = false;
             }
 
 
-            if (prosle)
+            if (!prosle)
             {
                 Button dugmeZahtjev = new Button();
                 dugmeZahtjev.Content = "ZAHTEV";
                 dugmeZahtjev.HorizontalAlignment = HorizontalAlignment.Left;
                 dugmeZahtjev.VerticalAlignment = VerticalAlignment.Top;
                 dugmeZahtjev.Width = 120;
-                dugmeZahtjev.Margin = new Thickness(300, 360, 0, 0);
+                dugmeZahtjev.Margin = new Thickness(270,333, 0, 0);
                 dugmeZahtjev.Height = 30;
                 dugmeZahtjev.FontSize = 16;
                 dugmeZahtjev.FontFamily = new FontFamily("Segoe UI");
@@ -63,6 +69,12 @@ namespace OrganizatorProslava.UI.Korisnici
         {
 
             bool nasla = false;
+            if (_zabava.OdabraniProizvodi == null) {
+                Poruka poruka = new Poruka("Ova stavka nije uneta još uvek.", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
             foreach (Models.Proizvod p in _zabava.OdabraniProizvodi)
             {
                 if(p.Sardanik.TipSaradnika == "Muzika")
@@ -86,6 +98,14 @@ namespace OrganizatorProslava.UI.Korisnici
         private void CvijeceKlik(object sender, RoutedEventArgs e)
         {
             bool nasla = false;
+
+            if (_zabava.OdabraniProizvodi == null)
+            {
+                Poruka poruka = new Poruka("Ova stavka nije uneta još uvek.", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
             foreach (Models.Proizvod p in _zabava.OdabraniProizvodi)
             {
                 if (p.Sardanik.TipSaradnika == "Cvecara")
@@ -109,6 +129,14 @@ namespace OrganizatorProslava.UI.Korisnici
         private void RestoraniKlik(object sender, RoutedEventArgs e)
         {
             bool nasla = false;
+
+            if (_zabava.OdabraniProizvodi == null)
+            {
+                Poruka poruka = new Poruka("Ova stavka nije uneta još uvek.", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
             foreach (Models.Proizvod p in _zabava.OdabraniProizvodi)
             {
                 if (p.Sardanik.TipSaradnika == "Restoran")
@@ -167,7 +195,7 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void Poruke_Click(object sender, RoutedEventArgs e)
         {
-            Models.Zabava z = this.zabava;
+            Models.Zabava z = this._zabava;
             PorukeOrganizacije poruke = new PorukeOrganizacije(z);
             poruke.Owner = this;
             poruke.Show();

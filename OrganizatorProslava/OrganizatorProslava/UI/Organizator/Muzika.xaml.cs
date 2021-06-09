@@ -13,13 +13,15 @@ namespace OrganizatorProslava.UI.Organizator
     public partial class Muzika : Window
     {
         private ServisProizvoda servis = new ServisProizvoda();
-        private List<Models.Proizvod> dodatiMuzicari = new List<Models.Proizvod>();
+        private List<Models.Proizvod> dodatiMuzicari;
         private Models.Zabava zabavaZaOrganizovanje;
 
         public Muzika(Models.Zabava zabavaOrganizovanje)
         {
             InitializeComponent();
             zabavaZaOrganizovanje = zabavaOrganizovanje;
+
+            this.dodatiMuzicari = servis.GetProizvodeZaZabavuZaMuziku(this.zabavaZaOrganizovanje.Id);
 
             //podaci iz zahteva za organizaciju
             infomacije.Text = "Zelja klijenta:" + zabavaOrganizovanje.DodatneZelje + "\nUkupno:";
@@ -52,7 +54,24 @@ namespace OrganizatorProslava.UI.Organizator
                 return;
             }
 
-            MessageBoxResult rezultat = MessageBox.Show("Da li zelite da dodate muzicku grupu sa nazivom" + proizvodDodavanje.Naziv + "?", "Dodavanje prozivoda", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            bool jesteDodat = false;
+            foreach (var pron in this.dodatiMuzicari)
+            {
+                if (proizvodDodavanje.Id == pron.Id)
+                {
+                    jesteDodat = true;
+                    break;
+                }
+            }
+            if (jesteDodat)
+            {
+                poruka = new Poruka("Ova grupa je već dodata.", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
+
+            MessageBoxResult rezultat = MessageBox.Show("Da li želite da dodate grupu " + proizvodDodavanje.Naziv + "?", "Dodavanje prozivoda", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
             switch (rezultat)
             {
