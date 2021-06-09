@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows;
 using OrganizatorProslava.ViewModel.Organizator;
 using OrganizatorProslava.Services.Zabave;
+using OrganizatorProslava.Services.Nalozi;
+using OrganizatorProslava.UI.Shared;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -14,6 +16,7 @@ namespace OrganizatorProslava.UI.Organizator
     {
         private int idOrganizatora = Models.LogovaniKorisnik.Id;
         private ServisZabave servis = new ServisZabave();
+        private bool trenutne = false;
 
         public NovaZabava()
         {
@@ -46,17 +49,41 @@ namespace OrganizatorProslava.UI.Organizator
         {
             List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator?.Id == idOrganizatora select z).ToList();
             this.DataContext = new ZabaveViewModel(zabave);
+            this.trenutne = false;
         }
 
         private void nedodeljene_Checked(object sender, RoutedEventArgs e)
         {
-            List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 1 && z.Organizator == null select z).ToList();
+            List<Models.Zabava> zabave = (from z in servis.GetZabave() where (z.Status == 1 && z.Organizator == null) || z.Status == 5 select z).ToList();
             this.DataContext = new ZabaveViewModel(zabave);
+            this.trenutne = true;
         }
 
         private void button_prihvati(object sender, RoutedEventArgs e)
         {
+            Models.Zabava selektovana = (Models.Zabava)zabave.SelectedItem;
+            Poruka poruka = null;
+            if (selektovana == null) {
+                poruka = new Poruka("Morate selektovati zabavu pre nego što pritisnete \"prihvati\".", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
 
+            selektovana.Status = 2;
+            KorisnikServis korSrevis = new KorisnikServis();
+            selektovana.Organizator = korSrevis.GetKorisnikPoId(this.idOrganizatora).FirstOrDefault();
+            ServisZabave servis = new ServisZabave();
+            servis.IzmeniZabavu(selektovana);
+            poruka = new Poruka("Uspešno ste prihvatili zabavu.", "Obaveštenje", MessageBoxButton.OK);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+
+            // azuriranje podataka
+            List<Models.Zabava> zabavice = null;
+            if (this.trenutne) zabavice = (from z in servis.GetZabave() where (z.Status == 1 && z.Organizator == null) || z.Status == 5 select z).ToList();
+            else (from z in servis.GetZabave() where z.Status == 1 && z.Organizator?.Id == idOrganizatora select z).ToList();
+            this.DataContext = new ZabaveViewModel(zabavice);
         }
 
     }

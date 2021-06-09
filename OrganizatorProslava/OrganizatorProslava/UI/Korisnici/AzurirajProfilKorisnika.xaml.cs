@@ -22,11 +22,17 @@ namespace OrganizatorProslava.UI.Korisnici
     /// </summary>
     public partial class AzurirajProfilKorisnika : Window
     {
-        public AzurirajProfilKorisnika()
+        private bool noviProzor = false;
+        public AzurirajProfilKorisnika(bool da_otvara)
         {
             InitializeComponent();
+            this.noviProzor = da_otvara;
         }
 
+        public void podesiPodatke(string ime, string prezime) {
+            this.ime.Text = ime;
+            this.prezime.Text = prezime;
+        }
 
 
 
@@ -63,10 +69,14 @@ namespace OrganizatorProslava.UI.Korisnici
 
                 if (azuriraniPodaciPoruka.Rezultat == MessageBoxResult.OK)
                 {
-                    var noviProfil = new ProfilKorisnika();
-                    noviProfil.Owner = this;
-                    noviProfil.Show();
-                    this.Hide();
+                    if (this.noviProzor)
+                    {
+                        var noviProfil = new ProfilKorisnika();
+                        noviProfil.Owner = this;
+                        noviProfil.Show();
+                        this.Hide();
+                    }
+                    else { this.Close(); }
                 }
 
             }
