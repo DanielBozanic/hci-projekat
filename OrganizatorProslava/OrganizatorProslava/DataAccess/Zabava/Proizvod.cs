@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrganizatorProslava.DataAccess.Zabava 
 {
-    public class ProizvodProizvod : DataModel.Proizvod
+    public class ProizvodProizvod
     {
         private readonly DataModel.OrganizatorProslavaEntities bazaPodataka;
 

@@ -186,8 +186,10 @@
     <Compile Include="Models\Sto.cs" />
     <Compile Include="Models\TipSaradnika.cs" />
     <Compile Include="Models\Zabava.cs" />
+    <Compile Include="Models\ZabavaGosti.cs" />
     <Compile Include="Services\Klijenti\SalaServis.cs" />
     <Compile Include="Models\Zahtjev.cs" />
+    <Compile Include="Services\Klijenti\ZabavaGostiServis.cs" />
     <Compile Include="Services\Nalozi\KorisnikServis.cs" />
     <Compile Include="Services\Nalozi\PrijavaServis.cs" />
     <Compile Include="Services\Saradnici\SaradnikServis.cs" />
@@ -248,6 +250,9 @@
     </Compile>
     <Compile Include="UI\Korisnici\UvidUZakazanuZabavu.xaml.cs">
       <DependentUpon>UvidUZakazanuZabavu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\ZabavaGosti.xaml.cs">
+      <DependentUpon>ZabavaGosti.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Korisnici\Zahtevi.xaml.cs">
       <DependentUpon>Zahtevi.xaml</DependentUpon>
@@ -314,6 +319,7 @@
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
     <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
+    <Compile Include="ViewModel\KorisnickeTabele\ZabavaGostiViewModel.cs" />
     <Compile Include="ViewModel\Organizator\ProizvodiViewModel.cs" />
     <Compile Include="ViewModel\ValidacijaNoveLozinke\NovaLozinkaVM.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
@@ -397,6 +403,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\UvidUZakazanuZabavu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\ZabavaGosti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

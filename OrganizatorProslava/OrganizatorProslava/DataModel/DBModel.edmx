@@ -318,6 +318,11 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
             <End Role="Zabava" EntitySet="Zabavas" />
             <End Role="Zabava_Proizvod" EntitySet="Zabava_Proizvod" />
           </AssociationSet>
+          <EntitySet Name="Salas" EntityType="OrganizatorProslavaModel.Sala" />
+          <EntitySet Name="SalaStoes" EntityType="OrganizatorProslavaModel.SalaSto" />
+          <EntitySet Name="SalaDetaljis" EntityType="OrganizatorProslavaModel.SalaDetalji" />
+          <EntitySet Name="ZabavaSalaStoes" EntityType="OrganizatorProslavaModel.ZabavaSalaSto" />
+          <EntitySet Name="ZabavaSalaStoGosts" EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" />
         </EntityContainer>
         <EntityType Name="Korisnik">
           <Key>
@@ -549,6 +554,56 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Sala">
+          <Key>
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kapacitet" Type="Int32" />
+          <Property Name="BrojStolova" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SalaSto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrojMesta" Type="Int32" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SalaDetalji">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SalaID" />
+            <PropertyRef Name="Opis" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ZabavaSalaSto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZabavaID" Type="Int32" Nullable="false" />
+          <Property Name="SalaStoID" Type="Int32" Nullable="false" />
+          <Property Name="X" Type="Int32" Nullable="false" />
+          <Property Name="Y" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZabavaSalaStoGost">
+          <Key>
+            <PropertyRef Name="ZabavaSalaStoID" />
+            <PropertyRef Name="ImeGosta" />
+          </Key>
+          <Property Name="ZabavaSalaStoID" Type="Int32" Nullable="false" />
+          <Property Name="ImeGosta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -691,6 +746,25 @@ warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
                 <ScalarProperty Name="SalaID" ColumnName="SalaID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZabavaSalaStoes">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.ZabavaSalaSto">
+              <MappingFragment StoreEntitySet="ZabavaSalaSto">
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="SalaStoID" ColumnName="SalaStoID" />
+                <ScalarProperty Name="ZabavaID" ColumnName="ZabavaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZabavaSalaStoGosts">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.ZabavaSalaStoGost">
+              <MappingFragment StoreEntitySet="ZabavaSalaStoGost">
+                <ScalarProperty Name="ImeGosta" ColumnName="ImeGosta" />
+                <ScalarProperty Name="ZabavaSalaStoID" ColumnName="ZabavaSalaStoID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

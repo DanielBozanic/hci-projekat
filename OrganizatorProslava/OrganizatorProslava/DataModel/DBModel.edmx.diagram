@@ -21,6 +21,11 @@
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Organizator" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Poruke_Korisnik" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Proizvod_Saradnik" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Sala" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.SalaSto" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.SalaDetalji" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.ZabavaSalaSto" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" Width="1.5" PointX="7.375" PointY="6.75" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Proizvod_Proizvod" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Poruke_Zabava" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Proizvod_Zabava" />
