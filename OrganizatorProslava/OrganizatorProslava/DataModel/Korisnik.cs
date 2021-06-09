@@ -19,6 +19,7 @@ namespace OrganizatorProslava.DataModel
         {
             this.Zabavas = new HashSet<Zabava>();
             this.Zabavas1 = new HashSet<Zabava>();
+            this.Zabava_Poruke = new HashSet<Zabava_Poruke>();
         }
     
         public int ID { get; set; }
@@ -35,5 +36,7 @@ namespace OrganizatorProslava.DataModel
         public virtual ICollection<Zabava> Zabavas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zabava> Zabavas1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zabava_Poruke> Zabava_Poruke { get; set; }
     }
 }

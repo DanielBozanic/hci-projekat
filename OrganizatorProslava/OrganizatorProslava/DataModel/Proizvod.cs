@@ -17,7 +17,7 @@ namespace OrganizatorProslava.DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proizvod()
         {
-            this.Zabavas = new HashSet<Zabava>();
+            this.Zabava_Proizvod = new HashSet<Zabava_Proizvod>();
         }
     
         public int ID { get; set; }
@@ -30,6 +30,6 @@ namespace OrganizatorProslava.DataModel
     
         public virtual Saradnik Saradnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zabava> Zabavas { get; set; }
+        public virtual ICollection<Zabava_Proizvod> Zabava_Proizvod { get; set; }
     }
 }
