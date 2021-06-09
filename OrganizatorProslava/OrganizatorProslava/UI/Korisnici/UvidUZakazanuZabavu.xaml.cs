@@ -1,10 +1,7 @@
 ﻿using OrganizatorProslava.Services;
 using OrganizatorProslava.UI.Shared;
-using System.Collections.Generic;
 ﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,11 +10,25 @@ namespace OrganizatorProslava.UI.Korisnici
 {
     public partial class UvidUZakazanuZabavu : Window
     {
-        Models.Zabava zabava;
+        private Models.Zabava _zabava;
+        private int _restoranProizvodId;
+
         public UvidUZakazanuZabavu(Models.Zabava prosljedjenaZabava, bool prosle)
         {
             InitializeComponent();
-            zabava = prosljedjenaZabava;
+            _zabava = prosljedjenaZabava;
+
+            var restoranProizvod = _zabava.OdabraniProizvodi.FirstOrDefault(q => q.SmeDaMenja != null);
+            if (restoranProizvod == null || !(restoranProizvod.SmeDaMenja ?? false))
+            {
+                btnSala.Visibility = Visibility.Collapsed;
+                btnGosti.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                _restoranProizvodId = restoranProizvod.Id;
+            }
+
 
             if (prosle)
             {
@@ -46,14 +57,13 @@ namespace OrganizatorProslava.UI.Korisnici
 
                 this.grid.Children.Add(dugmeZahtjev);
             }
-
         }
 
         private void MuzikaKlik(object sender, RoutedEventArgs e)
         {
 
             bool nasla = false;
-            foreach (Models.Proizvod p in zabava.OdabraniProizvodi)
+            foreach (Models.Proizvod p in _zabava.OdabraniProizvodi)
             {
                 if(p.Sardanik.TipSaradnika == "Muzika")
                 {
@@ -76,7 +86,7 @@ namespace OrganizatorProslava.UI.Korisnici
         private void CvijeceKlik(object sender, RoutedEventArgs e)
         {
             bool nasla = false;
-            foreach (Models.Proizvod p in zabava.OdabraniProizvodi)
+            foreach (Models.Proizvod p in _zabava.OdabraniProizvodi)
             {
                 if (p.Sardanik.TipSaradnika == "Cvecara")
                 {
@@ -99,7 +109,7 @@ namespace OrganizatorProslava.UI.Korisnici
         private void RestoraniKlik(object sender, RoutedEventArgs e)
         {
             bool nasla = false;
-            foreach (Models.Proizvod p in zabava.OdabraniProizvodi)
+            foreach (Models.Proizvod p in _zabava.OdabraniProizvodi)
             {
                 if (p.Sardanik.TipSaradnika == "Restoran")
                 {
@@ -147,14 +157,12 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void zahtjeviKlik(object sender, RoutedEventArgs e)
         {
-            Models.Zabava z = this.zabava;
+            Models.Zabava z = this._zabava;
             PrikaziZahtjev zahtjev = new PrikaziZahtjev(z);
             zahtjev.Owner = this;
             zahtjev.Show();
             this.Hide();
         }
-
-
 
 
         private void Poruke_Click(object sender, RoutedEventArgs e)
@@ -181,14 +189,14 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void btnSala_Click(object sender, RoutedEventArgs e)
         {
-            var sala = new Sala(5, 14);
+            var sala = new Sala(_zabava.Id, _restoranProizvodId);
             sala.Owner = this;
             sala.ShowDialog();
         }
 
         private void btnGosti_Click(object sender, RoutedEventArgs e)
         {
-            var zabavaGosti = new ZabavaGosti(5, 14);
+            var zabavaGosti = new ZabavaGosti(_zabava.Id, _restoranProizvodId);
             zabavaGosti.Owner = this;
             zabavaGosti.ShowDialog();
         }

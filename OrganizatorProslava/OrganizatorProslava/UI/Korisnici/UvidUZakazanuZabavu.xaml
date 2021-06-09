@@ -26,22 +26,26 @@
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
-        </Button> 
-        <Button x:Name="porukice" Content="PORUKE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="450,360,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF1F787D" Click="Poruke_Click">
-            <Button.Effect>
-                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
-            </Button.Effect>
-        </Button>  
-        <Button x:Name="Nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="600,360,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF1F787D" Click="Nazad_Click">
+        </Button>
+        <Button x:Name="porukice" Content="PORUKE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="437,334,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF1F787D" Click="Poruke_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
         </Button>
-        <!--<Button x:Name="btnSala" Content="RASPORED SEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="91,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnSala_Click">
-        <Button x:Name="btnGosti" Content="RASPORED GOSTIJU" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="297,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnGosti_Click" >
+        <Button x:Name="Nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="587,334,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF1F787D" Click="Nazad_Click">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
-        </Button>-->
+        </Button>
+        <Button x:Name="btnSala" Content="RASPORED SEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="167" Margin="38,333,0,0" Height="30" Background="#FF1F787D" FontWeight="Bold" FontSize="16" Click="btnSala_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnGosti" Content="RASPORED GOSTIJU" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Margin="231,333,0,0" Height="30" Background="#FF1F787D" FontWeight="Bold" FontSize="16" Click="btnGosti_Click" >
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Window>
