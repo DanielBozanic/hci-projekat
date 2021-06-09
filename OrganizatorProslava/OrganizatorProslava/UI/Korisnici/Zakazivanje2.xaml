@@ -63,25 +63,19 @@
 
         <ComboBox x:Name="fiksanBudzet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="375,70,0,0" MaxDropDownHeight="352" Background="#FF84AE51" FontSize="14" Height="30"/>
         <ComboBox x:Name="organizator" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="375,130,0,0" FontSize="14" Height="30"/>
-        <Button x:Name="zakzi" Content="ZAKAŽI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="305,360,0,0" Height="30" Background="#FFF6A095" Click="zakaziKlik" FontWeight="Bold" FontSize="16">
+        <Button x:Name="zakzi" Content="ZAKAŽI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="309,338,0,0" Height="30" Background="#FFF6A095" Click="zakaziKlik" FontWeight="Bold" FontSize="16">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
         </Button>
         <Label x:Name="label4" Content="RSD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="540,10,0,0" FontFamily="Arial Black" Width="45"/>
-        <Button x:Name="odustani" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="520,360,0,0" Height="30" Background="#FFF6A095" Click="odustaniKlik" FontWeight="Bold" FontSize="16">
+        <Button x:Name="odustani" Content="ODUSTANI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="524,338,0,0" Height="30" Background="#FFF6A095" Click="odustaniKlik" FontWeight="Bold" FontSize="16">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
         </Button>
 
-        <Button x:Name="nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="90,360,0,0" Height="30" Background="#FFF6A095" Click="nazadKlik" FontWeight="Bold" FontSize="16">
-            <Button.Effect>
-                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
-            </Button.Effect>
-        </Button>
-
-        <Button x:Name="button" Content="RASPORED SJEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="277.5,305,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF82B1F6" Click="rasporediSjedenje">
+        <Button x:Name="nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="94,338,0,0" Height="30" Background="#FFF6A095" Click="nazadKlik" FontWeight="Bold" FontSize="16">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>

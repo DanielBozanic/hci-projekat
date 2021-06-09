@@ -187,25 +187,11 @@ namespace OrganizatorProslava.UI.Korisnici
             }
         }
 
-
-
-
         private void nazadKlik(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
             this.Hide();
         }
-
-
-
-
-        private void rasporediSjedenje(object sender, RoutedEventArgs e)
-        {
-            //KOD OVDJE....
-        }
-
-
-
 
         //PROVJERE
         public bool provjeraUnesenihSvihPolja()
