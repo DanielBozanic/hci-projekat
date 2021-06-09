@@ -27,15 +27,13 @@ namespace OrganizatorProslava.DataModel
     
         public virtual DbSet<Korisnik> Korisniks { get; set; }
         public virtual DbSet<Proizvod> Proizvods { get; set; }
-        public virtual DbSet<Sala> Salas { get; set; }
-        public virtual DbSet<SalaSto> SalaStoes { get; set; }
         public virtual DbSet<Saradnik> Saradniks { get; set; }
         public virtual DbSet<TipSaradnika> TipSaradnikas { get; set; }
         public virtual DbSet<Zabava> Zabavas { get; set; }
         public virtual DbSet<Zabava_Poruke> Zabava_Poruke { get; set; }
         public virtual DbSet<Zabava_Proizvod> Zabava_Proizvod { get; set; }
+        public virtual DbSet<SalaSto> SalaStoes { get; set; }
         public virtual DbSet<ZabavaSalaSto> ZabavaSalaStoes { get; set; }
         public virtual DbSet<ZabavaSalaStoGost> ZabavaSalaStoGosts { get; set; }
-        public virtual DbSet<SalaDetalji> SalaDetaljis { get; set; }
     }
 }

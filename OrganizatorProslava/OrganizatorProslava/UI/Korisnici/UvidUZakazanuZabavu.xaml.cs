@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace OrganizatorProslava.UI.Korisnici
 {
@@ -175,11 +177,6 @@ namespace OrganizatorProslava.UI.Korisnici
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             this.Owner.Hide();
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            this.Owner.Show();
         }
 
         private void btnSala_Click(object sender, RoutedEventArgs e)

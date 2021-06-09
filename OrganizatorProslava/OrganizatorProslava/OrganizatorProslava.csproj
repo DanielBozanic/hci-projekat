@@ -148,12 +148,6 @@
     <Compile Include="DataModel\Proizvod.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\Sala.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\SalaDetalji.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataModel\SalaSto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -290,7 +284,6 @@
     <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
       <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="UI\Shared\MiniKartica.xaml.cs">
       <DependentUpon>MiniKartica.xaml</DependentUpon>
     </Compile>
@@ -312,7 +305,6 @@
     <Compile Include="UI\Organizator\RestoranOrganizacija2.xaml.cs">
       <DependentUpon>RestoranOrganizacija2.xaml</DependentUpon>
     </Compile>
-    
     <Compile Include="UI\Shared\Poruka.xaml.cs">
       <DependentUpon>Poruka.xaml</DependentUpon>
     </Compile>
