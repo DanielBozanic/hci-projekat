@@ -169,6 +169,15 @@
     <Compile Include="DataModel\ZabavaSalaSto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\ZabavaSalaStoGost.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Zabava_Poruke.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Zabava_Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Help\HelpProvider.cs" />
     <Compile Include="Help\JavaScriptControlHelper.cs" />
     <Compile Include="Models\LogovaniKorisnik.cs" />
