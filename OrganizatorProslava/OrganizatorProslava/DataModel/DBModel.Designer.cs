@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Taca\Documents\SIIT3-2\provjere\Kloniraj1\hci-projekat\OrganizatorProslava\OrganizatorProslava\DataModel\DBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\PC\Desktop\HCI_crko_da_bogda\hci-projekat\OrganizatorProslava\OrganizatorProslava\DataModel\DBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -5,6 +5,7 @@ using System.Windows;
 using OrganizatorProslava.ViewModel.Organizator;
 using OrganizatorProslava.Services.Zabave;
 using OrganizatorProslava.Services.Nalozi;
+using OrganizatorProslava.UI.Korisnici;
 using OrganizatorProslava.UI.Shared;
 
 namespace OrganizatorProslava.UI.Organizator
@@ -43,6 +44,20 @@ namespace OrganizatorProslava.UI.Organizator
         private void button_detalji(object sender, RoutedEventArgs e)
         {
 
+            Models.Zabava selektovanaZabava = (Models.Zabava)zabave.SelectedItem;
+            Poruka poruka = null;
+            if (selektovanaZabava == null)
+            {
+                poruka = new Poruka("Morate selektovati zabavu pre nego što pritisnete \"detalji\".", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
+
+            var detalji = new UvidUZakazanuZabavu(selektovanaZabava, true, true);
+            detalji.Owner = this;
+            detalji.Show();
+            this.Hide();
         }
 
         private void zahtevi_Checked(object sender, RoutedEventArgs e)

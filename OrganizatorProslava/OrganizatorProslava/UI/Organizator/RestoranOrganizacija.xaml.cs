@@ -1,19 +1,10 @@
-﻿using OrganizatorProslava.Services.Saradnici;
-using OrganizatorProslava.Services.Zabave;
+﻿using OrganizatorProslava.Services.Zabave;
 using OrganizatorProslava.ViewModel.Organizator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.UI.Shared;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -63,6 +54,14 @@ namespace OrganizatorProslava.UI.Organizator
 
             if (selektovaniRestoran != null)
             {
+                if (!this.servisProizvoda.RestoranJeDostupan(this.zabavaZaOrganizaciju.Id, selektovaniRestoran.Id))
+                {
+                    Poruka poruka = new Poruka("Ovaj restoran Vam nije dostupan jer ste već odbrali stvari iy nekog drugog.", "Obaveštenje", MessageBoxButton.OK);
+                    poruka.Owner = this;
+                    poruka.ShowDialog();
+                    return;
+                }
+
                 RestoranOrganizacija2 pregled = new RestoranOrganizacija2(zabavaZaOrganizaciju, selektovaniRestoran);
                 pregled.Owner = this;
                 pregled.Show();

@@ -41,7 +41,6 @@
 
 
         <Button x:Name="nazad" Content="NAZAD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Grid.Row="7" Grid.Column="1" Click="button_nazad"/>
-        <Button x:Name="cuvanjeRestorana" Content="SACUVAJ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Grid.Column="3" Grid.Row="7" Click="button_sacuvaj_restoran"/>
         <Button x:Name="button_pregledaj_meni" Content="pregledaj meni za izbor hrane" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="491"  Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30"  Click="button_pregledaj_meni_hrana" Grid.ColumnSpan="4" Margin="30,0,199.8,0" Grid.Row="4"  />
 
     </Grid>

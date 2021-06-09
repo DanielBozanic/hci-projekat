@@ -32,7 +32,7 @@
         <Button x:Name="button_restorani" Content="Restorani" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="497,261,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_restorani_Click"/>
         <Button x:Name="button_nazad" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="570,18,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_nazad_Click"/>
         <Button x:Name="button_novi_saradnik" Content="Dodaj saradnika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="30,335,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_novi_saradnik_Click"/>
-        <Button x:Name="button_posalji" Content="Pošalji predlog" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="529,335,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_posalji_Click"/>
+        <Button x:Name="button_posalji" Content="Završi organizaciju" HorizontalAlignment="Left" VerticalAlignment="Top" Width="234" Margin="474,335,0,0" Height="40" Background="White" FontFamily="Monotype Corsiva" FontSize="30" Click="button_posalji_Click"/>
         <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="Zabava:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="451" Margin="30,18,0,0" FontSize="30" FontFamily="Monotype Corsiva" TextChanged="infomacije_TextChanged"/>
 
     </Grid>

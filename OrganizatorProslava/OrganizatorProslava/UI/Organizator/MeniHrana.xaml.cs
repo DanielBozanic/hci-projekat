@@ -3,16 +3,8 @@ using OrganizatorProslava.ViewModel.Organizator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OrganizatorProslava.UI.Shared;
 
 
 namespace OrganizatorProslava.UI.Organizator
@@ -22,7 +14,7 @@ namespace OrganizatorProslava.UI.Organizator
     /// </summary>
     public partial class MeniHrana : Window
     {
-        private List<Models.Proizvod> listaIzabraneHrane = new List<Models.Proizvod>();
+        private List<Models.Proizvod> listaIzabraneHrane;
 
         private Models.Proizvod selektovaniRestoran;
         private Models.Zabava zabavaZaOrganizaciju;
@@ -33,6 +25,8 @@ namespace OrganizatorProslava.UI.Organizator
             InitializeComponent();
             selektovaniRestoran = izabraniRestoran;
             zabavaZaOrganizaciju = zabavaKojuOrganizujemo;
+
+            this.listaIzabraneHrane = servisProizvoda.GetProizvodeZaZabavuZaSaradnika(this.zabavaZaOrganizaciju.Id, this.selektovaniRestoran.Sardanik.Id);
 
             //podesavanje zahteva korisnika
             infomacije.Text = "Lokacija:" + zabavaZaOrganizaciju.Grad + "\nBrojZvanica:" + zabavaKojuOrganizujemo.BrojGostiju + "\nUkupno:";
@@ -76,6 +70,23 @@ namespace OrganizatorProslava.UI.Organizator
             }
             else
             {
+                bool jesteDodat = false;
+                foreach (var pron in this.listaIzabraneHrane)
+                {
+                    if (proizvodDodavanje.Id == pron.Id)
+                    {
+                        jesteDodat = true;
+                        break;
+                    }
+                }
+                if (jesteDodat)
+                {
+                    Poruka poruka = new Poruka("Ova stavka je već dodata.", "Obaveštenje", MessageBoxButton.OK);
+                    poruka.Owner = this;
+                    poruka.ShowDialog();
+                    return;
+                }
+
                 MessageBoxResult rezultat = MessageBox.Show("Da li zelite da dodate " + proizvodDodavanje.Naziv + "?", "Dodavanje hrane", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
                 switch (rezultat)

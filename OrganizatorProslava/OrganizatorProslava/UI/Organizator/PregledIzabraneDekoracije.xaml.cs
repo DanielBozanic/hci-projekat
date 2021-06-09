@@ -55,17 +55,15 @@ namespace OrganizatorProslava.UI.Organizator
         }
         private void button_sacuvaj(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult rez = MessageBox.Show("Zelite li da sacuvate dodato cvece?", "Cuvanje cveca", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            switch (rez)
-            {
-                case MessageBoxResult.Yes:
-
-
-                    break;
-                case MessageBoxResult.No:
-                    break;
-            }
+            Poruka poruka = new Poruka("Da li ste sigurni da želite sa sačuvate odabranu dekoraciju?", "Čuvanje cveća", MessageBoxButton.YesNo, MessageBoxResult.No);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            if (poruka.Rezultat == MessageBoxResult.No) return;
+            this.servis.Sacuvaj(this.zabavaKojuOrganizujemo.Id, this.dodatiProizvodi);
+            poruka = new Poruka("Uspešno ste sačuvali dekoraciju", "Čuvanje cveća", MessageBoxButton.OK);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            this.Close();
         }
         private void button_obrisi(object sender, RoutedEventArgs e)
         {

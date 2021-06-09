@@ -116,14 +116,14 @@ namespace OrganizatorProslava.UI.Korisnici
 
             if(this.kojiProzor == 1)
             {
-                UvidUZakazanuZabavu uvid = new UvidUZakazanuZabavu(izabraniZahtjev, false);
+                UvidUZakazanuZabavu uvid = new UvidUZakazanuZabavu(izabraniZahtjev, false, false);
                 uvid.Owner = this;
                 uvid.Show();
                 this.Hide();
             }
             else
             {
-                UvidUZakazanuZabavu uvid = new UvidUZakazanuZabavu(izabraniZahtjev, true);
+                UvidUZakazanuZabavu uvid = new UvidUZakazanuZabavu(izabraniZahtjev, true, false);
                 uvid.Owner = this;
                 uvid.Show();
                 this.Hide();

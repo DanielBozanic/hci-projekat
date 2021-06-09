@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using OrganizatorProslava.UI.Shared;
 using OrganizatorProslava.UI.Administrator;
 
 namespace OrganizatorProslava.UI.Organizator
@@ -61,6 +58,19 @@ namespace OrganizatorProslava.UI.Organizator
 
         private void button_posalji_Click(object sender, RoutedEventArgs e)
         {
+            Poruka poruka = new Poruka("Da li ste sigurni da želite da završite organizaciju?\nOvo je nepovratno.", "Završetak organizacije", MessageBoxButton.YesNo, MessageBoxResult.No);
+            poruka.Owner = this;
+            poruka.ShowDialog();
+            if (poruka.Rezultat == MessageBoxResult.Yes)
+            {
+                this.zabavaZaOrganizovanje.Status = 4;
+                Services.Zabave.ServisZabave servis = new Services.Zabave.ServisZabave();
+                servis.IzmeniZabavu(this.zabavaZaOrganizovanje);
+                poruka = new Poruka("Uspešno ste završili organizaciju.", "Završetak organizacije", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                this.Close();
+            }
 
         }
 

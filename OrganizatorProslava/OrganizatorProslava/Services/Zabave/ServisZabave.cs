@@ -16,7 +16,7 @@ namespace OrganizatorProslava.Services.Zabave
                 {
                     Id = z.ID,
                     Tip = z.Tip,
-                    DatumProslave = z.DatumProslave, 
+                    DatumProslave = z.DatumProslave,
                     Trajanje = z.Trajanje,
                     Grad = z.Grad,
                     Tema = z.Tema,
@@ -29,6 +29,12 @@ namespace OrganizatorProslava.Services.Zabave
                     Organizator = korServis.GetKorisnikPoId(z.Organizator).FirstOrDefault(),
                     Kreator = korServis.GetKorisnikPoId(z.Kreator).FirstOrDefault()
                 }).ToList();
+        }
+
+        public DataModel.Zabava GetZabavuDataModel(int id)
+        {
+            var zabavaa = new DataAccess.Zabava.ZabavaZabava();
+            return zabavaa.GetSveZabave().ToList().Where(z => z.ID == id).FirstOrDefault();
         }
 
         public string IzbrisiZabavu(int id)
@@ -59,7 +65,7 @@ namespace OrganizatorProslava.Services.Zabave
                 VrstaBudzeta = zabava.TipBudzeta,
                 Budzet = zabava.Budzet,
                 SpisakGostiju = zabava.SpisakGostiju,
-                Status = (zabava.Status.Equals(StatusZabave.Napravljena) ? 1: (zabava.Status.Equals(StatusZabave.UProcesu) 
+                Status = (zabava.Status.Equals(StatusZabave.Napravljena) ? 1 : (zabava.Status.Equals(StatusZabave.UProcesu)
                 ? 2 : (zabava.Status.Equals(StatusZabave.Izbrisana) ? 3 : 4))),
                 DodatneZelje = zabava.DodatneZelje,
                 Organizator = (zabava.Organizator?.Id),
