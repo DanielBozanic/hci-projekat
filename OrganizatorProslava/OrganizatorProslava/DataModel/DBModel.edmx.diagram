@@ -4,27 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d54dffac4274f13a867b9b404b92ea5" Name="Diagram1" ZoomLevel="108">
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Korisnik" Width="1.5" PointX="0.75" PointY="3.125" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Proizvod" Width="1.5" PointX="3" PointY="8.25" />
+      <Diagram DiagramId="8d54dffac4274f13a867b9b404b92ea5" Name="Diagram1" ZoomLevel="59">
         <EntityTypeShape EntityType="OrganizatorProslavaModel.Sala" Width="1.5" PointX="5.75" PointY="7.125" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Saradnik" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.TipSaradnika" Width="1.5" PointX="7.75" PointY="5.125" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava" Width="1.5" PointX="3" PointY="2.375" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava_Poruke" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava_Proizvod" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Sala" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Korisnik" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Proizvod" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.SalaSto" Width="1.5" PointX="5.75" PointY="7.125" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Saradnik" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.TipSaradnika" Width="1.5" PointX="7.75" PointY="2.125" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava_Poruke" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.Zabava_Proizvod" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.ZabavaSalaSto" Width="1.5" PointX="7.75" PointY="5.125" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" Width="1.5" PointX="7.75" PointY="8.125" />
+        <EntityTypeShape EntityType="OrganizatorProslavaModel.SalaDetalji" Width="1.5" PointX="9.75" PointY="2.125" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Kreator" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Organizator" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Poruke_Korisnik" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Proizvod_Saradnik" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.Sala" Width="1.5" PointX="5.375" PointY="3.75" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Proizvod_Proizvod" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Poruke_Zabava" />
         <AssociationConnector Association="OrganizatorProslavaModel.FK_Zabava_Proizvod_Zabava" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.SalaSto" Width="1.5" PointX="7.375" PointY="0.75" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.ZabavaSalaSto" Width="1.5" PointX="5.375" PointY="7.75" />
-        <EntityTypeShape EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" Width="1.5" PointX="7.375" PointY="7.75" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

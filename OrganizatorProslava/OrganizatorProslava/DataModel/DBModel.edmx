@@ -40,6 +40,20 @@
           <Property Name="Kapacitet" Type="int" />
           <Property Name="BrojStolova" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OrganizatorProslava.dbo.SalaDetalji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SalaDetalji">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SalaID" />
+            <PropertyRef Name="Opis" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalaID" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="X" Type="int" />
+          <Property Name="Y" Type="int" />
+        </EntityType>
         <EntityType Name="SalaSto">
           <Key>
             <PropertyRef Name="ID" />
@@ -87,17 +101,17 @@
           <Property Name="DodatneZelje" Type="varchar" MaxLength="500" />
           <Property Name="Organizator" Type="int" />
           <Property Name="Kreator" Type="int" Nullable="false" />
-		  <Property Name="Vreme" Type="varchar" MaxLength="15" />
+          <Property Name="Vreme" Type="varchar" MaxLength="15" />
         </EntityType>
-		<EntityType Name="Zabava_Poruke">
-			<Key>
-				<PropertyRef Name="PosiljalacID" />
-				<PropertyRef Name="ZabavaID" />
-			</Key>
-			<Property Name="PosiljalacID" Type="int" Nullable="false" />
-			<Property Name="ZabavaID" Type="int" Nullable="false" />
-			<Property Name="Poruka" Type="varchar" MaxLength="500" Nullable="false" />
-		</EntityType>
+        <EntityType Name="Zabava_Poruke">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PosiljalacID" Type="int" Nullable="false" />
+          <Property Name="ZabavaID" Type="int" Nullable="false" />
+          <Property Name="Poruka" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
         <EntityType Name="Zabava_Proizvod">
           <Key>
             <PropertyRef Name="ZabavaID" />
@@ -105,7 +119,7 @@
           </Key>
           <Property Name="ZabavaID" Type="int" Nullable="false" />
           <Property Name="ProizvodID" Type="int" Nullable="false" />
-		  <Property Name="Kolicina" Type="int" Nullable="false" />
+          <Property Name="Kolicina" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ZabavaSalaSto">
           <Key>
@@ -161,6 +175,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Zabava_Poruke_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Zabava_Poruke" Type="Self.Zabava_Poruke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava_Poruke">
+              <PropertyRef Name="PosiljalacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zabava_Poruke_Zabava">
+          <End Role="Zabava" Type="Self.Zabava" Multiplicity="1" />
+          <End Role="Zabava_Poruke" Type="Self.Zabava_Poruke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zabava">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zabava_Poruke">
+              <PropertyRef Name="ZabavaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Zabava_Proizvod_Proizvod">
           <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
           <End Role="Zabava_Proizvod" Type="Self.Zabava_Proizvod" Multiplicity="*" />
@@ -193,10 +231,19 @@
           <EntitySet Name="Saradnik" EntityType="Self.Saradnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipSaradnika" EntityType="Self.TipSaradnika" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zabava" EntityType="Self.Zabava" Schema="dbo" store:Type="Tables" />
-		  <EntitySet Name="Zabava_Poruke" EntityType="Self.Zabava_Poruke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zabava_Poruke" EntityType="Self.Zabava_Poruke" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zabava_Proizvod" EntityType="Self.Zabava_Proizvod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZabavaSalaSto" EntityType="Self.ZabavaSalaSto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZabavaSalaStoGost" EntityType="Self.ZabavaSalaStoGost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaDetalji" EntityType="Self.SalaDetalji" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SalaDetalji].[ID] AS [ID], 
+    [SalaDetalji].[SalaID] AS [SalaID], 
+    [SalaDetalji].[Opis] AS [Opis], 
+    [SalaDetalji].[X] AS [X], 
+    [SalaDetalji].[Y] AS [Y]
+    FROM [dbo].[SalaDetalji] AS [SalaDetalji]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Proizvod_Saradnik" Association="Self.FK_Proizvod_Saradnik">
             <End Role="Saradnik" EntitySet="Saradnik" />
             <End Role="Proizvod" EntitySet="Proizvod" />
@@ -209,6 +256,14 @@
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="Zabava" EntitySet="Zabava" />
           </AssociationSet>
+          <AssociationSet Name="FK_Zabava_Poruke_Korisnik" Association="Self.FK_Zabava_Poruke_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Zabava_Poruke" EntitySet="Zabava_Poruke" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zabava_Poruke_Zabava" Association="Self.FK_Zabava_Poruke_Zabava">
+            <End Role="Zabava" EntitySet="Zabava" />
+            <End Role="Zabava_Poruke" EntitySet="Zabava_Poruke" />
+          </AssociationSet>
           <AssociationSet Name="FK_Zabava_Proizvod_Proizvod" Association="Self.FK_Zabava_Proizvod_Proizvod">
             <End Role="Proizvod" EntitySet="Proizvod" />
             <End Role="Zabava_Proizvod" EntitySet="Zabava_Proizvod" />
@@ -217,7 +272,6 @@
             <End Role="Zabava" EntitySet="Zabava" />
             <End Role="Zabava_Proizvod" EntitySet="Zabava_Proizvod" />
           </AssociationSet>
-
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -226,11 +280,15 @@
         <EntityContainer Name="OrganizatorProslavaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Korisniks" EntityType="OrganizatorProslavaModel.Korisnik" />
           <EntitySet Name="Proizvods" EntityType="OrganizatorProslavaModel.Proizvod" />
+          <EntitySet Name="SalaStoes" EntityType="OrganizatorProslavaModel.SalaSto" />
           <EntitySet Name="Saradniks" EntityType="OrganizatorProslavaModel.Saradnik" />
           <EntitySet Name="TipSaradnikas" EntityType="OrganizatorProslavaModel.TipSaradnika" />
           <EntitySet Name="Zabavas" EntityType="OrganizatorProslavaModel.Zabava" />
           <EntitySet Name="Zabava_Poruke" EntityType="OrganizatorProslavaModel.Zabava_Poruke" />
           <EntitySet Name="Zabava_Proizvod" EntityType="OrganizatorProslavaModel.Zabava_Proizvod" />
+          <EntitySet Name="ZabavaSalaStoes" EntityType="OrganizatorProslavaModel.ZabavaSalaSto" />
+          <EntitySet Name="ZabavaSalaStoGosts" EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" />
+          <EntitySet Name="SalaDetaljis" EntityType="OrganizatorProslavaModel.SalaDetalji" />
           <AssociationSet Name="FK_Zabava_Kreator" Association="OrganizatorProslavaModel.FK_Zabava_Kreator">
             <End Role="Korisnik" EntitySet="Korisniks" />
             <End Role="Zabava" EntitySet="Zabavas" />
@@ -259,9 +317,6 @@
             <End Role="Zabava" EntitySet="Zabavas" />
             <End Role="Zabava_Proizvod" EntitySet="Zabava_Proizvod" />
           </AssociationSet>
-          <EntitySet Name="SalaStoes" EntityType="OrganizatorProslavaModel.SalaSto" />
-          <EntitySet Name="ZabavaSalaStoes" EntityType="OrganizatorProslavaModel.ZabavaSalaSto" />
-          <EntitySet Name="ZabavaSalaStoGosts" EntityType="OrganizatorProslavaModel.ZabavaSalaStoGost" />
         </EntityContainer>
         <EntityType Name="Korisnik">
           <Key>
@@ -294,8 +349,17 @@
           <NavigationProperty Name="Saradnik" Relationship="OrganizatorProslavaModel.FK_Proizvod_Saradnik" FromRole="Proizvod" ToRole="Saradnik" />
           <NavigationProperty Name="Zabava_Proizvod" Relationship="OrganizatorProslavaModel.FK_Zabava_Proizvod_Proizvod" FromRole="Proizvod" ToRole="Zabava_Proizvod" />
         </EntityType>
-        
-        
+        <EntityType Name="SalaSto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrojMesta" Type="Int32" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+        </EntityType>
         <EntityType Name="Saradnik">
           <Key>
             <PropertyRef Name="ID" />
@@ -339,17 +403,17 @@
           <NavigationProperty Name="Zabava_Poruke" Relationship="OrganizatorProslavaModel.FK_Zabava_Poruke_Zabava" FromRole="Zabava" ToRole="Zabava_Poruke" />
           <NavigationProperty Name="Zabava_Proizvod" Relationship="OrganizatorProslavaModel.FK_Zabava_Proizvod_Zabava" FromRole="Zabava" ToRole="Zabava_Proizvod" />
         </EntityType>
-		  <EntityType Name="Zabava_Poruke">
-			  <Key>
-				  <PropertyRef Name="PosiljalacID" />
-				  <PropertyRef Name="ZabavaID" />
-			  </Key>
-			  <Property Name="PosiljalacID" Type="Int32" Nullable="false" />
-			  <Property Name="ZabavaID" Type="Int32" Nullable="false" />
-			  <Property Name="Poruka" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-			  <NavigationProperty Name="Korisnik" Relationship="OrganizatorProslavaModel.FK_Zabava_Poruke_Korisnik" FromRole="Zabava_Poruke" ToRole="Korisnik" />
-			  <NavigationProperty Name="Zabava" Relationship="OrganizatorProslavaModel.FK_Zabava_Poruke_Zabava" FromRole="Zabava_Poruke" ToRole="Zabava" />
-		  </EntityType>
+        <EntityType Name="Zabava_Poruke">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PosiljalacID" Type="Int32" Nullable="false" />
+          <Property Name="ZabavaID" Type="Int32" Nullable="false" />
+          <Property Name="Poruka" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Korisnik" Relationship="OrganizatorProslavaModel.FK_Zabava_Poruke_Korisnik" FromRole="Zabava_Poruke" ToRole="Korisnik" />
+          <NavigationProperty Name="Zabava" Relationship="OrganizatorProslavaModel.FK_Zabava_Poruke_Zabava" FromRole="Zabava_Poruke" ToRole="Zabava" />
+        </EntityType>
         <EntityType Name="Zabava_Proizvod">
           <Key>
             <PropertyRef Name="ZabavaID" />
@@ -360,6 +424,36 @@
           <Property Name="Kolicina" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Proizvod" Relationship="OrganizatorProslavaModel.FK_Zabava_Proizvod_Proizvod" FromRole="Zabava_Proizvod" ToRole="Proizvod" />
           <NavigationProperty Name="Zabava" Relationship="OrganizatorProslavaModel.FK_Zabava_Proizvod_Zabava" FromRole="Zabava_Proizvod" ToRole="Zabava" />
+        </EntityType>
+        <EntityType Name="ZabavaSalaSto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZabavaID" Type="Int32" Nullable="false" />
+          <Property Name="SalaStoID" Type="Int32" Nullable="false" />
+          <Property Name="X" Type="Int32" Nullable="false" />
+          <Property Name="Y" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZabavaSalaStoGost">
+          <Key>
+            <PropertyRef Name="ZabavaSalaStoID" />
+            <PropertyRef Name="ImeGosta" />
+          </Key>
+          <Property Name="ZabavaSalaStoID" Type="Int32" Nullable="false" />
+          <Property Name="ImeGosta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SalaDetalji">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SalaID" />
+            <PropertyRef Name="Opis" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaID" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
         </EntityType>
         <Association Name="FK_Zabava_Kreator">
           <End Type="OrganizatorProslavaModel.Korisnik" Role="Korisnik" Multiplicity="1" />
@@ -445,36 +539,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="SalaSto">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
-          <Property Name="Opis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BrojMesta" Type="Int32" />
-          <Property Name="X" Type="Int32" />
-          <Property Name="Y" Type="Int32" />
-        </EntityType>
-        <EntityType Name="ZabavaSalaSto">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ZabavaID" Type="Int32" Nullable="false" />
-          <Property Name="SalaStoID" Type="Int32" Nullable="false" />
-          <Property Name="X" Type="Int32" Nullable="false" />
-          <Property Name="Y" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ZabavaSalaStoGost">
-          <Key>
-            <PropertyRef Name="ZabavaSalaStoID" />
-            <PropertyRef Name="ImeGosta" />
-          </Key>
-          <Property Name="ZabavaSalaStoID" Type="Int32" Nullable="false" />
-          <Property Name="ImeGosta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -509,8 +573,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          
-          
+          <EntitySetMapping Name="SalaStoes">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.SalaSto">
+              <MappingFragment StoreEntitySet="SalaSto">
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="BrojMesta" ColumnName="BrojMesta" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Saradniks">
             <EntityTypeMapping TypeName="OrganizatorProslavaModel.Saradnik">
               <MappingFragment StoreEntitySet="Saradnik">
@@ -534,7 +608,7 @@
           <EntitySetMapping Name="Zabavas">
             <EntityTypeMapping TypeName="OrganizatorProslavaModel.Zabava">
               <MappingFragment StoreEntitySet="Zabava">
-				<ScalarProperty Name="Vreme" ColumnName="Vreme" />
+                <ScalarProperty Name="Vreme" ColumnName="Vreme" />
                 <ScalarProperty Name="Kreator" ColumnName="Kreator" />
                 <ScalarProperty Name="Organizator" ColumnName="Organizator" />
                 <ScalarProperty Name="DodatneZelje" ColumnName="DodatneZelje" />
@@ -552,33 +626,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-			<EntitySetMapping Name="Zabava_Poruke">
-				<EntityTypeMapping TypeName="OrganizatorProslavaModel.Zabava_Poruke">
-					<MappingFragment StoreEntitySet="Zabava_Poruke">
-						<ScalarProperty Name="Poruka" ColumnName="Poruka" />
-						<ScalarProperty Name="ZabavaID" ColumnName="ZabavaID" />
-						<ScalarProperty Name="PosiljalacID" ColumnName="PosiljalacID" />
-					</MappingFragment>
-				</EntityTypeMapping>
-			</EntitySetMapping>
-          <EntitySetMapping Name="Zabava_Proizvod">
-            <EntityTypeMapping TypeName="OrganizatorProslavaModel.Zabava_Proizvod">
-              <MappingFragment StoreEntitySet="Zabava_Proizvod">
-				  <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
-                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+          <EntitySetMapping Name="Zabava_Poruke">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.Zabava_Poruke">
+              <MappingFragment StoreEntitySet="Zabava_Poruke">
+                <ScalarProperty Name="Poruka" ColumnName="Poruka" />
                 <ScalarProperty Name="ZabavaID" ColumnName="ZabavaID" />
+                <ScalarProperty Name="PosiljalacID" ColumnName="PosiljalacID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SalaStoes">
-            <EntityTypeMapping TypeName="OrganizatorProslavaModel.SalaSto">
-              <MappingFragment StoreEntitySet="SalaSto">
-                <ScalarProperty Name="Y" ColumnName="Y" />
-                <ScalarProperty Name="X" ColumnName="X" />
-                <ScalarProperty Name="BrojMesta" ColumnName="BrojMesta" />
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <EntitySetMapping Name="Zabava_Proizvod">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.Zabava_Proizvod">
+              <MappingFragment StoreEntitySet="Zabava_Proizvod">
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
                 <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZabavaID" ColumnName="ZabavaID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -601,7 +664,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+          <EntitySetMapping Name="SalaDetaljis">
+            <EntityTypeMapping TypeName="OrganizatorProslavaModel.SalaDetalji">
+              <MappingFragment StoreEntitySet="SalaDetalji">
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="SalaID" ColumnName="SalaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

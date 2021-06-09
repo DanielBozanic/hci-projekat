@@ -167,7 +167,11 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void Poruke_Click(object sender, RoutedEventArgs e)
         {
-
+            Models.Zabava z = this.zabava;
+            PorukeOrganizacije poruke = new PorukeOrganizacije(z);
+            poruke.Owner = this;
+            poruke.Show();
+            this.Hide();
         }
 
         private void Nazad_Click(object sender, RoutedEventArgs e)
