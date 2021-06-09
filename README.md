@@ -19,5 +19,5 @@ Nakon instaliranja i pokretanja SQL Server Management Studio-a, izvršite skript
 
 ### Pokretanje aplikacije
 U fajlu *connections.config* potrebno je u okviru *data source* atributa staviti naziv SQL Server-a.
-Fajl *connections.config* se nalazi u zip arhivi [connectionsConfigFajl](./).
-Na kraju je potrebno *connections.config* fajl ubaciti u [folder](./OgranizatorProslava/OgranizatorProslava) ./OgranizatorProslava/OgranizatorProslava.
+Fajl *connections.config* se nalazi u zip arhivi **connectionsConfigFajl**.
+Na kraju je potrebno *connections.config* fajl ubaciti u [folder](./OrganizatorProslava/OrganizatorProslava) ./OrganizatorProslava/OrganizatorProslava.
