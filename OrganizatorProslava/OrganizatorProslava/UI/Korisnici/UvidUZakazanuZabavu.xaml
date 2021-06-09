@@ -5,18 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizatorProslava.UI.Korisnici"
         mc:Ignorable="d"
-        Title="Uvid u Zakazanu Zabavu" Height="430" Width="750"
-        ContentRendered="Window_ContentRendered"
-        Closed="Window_Closed">
-    <Grid>
+        Title="Uvid u zakazanu zabavu" Height="430" Width="750"
+         Closed="Window_Closed" FontSize="11">
+    <Grid x:Name="grid">
         <Grid.Background>
             <ImageBrush ImageSource="green.jpg"/>
         </Grid.Background>
-        <!--<Button x:Name="btnSala" Content="RASPORED SEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="91,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnSala_Click">
+        <TextBox x:Name="ZaBudzet" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="BUDŽET : " VerticalAlignment="Top" Width="305" Margin="215,40,0,0" Background="#FF12585C" FontSize="23" FontWeight="Bold"/>
+        <Button x:Name="Muzika" Content="MUZIKA" Click="MuzikaKlik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="215,100,0,0" Height="40" FontSize="20" FontWeight="Bold" Background="#FF2CA1A7">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
             </Button.Effect>
         </Button>
+        <Button x:Name="Cvijece" Content="CVEĆE" Click="CvijeceKlik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="215,140,0,0" Height="40" FontWeight="Bold" FontSize="20" Background="#FF1F787D">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="Restorani" Content="RESTORAN" Click="RestoraniKlik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="305" Margin="215,180,0,0" Height="40" FontSize="20" FontWeight="Bold" Background="#FF2CA1A7">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button> 
+        <Button x:Name="porukice" Content="PORUKE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="450,360,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF1F787D" Click="Poruke_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>  
+        <Button x:Name="Nazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="600,360,0,0" Height="30" FontSize="16" FontWeight="Bold" Background="#FF1F787D" Click="Nazad_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>
+            </Button.Effect>
+        </Button>
+        <!--<Button x:Name="btnSala" Content="RASPORED SEDENJA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="91,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnSala_Click">
         <Button x:Name="btnGosti" Content="RASPORED GOSTIJU" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="297,301,0,0" Height="30" Background="#FF82B1F6" FontWeight="Bold" FontSize="16" Click="btnGosti_Click" >
             <Button.Effect>
                 <DropShadowEffect BlurRadius="8" ShadowDepth="8" Color="Black" Opacity="0.99"/>

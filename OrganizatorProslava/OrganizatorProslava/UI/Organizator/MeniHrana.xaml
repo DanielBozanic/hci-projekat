@@ -1,0 +1,52 @@
+﻿<Window x:Class="OrganizatorProslava.UI.Organizator.MeniHrana"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizatorProslava.UI.Organizator"
+        mc:Ignorable="d"
+         Title="MENI IZBOR HRANE"   Height="430" Width="750" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
+        ContentRendered="vracanje" WindowStyle="ThreeDBorderWindow"
+        Closed="zatvaranje">
+    <Window.Background>
+        <ImageBrush ImageSource="register.jpg"/>
+    </Window.Background>
+    <Grid>
+        <DataGrid x:Name="meniHranaPrikaz" HorizontalAlignment="Left" Height="176" VerticalAlignment="Top" Width="699" Margin="27,118,0,0"
+		        AlternationCount="2"
+		        AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserResizeColumns="False"
+                CanUserSortColumns="True"
+		        ItemsSource="{Binding Proizvodi}"
+		        MinRowHeight="25" FontFamily="Monotype Corsiva" FontSize="30">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
+
+                <DataGridTextColumn Width="231"
+				                    Binding="{Binding Naziv}"
+                                    IsReadOnly="True"
+				                    Header="Naziv hrane" />
+                <DataGridTextColumn Width="157"
+				                    Binding="{Binding Cena}"
+                                    IsReadOnly="True"
+				                    Header="Cena" />
+                <DataGridTextColumn Width="305"
+				                    Binding="{Binding Opis}"
+                                    IsReadOnly="True"
+				                    Header="Opis" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock  Text="Pretraga: " Height="41" FontFamily="Monotype Corsiva" FontSize="30" Margin="428,14,-428,345.8"/>
+        <TextBox Height="27" HorizontalAlignment="Left" Margin="536,14,0,0" FontSize="24" FontFamily="Monotype Corsiva"
+        Name="pretragaHrane" VerticalAlignment="Top" Width="190" KeyDown="OnKeyDownHandler"/>
+
+        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="99" TextWrapping="Wrap" Text="Zelja korsinika:&#xD;&#xA;Broj zvanica:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="380" Margin="27,14,0,0" FontSize="25" FontFamily="Monotype Corsiva" />
+        <Button x:Name="buttonNazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_nazad" Margin="124,0,0,55.8"   />
+        <Button x:Name="buttonDodaj" Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_dodaj"  RenderTransformOrigin="0.556,0.087" Margin="471,0,0,55.8"   />
+        <Button x:Name="buttonPregledIzabraneHrane" Content="PREGLED IZABRANE HRANE" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="397"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_pregled_izabrane_hrane"  RenderTransformOrigin="0.556,0.087" Margin="188,0,0,9.8"  />
+
+    </Grid>
+</Window>

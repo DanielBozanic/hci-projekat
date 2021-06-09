@@ -87,8 +87,10 @@ namespace OrganizatorProslava.UI.Korisnici
                         string[] parsirajVrijeme = zakazanoVrijeme.Text.Split(':');
                         double sati = Double.Parse(parsirajVrijeme[0]);
                         double minute = Double.Parse(parsirajVrijeme[1]);
-                        Zahtjev.DatumProslave.AddHours(sati);
-                        Zahtjev.DatumProslave.AddMinutes(minute);
+                        DateTime d1 = Zahtjev.DatumProslave.AddHours(sati);
+                        DateTime d2 = d1.AddMinutes(minute);
+                        DateTime d3 = d2.AddSeconds(0);
+                        Zahtjev.DatumProslave = d3;
 
 
                         Zahtjev.Trajanje = Int32.Parse(vremenskoTrajanje.Text);

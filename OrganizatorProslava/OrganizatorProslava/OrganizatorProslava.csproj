@@ -172,6 +172,12 @@
     <Compile Include="DataModel\ZabavaSalaStoGost.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\Zabava_Poruke.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Zabava_Proizvod.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Help\HelpProvider.cs" />
     <Compile Include="Help\JavaScriptControlHelper.cs" />
     <Compile Include="Models\LogovaniKorisnik.cs" />
@@ -212,6 +218,15 @@
     <Compile Include="UI\Korisnici\Istorija.xaml.cs">
       <DependentUpon>Istorija.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Korisnici\PrikaziSpisakZelja.xaml.cs">
+      <DependentUpon>PrikaziSpisakZelja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziSpisakZvanica.xaml.cs">
+      <DependentUpon>PrikaziSpisakZvanica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\PrikaziZahtjev.xaml.cs">
+      <DependentUpon>PrikaziZahtjev.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Korisnici\ProfilKorisnika.xaml.cs">
       <DependentUpon>ProfilKorisnika.xaml</DependentUpon>
     </Compile>
@@ -229,6 +244,9 @@
     </Compile>
     <Compile Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml.cs">
       <DependentUpon>TabelarniPrikazZahtjeva.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Korisnici\TabelaTrenutnihZabava.xaml.cs">
+      <DependentUpon>TabelaTrenutnihZabava.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Korisnici\UvidUZakazanuZabavu.xaml.cs">
       <DependentUpon>UvidUZakazanuZabavu.xaml</DependentUpon>
@@ -248,8 +266,20 @@
     <Compile Include="UI\Nalozi\Prijava.xaml.cs">
       <DependentUpon>Prijava.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Organizator\Cvecare.xaml.cs">
+      <DependentUpon>Cvecare.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Organizator\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\IzmenaPodataka.xaml.cs">
+      <DependentUpon>IzmenaPodataka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\MeniHrana.xaml.cs">
+      <DependentUpon>MeniHrana.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\Muzika.xaml.cs">
+      <DependentUpon>Muzika.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Organizator\NovaZabava.xaml.cs">
       <DependentUpon>NovaZabava.xaml</DependentUpon>
@@ -260,6 +290,29 @@
     <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
       <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
     </Compile>
+
+    <Compile Include="UI\Shared\MiniKartica.xaml.cs">
+      <DependentUpon>MiniKartica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneDekoracije.xaml.cs">
+      <DependentUpon>PregledIzabraneDekoracije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneHrane.xaml.cs">
+      <DependentUpon>PregledIzabraneHrane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneMuzike.xaml.cs">
+      <DependentUpon>PregledIzabraneMuzike.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledPonudeCvecare.xaml.cs">
+      <DependentUpon>PregledPonudeCvecare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\RestoranOrganizacija.xaml.cs">
+      <DependentUpon>RestoranOrganizacija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\RestoranOrganizacija2.xaml.cs">
+      <DependentUpon>RestoranOrganizacija2.xaml</DependentUpon>
+    </Compile>
+    
     <Compile Include="UI\Shared\Poruka.xaml.cs">
       <DependentUpon>Poruka.xaml</DependentUpon>
     </Compile>
@@ -267,6 +320,7 @@
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
     <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
     <Compile Include="ViewModel\KorisnickeTabele\ZabavaGostiViewModel.cs" />
+    <Compile Include="ViewModel\Organizator\ProizvodiViewModel.cs" />
     <Compile Include="ViewModel\ValidacijaNoveLozinke\NovaLozinkaVM.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
@@ -308,6 +362,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Korisnici\PrikaziSpisakZelja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziSpisakZvanica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\PrikaziZahtjev.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Korisnici\ProfilKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -329,6 +395,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Korisnici\TabelarniPrikazZahtjeva.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Korisnici\TabelaTrenutnihZabava.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,7 +464,23 @@
       <DependentUpon>OrganizatorProslava.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Organizator\Cvecare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Organizator\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\IzmenaPodataka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\MeniHrana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\Muzika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -410,6 +496,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Organizator\PregledIzabraneDekoracije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneHrane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneMuzike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledPonudeCvecare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\RestoranOrganizacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\RestoranOrganizacija2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Resources\DataGridStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -417,6 +527,10 @@
     <Page Include="UI\Resources\ScrollViewerStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Shared\MiniKartica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Shared\Poruka.xaml">
       <SubType>Designer</SubType>
@@ -462,6 +576,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="UI\Organizator\icon.jpg" />
+    <Resource Include="UI\Organizator\profileBack.jpg" />
     <Resource Include="Content\restoran.png" />
     <Resource Include="Content\sto.png" />
     <Content Include="DataModel\DBModel.Context.tt">

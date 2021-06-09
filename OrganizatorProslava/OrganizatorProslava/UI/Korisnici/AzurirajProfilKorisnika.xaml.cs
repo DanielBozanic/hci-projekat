@@ -22,11 +22,17 @@ namespace OrganizatorProslava.UI.Korisnici
     /// </summary>
     public partial class AzurirajProfilKorisnika : Window
     {
-        public AzurirajProfilKorisnika()
+        private bool noviProzor = false;
+        public AzurirajProfilKorisnika(bool da_otvara)
         {
             InitializeComponent();
+            this.noviProzor = da_otvara;
         }
 
+        public void podesiPodatke(string ime, string prezime) {
+            this.ime.Text = ime;
+            this.prezime.Text = prezime;
+        }
 
 
 
@@ -38,6 +44,13 @@ namespace OrganizatorProslava.UI.Korisnici
             string promjenjenoPrezime = prezime.Text;
 
             string[] razdvajanjePunogImena = LogovaniKorisnik.PunoIme.Split(' ');
+
+            if ((promjenjenoIme == string.Empty || promjenjenoPrezime == string.Empty) && !this.noviProzor) {
+                var poruka = new Poruka("Morate uneti i ime i prezime.", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
 
             if (promjenjenoIme == string.Empty)
             {
@@ -63,10 +76,14 @@ namespace OrganizatorProslava.UI.Korisnici
 
                 if (azuriraniPodaciPoruka.Rezultat == MessageBoxResult.OK)
                 {
-                    var noviProfil = new ProfilKorisnika();
-                    noviProfil.Owner = this;
-                    noviProfil.Show();
-                    this.Hide();
+                    if (this.noviProzor)
+                    {
+                        var noviProfil = new ProfilKorisnika();
+                        noviProfil.Owner = this;
+                        noviProfil.Show();
+                        this.Hide();
+                    }
+                    else this.Close();
                 }
 
             }

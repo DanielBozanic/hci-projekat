@@ -4,6 +4,7 @@ using OrganizatorProslava.Services.Zabave;
 using System.Collections.Generic;
 using System.Linq;
 using OrganizatorProslava.ViewModel.Organizator;
+using OrganizatorProslava.UI.Shared;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -41,8 +42,17 @@ namespace OrganizatorProslava.UI.Organizator
 
         private void button_organizuj(object sender, RoutedEventArgs e)
         {
-            // onemoguci ako nije selektovano nista u tabeli
-            var organizacija = new Organizacija();
+            Models.Zabava selektovanaZabava = (Models.Zabava)zabave.SelectedItem;
+            Poruka poruka = null;
+            if (selektovanaZabava == null)
+            {
+                poruka = new Poruka("Morate selektovati zabavu pre nego što pritisnete \"organizuj\".", "Obaveštenje", MessageBoxButton.OK);
+                poruka.Owner = this;
+                poruka.ShowDialog();
+                return;
+            }
+
+            var organizacija = new Organizacija(selektovanaZabava);
             organizacija.Owner = this;
             organizacija.Show();
         }
@@ -51,6 +61,7 @@ namespace OrganizatorProslava.UI.Organizator
         {
             List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 2 && z.Organizator?.Id == idOrganizatora select z).ToList();
             this.DataContext = new ZabaveViewModel(zabave);
+            this.buttonOrganizuj.IsEnabled = true;
         }
 
         private void istorija_Checked(object sender, RoutedEventArgs e)
@@ -58,6 +69,7 @@ namespace OrganizatorProslava.UI.Organizator
 
             List<Models.Zabava> zabave = (from z in servis.GetZabave() where z.Status == 4 && z.Organizator?.Id == idOrganizatora select z).ToList();
             this.DataContext = new ZabaveViewModel(zabave);
+            this.buttonOrganizuj.IsEnabled = false;
         }
 
     }

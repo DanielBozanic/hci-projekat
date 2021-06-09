@@ -54,7 +54,7 @@ namespace OrganizatorProslava.UI.Korisnici
         private void azurirajProfil(object sender, RoutedEventArgs e)
         {
 
-            var azurirajProfil = new AzurirajProfilKorisnika();
+            var azurirajProfil = new AzurirajProfilKorisnika(true);
             azurirajProfil.Owner = this;
             azurirajProfil.Show();
             this.Hide();
@@ -78,18 +78,22 @@ namespace OrganizatorProslava.UI.Korisnici
 
         private void uvidUZakazanuZabavu(object sender, RoutedEventArgs e)
         {
-            var uvidUZakazanuZabavu = new UvidUZakazanuZabavu();
-            uvidUZakazanuZabavu.Owner = this;
-            uvidUZakazanuZabavu.Show();
+            //jedan se prosljedjuje da bi se uzele zabave koje su u procesu
+            TabelaTrenutnihZabava tabela = new TabelaTrenutnihZabava(1);
+            tabela.Owner = this;
+            tabela.Show();
             this.Hide();
         }
 
 
+
+
         private void IstorijaZabava(object sender, RoutedEventArgs e)
         {
-            var istorijaZabava = new Istorija();
-            istorijaZabava.Owner = this;
-            istorijaZabava.Show();
+            //dva se prosljedjuje da bi se uzele zabave koje su odradjene
+            TabelaTrenutnihZabava tabela = new TabelaTrenutnihZabava(2);
+            tabela.Owner = this;
+            tabela.Show();
             this.Hide();
         }
 
@@ -110,8 +114,7 @@ namespace OrganizatorProslava.UI.Korisnici
         private void OdjaviSe(object sender, RoutedEventArgs e)
         {
             LogovaniKorisnik.Reset();
-            var prijava = new UI.Nalozi.Prijava();
-            prijava.Show();
+            this.Owner.Show();
             this.Hide();
 
         }

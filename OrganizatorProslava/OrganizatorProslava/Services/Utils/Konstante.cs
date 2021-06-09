@@ -64,6 +64,10 @@ namespace OrganizatorProslava.Services
         public const string daLiSteSigurni = "Da li ste sigurni da je sve zakazano onako kako želite? :)";
         public const string zakazanaZabava = "Zahtjev za zabavu je poslat organizatoru/organizatorima";
         public const string unesiteSveZvanice = "Molimo Vas da popunite spisak zvanica klikom na dugme SPISAK ZVANICA.";
+        public const string muzikaNijeOdredjena = "Muzika trenutno nije organizovana. Ako imate kakvih želja, pišite organizatoru. :)";
+        public const string cvjecaraNijeOdredjena = "Cveće trenutno nije organizovano. Ako imate kakvih želja, pišite organizatoru. :)";
+        public const string restoranNijeOdredjen = "Restoran trenutno nije određen. Ako imate kakvih želja, pišite organizatoru. :)";
+        public const string jeloNijeOrganizovano = "Jela trenutno nisu određena. Ako imate kakvih želja, pišite organizatoru. :)";
     }
 
     public class StatusZabave
