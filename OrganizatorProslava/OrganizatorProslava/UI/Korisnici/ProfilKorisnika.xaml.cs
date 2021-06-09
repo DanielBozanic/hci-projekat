@@ -54,7 +54,7 @@ namespace OrganizatorProslava.UI.Korisnici
         private void azurirajProfil(object sender, RoutedEventArgs e)
         {
 
-            var azurirajProfil = new AzurirajProfilKorisnika();
+            var azurirajProfil = new AzurirajProfilKorisnika(true);
             azurirajProfil.Owner = this;
             azurirajProfil.Show();
             this.Hide();

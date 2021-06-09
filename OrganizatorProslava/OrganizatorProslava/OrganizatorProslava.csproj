@@ -267,6 +267,9 @@
     <Compile Include="UI\Organizator\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Organizator\IzmenaPodataka.xaml.cs">
+      <DependentUpon>IzmenaPodataka.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Organizator\MeniHrana.xaml.cs">
       <DependentUpon>MeniHrana.xaml</DependentUpon>
     </Compile>
@@ -459,6 +462,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Organizator\IzmenaPodataka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Organizator\MeniHrana.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -559,6 +566,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="UI\Organizator\icon.jpg" />
+    <Resource Include="UI\Organizator\profileBack.jpg" />
     <Resource Include="Content\restoran.png" />
     <Resource Include="Content\sto.png" />
     <Content Include="DataModel\DBModel.Context.tt">

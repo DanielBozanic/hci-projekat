@@ -1,6 +1,7 @@
 ﻿using OrganizatorProslava.Models;
 using System;
 using System.Windows;
+using OrganizatorProslava.UI.Korisnici;
 
 namespace OrganizatorProslava.UI.Organizator
 {
@@ -39,7 +40,10 @@ namespace OrganizatorProslava.UI.Organizator
 
         private void button_profil(object sender, RoutedEventArgs e)
         {
-
+            var izmena = new IzmenaPodataka();
+            izmena.Owner = this;
+            izmena.Show();
+            this.Hide();
         }
 
         private void button_odjava(object sender, RoutedEventArgs e)

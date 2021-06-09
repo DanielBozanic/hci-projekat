@@ -43,6 +43,7 @@
         </DataGrid>
         <Button x:Name="buttonDetalji" Content="DETALJI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171" Margin="20,342,0,0" Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_detalji"/>
         <Button x:Name="buttonPrihvati" Content="PRIHVATI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171" Margin="217,342,0,0" Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_prihvati"/>
+        <Button x:Name="buttonOdbij" Content="ODBIJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171" Margin="414,342,0,0" Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="buttonOdbij_Click"/>
         <RadioButton x:Name="zahtevZaZurku" Content="Zahtevi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,17,0,0" Checked="zahtevi_Checked" FontFamily="Monotype Corsiva" FontSize="30"/>
         <RadioButton x:Name="nedodeljeneZurke" Content="Nedodeljene" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,17,0,0" FontSize="30" Checked="nedodeljene_Checked" FontFamily="Monotype Corsiva" RenderTransformOrigin="0.147,-0.147"/>
     </Grid>

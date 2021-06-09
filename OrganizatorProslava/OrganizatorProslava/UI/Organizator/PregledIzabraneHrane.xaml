@@ -25,18 +25,22 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Collapsed"/>
 
-                <DataGridTextColumn Width="355"
+                <DataGridTextColumn Width="231"
 				                    Binding="{Binding Naziv}"
                                     IsReadOnly="True"
-				                    Header="Naziv hrane" />
-                <DataGridTextColumn Width="265"
+				                    Header="Naziv jela" />
+                <DataGridTextColumn Width="157"
 				                    Binding="{Binding Cena}"
                                     IsReadOnly="True"
 				                    Header="Cena" />
+                <DataGridTextColumn Width="305"
+				                    Binding="{Binding Opis}"
+                                    IsReadOnly="True"
+				                    Header="Opis" />
 
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="99" TextWrapping="Wrap" Text="Restoran:&#xD;Broj zvanica:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="380" Margin="27,14,0,0" FontSize="30" FontFamily="Monotype Corsiva" />
+        <TextBox x:Name="infomacije" IsReadOnly="true" HorizontalAlignment="Left" Height="99" TextWrapping="Wrap" Text="Restoran:&#xD;Broj zvanica:&#xD;&#xA;Ukupno:" VerticalAlignment="Top" Width="380" Margin="27,14,0,0" FontSize="25" FontFamily="Monotype Corsiva" />
         <Button x:Name="buttonNazad" Content="NAZAD" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_nazad" Margin="81,0,0,9.8"  />
         <Button x:Name="buttonSacuvaj" Content="SACUVAJ" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_sacuvaj"  RenderTransformOrigin="0.556,0.087" Margin="492,0,0,9.8"  />
         <Button x:Name="buttonObrisi" Content="OBRISI" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="171"  Height="41" FontFamily="Monotype Corsiva" FontSize="30" Background="White" Click="button_obrisi"  RenderTransformOrigin="0.556,0.087" Margin="286,0,0,9.8"  />
