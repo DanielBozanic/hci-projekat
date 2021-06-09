@@ -252,8 +252,17 @@
     <Compile Include="UI\Nalozi\Prijava.xaml.cs">
       <DependentUpon>Prijava.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Organizator\Cvecare.xaml.cs">
+      <DependentUpon>Cvecare.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Organizator\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\MeniHrana.xaml.cs">
+      <DependentUpon>MeniHrana.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\Muzika.xaml.cs">
+      <DependentUpon>Muzika.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Organizator\NovaZabava.xaml.cs">
       <DependentUpon>NovaZabava.xaml</DependentUpon>
@@ -264,15 +273,36 @@
     <Compile Include="UI\Organizator\OrganizujZabavu.xaml.cs">
       <DependentUpon>OrganizujZabavu.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="UI\Shared\MiniKartica.xaml.cs">
       <DependentUpon>MiniKartica.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneDekoracije.xaml.cs">
+      <DependentUpon>PregledIzabraneDekoracije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneHrane.xaml.cs">
+      <DependentUpon>PregledIzabraneHrane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledIzabraneMuzike.xaml.cs">
+      <DependentUpon>PregledIzabraneMuzike.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\PregledPonudeCvecare.xaml.cs">
+      <DependentUpon>PregledPonudeCvecare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\RestoranOrganizacija.xaml.cs">
+      <DependentUpon>RestoranOrganizacija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Organizator\RestoranOrganizacija2.xaml.cs">
+      <DependentUpon>RestoranOrganizacija2.xaml</DependentUpon>
+    </Compile>
+    
     <Compile Include="UI\Shared\Poruka.xaml.cs">
       <DependentUpon>Poruka.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Administrator\KorisniciViewModel.cs" />
     <Compile Include="ViewModel\Administrator\SaradniciViewModel.cs" />
     <Compile Include="ViewModel\KorisnickeTabele\TabelaZahtjevaVM.cs" />
+    <Compile Include="ViewModel\Organizator\ProizvodiViewModel.cs" />
     <Compile Include="ViewModel\ValidacijaNoveLozinke\NovaLozinkaVM.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObavezanUnosPodataka.cs" />
     <Compile Include="ViewModel\ValidacijaZakazivanja\ObservableObject.cs" />
@@ -412,7 +442,19 @@
       <DependentUpon>OrganizatorProslava.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Organizator\Cvecare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Organizator\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\MeniHrana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\Muzika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -425,6 +467,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Organizator\OrganizujZabavu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneDekoracije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneHrane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledIzabraneMuzike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\PregledPonudeCvecare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\RestoranOrganizacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Organizator\RestoranOrganizacija2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

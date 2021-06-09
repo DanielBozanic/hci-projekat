@@ -42,7 +42,11 @@ namespace OrganizatorProslava.UI.Organizator
         private void button_organizuj(object sender, RoutedEventArgs e)
         {
             // onemoguci ako nije selektovano nista u tabeli
-            var organizacija = new Organizacija();
+
+            //dodacemo prosledjivanje selektovane zabave u konstruktor
+            Models.Zabava selektovanaZabava = (Models.Zabava)zabave.SelectedItem;
+
+            var organizacija = new Organizacija(selektovanaZabava);
             organizacija.Owner = this;
             organizacija.Show();
         }
